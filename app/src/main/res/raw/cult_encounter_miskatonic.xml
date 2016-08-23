@@ -1,0 +1,244 @@
+<cult-encounter-cards type="miskatonic horror">
+    <!-- Cult Encounter 1 -->
+    <cult-encounter>
+        <title>A Blasphemous Transformation</title>
+        <lore>
+            &quot;Do not fear these blassings. The changes will grant you the knowledge and abilities necessary to do that which we shall require of you.&quot;
+        </lore>
+        <entry>
+            You may draw a Skill. If you do, draw 2 Corruption cards. Otherwise, move to the street. 
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 2 -->
+    <cult-encounter>
+        <title>A Cryptic Vision</title>
+        <lore>
+            While the cult chants, you are overcome by a nightmarish vision filled with symbols and coded warnings.
+        </lore>
+        <entry>
+            Make a Lore (+0) check and gain 1 Clue token for each success. If you gain 3 or more Clue tokens, draw a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 3 -->
+    <cult-encounter>
+        <title>A Debt Must Be Paid</title>
+        <lore>
+            What is owed must be paid, either by you or by someone else.
+        </lore>
+        <entry>
+            If all investigators have a "One of the Thousand" Cult Membership, you are Blessed.<p>Otherwise, you must choose another investigator who may draw a Corruption card and gain a "one of the Thousand" Cult Membership. If he chooses not to, you must draw 2 Corruption cards.</p>
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 4 -->
+    <cult-encounter>
+        <title>A Favor Granted</title>
+        <lore>
+            &quot;That which you have asked for shall be done, initiate, but the cost must be borne by you. It must be borne by your flesh and bone.&quot;
+        </lore>
+        <entry>
+            You may choose to discard either an Environment mythos card currently in play or a Rumor mythos card (without triggering either the Pass or Fail effects) in play. If you do so, reduce your maximum Stamina by 1.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 5 -->
+    <cult-encounter>
+        <title>An Unnerving Discovery</title>
+        <lore>
+            Two others, their faces hidden in darkness, whisper to one another of the terrors that await.
+        </lore>
+        <entry>
+            Look at the top card of the mythos deck and either return the card to the top of the deck or discard it. Then draw a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 6 -->
+    <cult-encounter>
+        <title>Blood of the Beast</title>
+        <lore>
+            The foul-smelling black ichor is poured over the cuts across your arms. Your heart beats wildly and your thoughts grow feral.
+        </lore>
+        <entry>
+            Restore your Stamina to full and draw a Corruption card. All hexagon monsters move as if the hexagon symbol appeared on the black movement box while resolving a mythos card. 
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 7 -->
+    <cult-encounter>
+        <title>Branding the Flesh</title>
+        <lore>
+            &quot;This burn is an oath. You will bring souls to kneel before the alter. Do not break this oath.&quot;
+        </lore>
+        <entry>
+            If all investigators have a "One of the Thousand" Cult Membership, you are Blessed.<p>
+Otherwise, you must choose another investigator who may draw a Corruption card and gain a "One of the Thousand" Cult Membership. If he chooses not to, you are Cursed.</p>
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 8 -->
+    <cult-encounter>
+        <title>Contest of Wills</title>
+        <lore>
+            You feel yourself merging with the creature's consciousness. You believe that if you pushed yourself hard enough, you could control the monstrosity.
+        </lore>
+        <entry>
+            You may choose 1 hexagon monster on the board to return it to the box. Do not return it to the monster cup. If you choose to do this, reduce either your maximum Sanity or maximum Stamina by 1.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 9 -->
+    <cult-encounter>
+        <title>Drink from the Cup</title>
+        <lore>
+            The foul liquid burns your throat. Through the dizziness and nausea, your mind reaches out to some hideous monstrosity.
+        </lore>
+        <entry>
+            Lose 2 Stamina. Then, if you have not been knocked unconscious, gain 2 Clue tokens and you may remove 1 monster with a hexagon dimensional symbol from Arkham, the Sky, or the Outskirts.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 10 -->
+    <cult-encounter>
+        <title>Final Words</title>
+        <lore>
+            One of the cultists suddenly brings his hand to his chest. He wants to tell you the secrets he's learned about the cult and struggles to form the words before he dies.
+        </lore>
+        <entry>
+            Make a Speed (+0) check and gain 1 Clue token for each success. If you gain 3 or more Clue tokens, draw a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 11 -->
+    <cult-encounter>
+        <title>Get Rid of This</title>
+        <lore>
+            The summoning ritual has failed and it falls to you to find a way to hide the terrible results of the attempt.
+        </lore>
+        <entry>
+            Gain 1 monster trophy from the monster cup at random, ignoring Endless. Then lose 1 Sanity.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 12 -->
+    <cult-encounter>
+        <title>Join the Chant</title>
+        <lore>
+            The voices grow louder, repeating the phrase, and as you shout along with everyone else, you feel as if you are being pulled out of your own skin.
+        </lore>
+        <entry>
+            Make a Will (+0) check and gain 1 Clue token for each success. If you gain 3 or more Clue tokens, draw a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 13 -->
+    <cult-encounter>
+        <title>Pass No Further</title>
+        <lore>
+            &quot;Your desire for knowledge is great, but you are not prepared for what lies within that cave.&quot;
+        </lore>
+        <entry>
+            Make a Sneak (+0) check and gain 1 Clue token for each success. If you gain 3 or more Clue tokens, draw a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 14 -->
+    <cult-encounter>
+        <title>Primitive Ritual</title>
+        <lore>
+            &quot;The cutting and burning of the flesh pushes the mind into the dark places, if you can endure the pain.&quot;
+        </lore>
+        <entry>
+            Make a Fight (+0) check and gain 1 Clue token for each success. If you gain 3 or more Clue tokens, draw a Corruption card. 
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 15 -->
+    <cult-encounter>
+        <title>Reborn in Flames</title>
+        <lore>
+            &quot;Step into the fire! Cast off your meaningless baubles and become more than mere human!&quot;
+        </lore>
+        <entry>
+            You may discard 2 Common Items to restore your Sanity and Stamina to their maximums. If you do so, draw a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 16 -->
+    <cult-encounter>
+        <title>Sacrifice Must Be Made</title>
+        <lore>
+            &quot;All must surrender to Shubb-Niggurath!&quot;
+        </lore>
+        <entry>
+            If all investigators have a "One of the Thousand" Cult Membership, you are Blessed.<p>
+Otherwise, you must choose another investigator who may draw a Corruption card and gain a "One of the Thousand" Cult Membership. If he chooses not to, you must discard 1 Ally, 1 Unique Item, or 1 Spell if able.</p>
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 17 -->
+    <cult-encounter>
+        <title>Secrets Revealed</title>
+        <lore>
+            You've gained the attention of the cult leaders. They grant you access to their most insidious machinations.
+        </lore>
+        <entry>
+            You may choose to discard either an Environment mythos card currently in play or a Rumor mythos card (without triggering either the Pass or Fail effects) in play. If you do so, reduce your maximum Sanity by 1.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 18 -->
+    <cult-encounter>
+        <title>Shattering Vision</title>
+        <lore>
+            You fall trembing to the ground. Before you a horrific vision unfolds, a cruel gift from Shubb-Niggurath.
+        </lore>
+        <entry>
+            You may lose 2 Sanity to look at the top three cards of the mythos deck and return them to the top of the deck in any order you choose. If you do so, draw a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 19 -->
+    <cult-encounter>
+        <title>The Dagger of Initiation</title>
+        <lore>
+            &quot;Either we will have your friends' loyalties or we will have your blood.&quot;
+        </lore>
+        <entry>
+            Otherwise, you must choose another investigator who may choose to draw a Corruption card and gain a "One of the Thousand" Cult Membership. If he does not, you lose 2 Stamina.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 20 -->
+    <cult-encounter>
+        <title>The Ritual of Transformation</title>
+        <lore>
+            You stand before the alter, chosen to give yourself to the Black Goat, body and soul.
+        </lore>
+        <entry>
+            You must either discard your &quot;One of the Thousand&quot; Cult Membership and move to the street or gain 3 Corruption cards. For each 2 Clue tokens you discard, you may reduce the number of Corruption cards you gain by 1 (to a minimum of 0). 
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 21 -->
+    <cult-encounter>
+        <title>The Unending Chant</title>
+        <lore>
+            The voices in your head cry out with a desparate need for more and more worshippers.
+        </lore>
+        <entry>
+            If all investigators have a &quot;One of the Thousand&quot; Cult Membership, you are Blessed.<p>Otherwise, you must choose another investigator who may choose to draw a Corruption card and gain a "One of the Thousand" Cult Membership. If he does not, you lose 2 Sanity.</p>
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 22 -->
+    <cult-encounter>
+        <title>These Thoughts Are Not Your Own</title>
+        <lore>
+            Your mind fills with a primal strength you've never known. Dark, violent impulses threaten to overtake you.
+        </lore>
+        <entry>
+            Restore your Sanity to full and draw a Corruption card. All hexagon monsters move as if the hexagon symbol appeared on the white movement box while resolving a mythos card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 23 -->
+    <cult-encounter>
+        <title>Throw the Bones</title>
+        <lore>
+            You are given a handful of small animal bones and told to throw them. Afterwards, the cultists divine your future by observing how the bones landed.
+        </lore>
+        <entry>
+            Make a Luck (+0) check and gain 1 Clue token for each success. If you gain 3 or more Clue tokens, draw a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 24 -->
+    <cult-encounter>
+        <title>What Little of You Remains</title>
+        <lore>
+            Looking at the other cultists, seeing how changed they are, you begin to wonder if you're still completely human. In fact, are you still human at all?
+        </lore>
+        <entry>
+            If you have no Corruption cards, you are Blessed. Otherwise, roll a die for each Corruption card you have. If you roll a 1, lose 1 Sanity. If you roll a 6, discard the Corruption card. Stop rolling if you go insane at any point.
+        </entry>
+    </cult-encounter>
+</cult-encounter-cards>

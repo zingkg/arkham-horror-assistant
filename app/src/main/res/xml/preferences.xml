@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/expansion_preferences">
+        <CheckBoxPreference android:key="@string/miskatonic_horror_expansion_title"
+            android:title="@string/miskatonic_horror_expansion_title" />
+    </PreferenceCategory>
+</PreferenceScreen>
