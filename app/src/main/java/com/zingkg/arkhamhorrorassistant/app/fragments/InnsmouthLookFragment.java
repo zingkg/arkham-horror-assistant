@@ -34,15 +34,15 @@ public class InnsmouthLookFragment extends DeckFragment {
         InnsmouthLook card = new InnsmouthLook(
             getArguments().getString("lore", ""),
             getArguments().getString("entry", ""),
-            getArguments().getString("type", "")
+            getArguments().getString("expansionSet", "")
         );
         TextView loreView = (TextView) view.findViewById(R.id.innsmouth_lore);
-        if (card.mEntry.isEmpty())
+        if (card.entry.isEmpty())
             loreView.setTextSize(getTitleDimensionPixelSize());
         else
-            ((TextView) view.findViewById(R.id.innsmouth_entry)).setText(card.mEntry);
+            ((TextView) view.findViewById(R.id.innsmouth_entry)).setText(card.entry);
 
-        loreView.setText(card.mLore);
+        loreView.setText(card.lore);
     }
 
     @Override

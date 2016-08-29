@@ -35,17 +35,17 @@ public class CultEncounterFragment extends DeckFragment {
             getArguments().getString("title", ""),
             getArguments().getString("lore", ""),
             getArguments().getString("entry", ""),
-            getArguments().getString("type", "")
+            getArguments().getString("expansionSet", "")
         );
         TextView titleView = (TextView) view.findViewById(R.id.cult_encounter_title);
-        if (card.mLore.isEmpty() && card.mEntry.isEmpty()) {
+        if (card.lore.isEmpty() && card.entry.isEmpty()) {
             titleView.setTextSize(getTitleDimensionPixelSize());
             view.findViewById(R.id.cult_encounter_lore_divider).setVisibility(View.INVISIBLE);
         } else {
-            ((TextView) view.findViewById(R.id.cult_encounter_lore)).setText(card.mLore);
-            ((TextView) view.findViewById(R.id.cult_encounter_entry)).setText(card.mEntry);
+            ((TextView) view.findViewById(R.id.cult_encounter_lore)).setText(card.lore);
+            ((TextView) view.findViewById(R.id.cult_encounter_entry)).setText(card.entry);
         }
-        ((TextView) view.findViewById(R.id.cult_encounter_title)).setText(card.mTitle);
+        ((TextView) view.findViewById(R.id.cult_encounter_title)).setText(card.title);
     }
 
     @Override

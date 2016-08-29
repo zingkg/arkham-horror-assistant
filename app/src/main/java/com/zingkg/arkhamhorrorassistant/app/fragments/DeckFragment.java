@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import com.zingkg.arkhamhorrorassistant.app.R;
-import com.zingkg.arkhamhorrorassistant.app.utilities.Common;
 
 public abstract class DeckFragment extends Fragment {
     private DeckCallbacks mCallbacks;
@@ -25,7 +24,7 @@ public abstract class DeckFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mCallbacks = Common.castDeckCallbacks(context);
+        mCallbacks = castDeckCallbacks(context);
     }
 
     protected int getTitleDimensionPixelSize() {
@@ -34,5 +33,14 @@ public abstract class DeckFragment extends Fragment {
 
     public interface DeckCallbacks {
         void onDoneItemClick();
+    }
+
+    public static DeckFragment.DeckCallbacks castDeckCallbacks(Context context) {
+        Activity activity = (Activity) context;
+        try {
+            return (DeckFragment.DeckCallbacks) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity + " must implement DeckCallbacks");
+        }
     }
 }

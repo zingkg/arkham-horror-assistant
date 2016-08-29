@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CultEncounter extends CardXML {
-    public final String mTitle;
-    public final String mLore;
-    public final String mEntry;
+    public final String title;
+    public final String lore;
+    public final String entry;
 
-    public CultEncounter(String title, String lore, String entry, String type) {
-        super(type);
-        mTitle = title;
-        mLore = lore;
-        mEntry = entry;
+    public CultEncounter(String title, String lore, String entry, String expansionSet) {
+        super(expansionSet);
+        this.title = title;
+        this.lore = lore;
+        this.entry = entry;
     }
 
     public static final String BASE = "the black goat of the woods";
@@ -32,18 +32,18 @@ public class CultEncounter extends CardXML {
             XmlPullParser xpp = factory.newPullParser();
             xpp.setInput(reader);
             int eventType = xpp.getEventType();
-            String type = "";
+            String expansionSet = "";
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 if (
                     eventType == XmlPullParser.START_TAG &&
                     xpp.getName().equals("cult-encounter-cards") &&
-                    type.isEmpty()
+                    expansionSet.isEmpty()
                 ) {
-                    type = getAttribute(xpp, "type");
+                    expansionSet = getAttribute(xpp, "expansionSet");
                 }
 
                 if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(cultEncounterCard))
-                    cards.add(parseXML(xpp, type));
+                    cards.add(parseXML(xpp, expansionSet));
 
                 eventType = xpp.next();
             }
@@ -55,7 +55,7 @@ public class CultEncounter extends CardXML {
 
     private static CultEncounter parseXML(
         XmlPullParser xpp,
-        String type
+        String expansionSet
     ) throws XmlPullParserException, IOException {
         String previousKey = "", title = "", lore = "", entry = "";
         int eventType = xpp.next();
@@ -74,6 +74,6 @@ public class CultEncounter extends CardXML {
             }
             eventType = xpp.next();
         }
-        return new CultEncounter(title, lore, entry, type);
+        return new CultEncounter(title, lore, entry, expansionSet);
     }
 }

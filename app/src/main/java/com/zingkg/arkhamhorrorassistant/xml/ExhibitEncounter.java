@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExhibitEncounter extends CardXML {
-    public final String mTitle;
-    public final String mEntry;
-    public final String mLocation;
+    public final String title;
+    public final String entry;
+    public final String location;
 
-    public ExhibitEncounter(String title, String entry, String location, String type) {
-        super(type);
-        mTitle = title;
-        mEntry = entry;
-        mLocation = location;
+    public ExhibitEncounter(String title, String entry, String location, String expansionSet) {
+        super(expansionSet);
+        this.title = title;
+        this.entry = entry;
+        this.location = location;
     }
 
     public static final String BASE = "the curse of the dark pharoah";
@@ -32,21 +32,21 @@ public class ExhibitEncounter extends CardXML {
             XmlPullParser xpp = factory.newPullParser();
             xpp.setInput(reader);
             int eventType = xpp.getEventType();
-            String type = "";
+            String expansionSet = "";
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 if (
                     eventType == XmlPullParser.START_TAG &&
-                    xpp.getName().equals("cult-encounter-cards") &&
-                    type.isEmpty()
+                    xpp.getName().equals("exhibit-encounter-cards") &&
+                    expansionSet.isEmpty()
                 ) {
-                    type = getAttribute(xpp, "type");
+                    expansionSet = getAttribute(xpp, "expansionSet");
                 }
 
                 if (
                     eventType == XmlPullParser.START_TAG &&
                     xpp.getName().equals(exhibitEncounterCard)
                 ) {
-                    cards.add(parseXML(xpp, type));
+                    cards.add(parseXML(xpp, expansionSet));
                 }
 
                 eventType = xpp.next();
@@ -59,7 +59,7 @@ public class ExhibitEncounter extends CardXML {
 
     private static ExhibitEncounter parseXML(
         XmlPullParser xpp,
-        String type
+        String expansionSet
     ) throws XmlPullParserException, IOException {
         String previousKey = "", title = "", entry = "", location = "";
         int eventType = xpp.next();
@@ -78,6 +78,6 @@ public class ExhibitEncounter extends CardXML {
             }
             eventType = xpp.next();
         }
-        return new ExhibitEncounter(title, entry, location, type);
+        return new ExhibitEncounter(title, entry, location, expansionSet);
     }
 }

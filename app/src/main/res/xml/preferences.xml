@@ -2,6 +2,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/expansion_preferences">
         <CheckBoxPreference android:key="@string/miskatonic_horror_expansion_title"
-            android:title="@string/miskatonic_horror_expansion_title" />
+            android:title="@string/miskatonic_horror_expansion_title"
+            android:persistent="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/other_preferences">
+        <PreferenceScreen android:key="license"
+            android:title="@string/license_title"
+            android:persistent="false">
+            <Preference android:layout="@layout/license" />
+        </PreferenceScreen>
     </PreferenceCategory>
 </PreferenceScreen>

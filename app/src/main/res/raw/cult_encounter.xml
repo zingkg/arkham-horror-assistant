@@ -1,4 +1,4 @@
-<cult-encounter-cards type="the black goat of the woods">
+<cult-encounter-cards expansionSet="the black goat of the woods">
     <!-- Cult Encounter 1 -->
     <cult-encounter>
         <title>A Simple Choice</title>
@@ -33,7 +33,7 @@
     <cult-encounter>
         <title>Birthing Chant</title>
         <lore>
-            &quot;Iä! Iä! Shub-Niggurath! The Black Goat of the Woods with a Thousand Young!&quot;
+            &quot;IÃ¤! IÃ¤! Shub-Niggurath! The Black Goat of the Woods with a Thousand Young!&quot;
         </lore>
         <entry>
             Out of the darkness a grotesque monster appears! 

@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class CardXML {
-    public final String mType;
+    public final String expansionSet;
 
-    CardXML(String type) {
-        mType = type;
+    CardXML(String expansionSet) {
+        this.expansionSet = expansionSet;
     }
 
     public static String MISKATONIC = "miskatonic horror";

@@ -25,7 +25,6 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 import com.zingkg.arkhamhorrorassistant.app.fragments.CultEncounterFragment;
 import com.zingkg.arkhamhorrorassistant.app.fragments.DeckFragment;
@@ -141,25 +140,20 @@ public class MainActivity
             // Miskatonic setting is disabled.
             List<CardXML> filteredCards = new ArrayList<>();
             for (CardXML card : mPagerAdapter.getCards()) {
-                if (!card.mType.equals(CardXML.MISKATONIC))
+                if (!card.expansionSet.equals(CardXML.MISKATONIC))
                     filteredCards.add(card);
             }
             setPagerAdapter(shuffleCards(filteredCards), mPagerAdapter.getCardClass());
         }
     }
 
-    private List<CardXML> shuffleCards(List<CardXML> cards) {
-        List<CardXML> shuffledCards = new ArrayList<>();
-        for (int i = 1; i < cards.size(); ++i)
-            shuffledCards.add(cards.get(i));
-
-        Collections.shuffle(shuffledCards);
-        shuffledCards.add(0, cards.get(0));
-        return shuffledCards;
-    }
-
-    private void setPagerAdapter(List<CardXML> cards, Class cardClass) {
-        mPagerAdapter = new DeckPagerAdapter(getSupportFragmentManager(), cards, cardClass);
+    private void setPagerAdapter(List<CardXML> cards, Class<? extends CardXML> cardClass) {
+        mPagerAdapter = new DeckPagerAdapter(
+            getSupportFragmentManager(),
+            cards,
+            cardClass,
+            mMiskatonicSetting
+        );
         mViewPager.setAdapter(mPagerAdapter);
     }
 
@@ -172,9 +166,7 @@ public class MainActivity
         if (mMiskatonicSetting)
             base.addAll(CultEncounter.parseFile(readResource(R.raw.cult_encounter_miskatonic)));
 
-        Collections.shuffle(base, new Random(System.currentTimeMillis()));
-        base.add(0, new CultEncounter("Cult Encounter Deck", "", "", ""));
-        return new ArrayList<CardXML>(base);
+        return shuffleCards(base);
     }
 
     private List<CardXML> createExhibitEncounterDeck() {
@@ -186,9 +178,7 @@ public class MainActivity
                 ExhibitEncounter.parseFile(readResource(R.raw.exhibit_encounter_miskatonic))
             );
         }
-        Collections.shuffle(base, new Random(System.currentTimeMillis()));
-        base.add(0, new ExhibitEncounter("Exhibit Encounter Deck", "", "", ""));
-        return new ArrayList<CardXML>(base);
+        return shuffleCards(base);
     }
 
     private List<CardXML> createInnsmouthLookDeck() {
@@ -196,9 +186,7 @@ public class MainActivity
         if (mMiskatonicSetting)
             base.addAll(InnsmouthLook.parseFile(readResource(R.raw.innsmouth_look_miskatonic)));
 
-        Collections.shuffle(base, new Random(System.currentTimeMillis()));
-        base.add(0, new InnsmouthLook("Innsmouth Look Deck", "", ""));
-        return new ArrayList<CardXML>(base);
+        return shuffleCards(base);
     }
 
     private List<CardXML> createReckoningDeck() {
@@ -206,9 +194,7 @@ public class MainActivity
         if (mMiskatonicSetting)
             base.addAll(Reckoning.parseFile(readResource(R.raw.reckoning_miskatonic)));
 
-        Collections.shuffle(base);
-        base.add(0, new Reckoning("Reckoning Deck", "", ""));
-        return new ArrayList<CardXML>(base);
+        return shuffleCards(base);
     }
 
     @Override
@@ -285,54 +271,94 @@ public class MainActivity
 
     private static class DeckPagerAdapter extends FragmentStatePagerAdapter {
         private List<CardXML> mCards;
-        private Class mCardClass;
+        private Class<? extends CardXML> mCardClass;
+        private boolean mMiskatonicSetting;
 
-        public DeckPagerAdapter(FragmentManager fm, List<CardXML> cards, Class cardClass) {
+        public DeckPagerAdapter(
+            FragmentManager fm,
+            List<CardXML> cards,
+            Class<? extends CardXML> cardClass,
+            boolean miskatonicSetting
+        ) {
             super(fm);
             mCards = cards;
             mCardClass = cardClass;
+            mMiskatonicSetting = miskatonicSetting;
         }
 
         @Override
         public Fragment getItem(int position) {
-            if (mCardClass == CultEncounter.class) {
-                CultEncounter card = (CultEncounter) mCards.get(position);
-                Bundle arguments = new Bundle();
-                arguments.putString("title", card.mTitle);
-                arguments.putString("lore", card.mLore);
-                arguments.putString("entry", card.mEntry);
-                arguments.putString("type", card.mType);
-                CultEncounterFragment fragment = new CultEncounterFragment();
-                fragment.setArguments(arguments);
-                return fragment;
-            } else if (mCardClass == ExhibitEncounter.class) {
-                ExhibitEncounter card = (ExhibitEncounter) mCards.get(position);
-                Bundle arguments = new Bundle();
-                arguments.putString("title", card.mTitle);
-                arguments.putString("entry", card.mEntry);
-                arguments.putString("location", card.mLocation);
-                arguments.putString("type", card.mType);
-                ExhibitEncounterFragment fragment = new ExhibitEncounterFragment();
-                fragment.setArguments(arguments);
-                return fragment;
-            } else if (mCardClass == InnsmouthLook.class) {
-                InnsmouthLook card = (InnsmouthLook) mCards.get(position);
-                Bundle arguments = new Bundle();
-                arguments.putString("lore", card.mLore);
-                arguments.putString("entry", card.mEntry);
-                arguments.putString("type", card.mType);
-                InnsmouthLookFragment fragment = new InnsmouthLookFragment();
-                fragment.setArguments(arguments);
-                return fragment;
+            if (position == 0) {
+                if (mCardClass == CultEncounter.class) {
+                    Bundle arguments = new Bundle();
+                    arguments.putString("title", "Cult Encounter Deck");
+                    CultEncounterFragment fragment = new CultEncounterFragment();
+                    fragment.setArguments(arguments);
+                    return fragment;
+                } else if (mCardClass == ExhibitEncounter.class) {
+                    Bundle arguments = new Bundle();
+                    arguments.putString("title", "Exhibit Encounter Deck");
+                    ExhibitEncounterFragment fragment = new ExhibitEncounterFragment();
+                    fragment.setArguments(arguments);
+                    return fragment;
+                } else if (mCardClass == InnsmouthLook.class) {
+                    Bundle arguments = new Bundle();
+                    arguments.putString("lore", "Innsmouth Look Deck");
+                    InnsmouthLookFragment fragment = new InnsmouthLookFragment();
+                    fragment.setArguments(arguments);
+                    return fragment;
+                } else if (mCardClass == Reckoning.class) {
+                    Bundle arguments = new Bundle();
+                    arguments.putString("title", "Reckoning Deck");
+                    ReckoningFragment fragment = new ReckoningFragment();
+                    fragment.setArguments(arguments);
+                    return fragment;
+                } else {
+                    throw new RuntimeException(mCardClass.getName() + " does not have a match");
+                }
             } else {
-                Reckoning card = (Reckoning) mCards.get(position);
-                Bundle arguments = new Bundle();
-                arguments.putString("title", card.mTitle);
-                arguments.putString("entry", card.mEntry);
-                arguments.putString("type", card.mType);
-                ReckoningFragment fragment = new ReckoningFragment();
-                fragment.setArguments(arguments);
-                return fragment;
+                final int cardPosition = position - 1;
+                if (mCardClass == CultEncounter.class) {
+                    CultEncounter card = (CultEncounter) mCards.get(cardPosition);
+                    Bundle arguments = new Bundle();
+                    arguments.putString("title", card.title);
+                    arguments.putString("lore", card.lore);
+                    arguments.putString("entry", card.entry);
+                    arguments.putString("expansionSet", card.expansionSet);
+                    CultEncounterFragment fragment = new CultEncounterFragment();
+                    fragment.setArguments(arguments);
+                    return fragment;
+                } else if (mCardClass == ExhibitEncounter.class) {
+                    ExhibitEncounter card = (ExhibitEncounter) mCards.get(cardPosition);
+                    Bundle arguments = new Bundle();
+                    arguments.putString("title", card.title);
+                    arguments.putString("entry", card.entry);
+                    arguments.putString("location", card.location);
+                    arguments.putString("expansionSet", card.expansionSet);
+                    ExhibitEncounterFragment fragment = new ExhibitEncounterFragment();
+                    fragment.setArguments(arguments);
+                    return fragment;
+                } else if (mCardClass == InnsmouthLook.class) {
+                    InnsmouthLook card = (InnsmouthLook) mCards.get(cardPosition);
+                    Bundle arguments = new Bundle();
+                    arguments.putString("lore", card.lore);
+                    arguments.putString("entry", card.entry);
+                    arguments.putString("expansionSet", card.expansionSet);
+                    InnsmouthLookFragment fragment = new InnsmouthLookFragment();
+                    fragment.setArguments(arguments);
+                    return fragment;
+                } else if (mCardClass == Reckoning.class) {
+                    Reckoning card = (Reckoning) mCards.get(cardPosition);
+                    Bundle arguments = new Bundle();
+                    arguments.putString("title", card.title);
+                    arguments.putString("entry", card.entry);
+                    arguments.putString("expansionSet", card.expansionSet);
+                    ReckoningFragment fragment = new ReckoningFragment();
+                    fragment.setArguments(arguments);
+                    return fragment;
+                } else {
+                    throw new RuntimeException(mCardClass.getName() + " does not have a match");
+                }
             }
         }
 
@@ -340,16 +366,23 @@ public class MainActivity
             return mCards;
         }
 
-        public Class getCardClass() {
+        public Class<? extends CardXML> getCardClass() {
             return mCardClass;
         }
 
         @Override
         public int getCount() {
-            if (mCardClass == InnsmouthLook.class)
-                return 10;
+            if (mCardClass == InnsmouthLook.class && mMiskatonicSetting)
+                return 11 < mCards.size() ? 11 : mCards.size();
             else
-                return 5;
+                return 6 < mCards.size() ? 6 : mCards.size();
         }
+    }
+
+    protected static <T extends CardXML> List<CardXML> shuffleCards(List<T> cards) {
+        List<CardXML> shuffledCards = new ArrayList<>();
+        shuffledCards.addAll(cards);
+        Collections.shuffle(shuffledCards);
+        return shuffledCards;
     }
 }

@@ -34,15 +34,15 @@ public class ReckoningFragment extends DeckFragment {
         Reckoning card = new Reckoning(
             getArguments().getString("title", ""),
             getArguments().getString("entry", ""),
-            getArguments().getString("type", "")
+            getArguments().getString("expansionSet", "")
         );
         TextView titleView = (TextView) view.findViewById(R.id.reckoning_title);
-        if (card.mEntry.isEmpty())
+        if (card.entry.isEmpty())
             titleView.setTextSize(getTitleDimensionPixelSize());
         else
-            ((TextView) view.findViewById(R.id.reckoning_entry)).setText(card.mEntry);    
+            ((TextView) view.findViewById(R.id.reckoning_entry)).setText(card.entry);    
 
-        titleView.setText(card.mTitle);
+        titleView.setText(card.title);
     }
 
     @Override

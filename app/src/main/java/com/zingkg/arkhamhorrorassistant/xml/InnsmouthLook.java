@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InnsmouthLook extends CardXML {
-    public final String mLore;
-    public final String mEntry;
+    public final String lore;
+    public final String entry;
 
-    public InnsmouthLook(String lore, String entry, String type) {
-        super(type);
-        mLore = lore;
-        mEntry = entry;
+    public InnsmouthLook(String lore, String entry, String expansionSet) {
+        super(expansionSet);
+        this.lore = lore;
+        this.entry = entry;
     }
 
     public static final String BASE = "innsmouth horror";
@@ -30,18 +30,18 @@ public class InnsmouthLook extends CardXML {
             XmlPullParser xpp = factory.newPullParser();
             xpp.setInput(reader);
             int eventType = xpp.getEventType();
-            String type = "";
+            String expansionSet = "";
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 if (
                     eventType == XmlPullParser.START_TAG &&
                     xpp.getName().equals("innsmouth-look-cards") &&
-                    type.isEmpty()
+                    expansionSet.isEmpty()
                 ) {
-                    type = getAttribute(xpp, "type");
+                    expansionSet = getAttribute(xpp, "expansionSet");
                 }
 
                 if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(innsmouthLookCard))
-                    innsmouthLookCards.add(parseXML(xpp, type));
+                    innsmouthLookCards.add(parseXML(xpp, expansionSet));
 
                 eventType = xpp.next();
             }
