@@ -6,10 +6,11 @@
             android:persistent="true" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/other_preferences">
-        <PreferenceScreen android:key="license"
+        <Preference android:key="@string/license_title"
             android:title="@string/license_title"
             android:persistent="false">
-            <Preference android:layout="@layout/license" />
-        </PreferenceScreen>
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://raw.githubusercontent.com/zingkg/arkham-horror-assistant/master/LICENSE" />
+        </Preference>
     </PreferenceCategory>
 </PreferenceScreen>
