@@ -26,7 +26,8 @@
             What is owed must be paid, either by you or by someone else.
         </lore>
         <entry>
-            If all investigators have a "One of the Thousand" Cult Membership, you are Blessed.<p>Otherwise, you must choose another investigator who may draw a Corruption card and gain a "one of the Thousand" Cult Membership. If he chooses not to, you must draw 2 Corruption cards.</p>
+            If all investigators have a "One of the Thousand" Cult Membership, you are Blessed.
+Otherwise, you must choose another investigator who may draw a Corruption card and gain a "one of the Thousand" Cult Membership. If he chooses not to, you must draw 2 Corruption cards.
         </entry>
     </cult-encounter>
     <!-- Cult Encounter 4 -->
@@ -66,8 +67,8 @@
             &quot;This burn is an oath. You will bring souls to kneel before the alter. Do not break this oath.&quot;
         </lore>
         <entry>
-            If all investigators have a "One of the Thousand" Cult Membership, you are Blessed.<p>
-Otherwise, you must choose another investigator who may draw a Corruption card and gain a "One of the Thousand" Cult Membership. If he chooses not to, you are Cursed.</p>
+            If all investigators have a "One of the Thousand" Cult Membership, you are Blessed.
+Otherwise, you must choose another investigator who may draw a Corruption card and gain a "One of the Thousand" Cult Membership. If he chooses not to, you are Cursed.
         </entry>
     </cult-encounter>
     <!-- Cult Encounter 8 -->
@@ -157,8 +158,8 @@ Otherwise, you must choose another investigator who may draw a Corruption card a
             &quot;All must surrender to Shubb-Niggurath!&quot;
         </lore>
         <entry>
-            If all investigators have a "One of the Thousand" Cult Membership, you are Blessed.<p>
-Otherwise, you must choose another investigator who may draw a Corruption card and gain a "One of the Thousand" Cult Membership. If he chooses not to, you must discard 1 Ally, 1 Unique Item, or 1 Spell if able.</p>
+            If all investigators have a "One of the Thousand" Cult Membership, you are Blessed.
+Otherwise, you must choose another investigator who may draw a Corruption card and gain a "One of the Thousand" Cult Membership. If he chooses not to, you must discard 1 Ally, 1 Unique Item, or 1 Spell if able.
         </entry>
     </cult-encounter>
     <!-- Cult Encounter 17 -->
@@ -208,7 +209,8 @@ Otherwise, you must choose another investigator who may draw a Corruption card a
             The voices in your head cry out with a desparate need for more and more worshippers.
         </lore>
         <entry>
-            If all investigators have a &quot;One of the Thousand&quot; Cult Membership, you are Blessed.<p>Otherwise, you must choose another investigator who may choose to draw a Corruption card and gain a "One of the Thousand" Cult Membership. If he does not, you lose 2 Sanity.</p>
+            If all investigators have a &quot;One of the Thousand&quot; Cult Membership, you are Blessed.
+Otherwise, you must choose another investigator who may choose to draw a Corruption card and gain a "One of the Thousand" Cult Membership. If he does not, you lose 2 Sanity.
         </entry>
     </cult-encounter>
     <!-- Cult Encounter 22 -->
