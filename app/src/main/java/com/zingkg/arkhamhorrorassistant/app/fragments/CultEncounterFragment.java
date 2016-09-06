@@ -1,6 +1,7 @@
 package com.zingkg.arkhamhorrorassistant.app.fragments;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,10 +43,16 @@ public class CultEncounterFragment extends DeckFragment {
             titleView.setTextSize(getTitleDimensionPixelSize());
             view.findViewById(R.id.cult_encounter_lore_divider).setVisibility(View.INVISIBLE);
         } else {
-            ((TextView) view.findViewById(R.id.cult_encounter_lore)).setText(card.lore);
-            ((TextView) view.findViewById(R.id.cult_encounter_entry)).setText(card.entry);
+            ((TextView) view.findViewById(R.id.cult_encounter_lore)).setText(
+                Html.fromHtml(card.lore)
+            );
+            ((TextView) view.findViewById(R.id.cult_encounter_entry)).setText(
+                Html.fromHtml(card.entry)
+            );
         }
-        ((TextView) view.findViewById(R.id.cult_encounter_title)).setText(card.title);
+        ((TextView) view.findViewById(R.id.cult_encounter_title)).setText(
+            Html.fromHtml(card.title)
+        );
     }
 
     @Override

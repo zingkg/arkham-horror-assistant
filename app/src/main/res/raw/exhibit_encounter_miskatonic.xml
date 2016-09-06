@@ -1,5 +1,6 @@
-<exhibit-encounter-cards expansionSet="miskatonic horror">
-    <!-- Cult Encounter 1 -->
+<?xml version="1.0" ?>
+<exhibit-encounter-cards expansionSet="miskatonic">
+    <!-- Exhibit Encounter 1 -->
     <exhibit-encounter>
         <title>A Curse on Thieves</title>
         <entry>
@@ -9,7 +10,7 @@
             Move the Ancient Whispers marker to the Uptown Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 2 -->
+    <!-- Exhibit Encounter 2 -->
     <exhibit-encounter>
         <title>A Handful of Ashes</title>
         <entry>
@@ -19,7 +20,7 @@
             Move the Ancient Whispers marker to the Miskatonic University Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 3 -->
+    <!-- Exhibit Encounter 3 -->
     <exhibit-encounter>
         <title>It Has Infected Your Soul</title>
         <entry>
@@ -29,7 +30,7 @@
             Move the Ancient Whispers marker to the Northside Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 4 -->
+    <!-- Exhibit Encounter 4 -->
     <exhibit-encounter>
         <title>Its Power Still Lingers</title>
         <entry>
@@ -39,7 +40,7 @@
             Move the Ancient Whispers marker to the Easttown Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 5 -->
+    <!-- Exhibit Encounter 5 -->
     <exhibit-encounter>
         <title>Purge the Unclean</title>
         <entry>
@@ -49,7 +50,7 @@
             Move the Ancient Whispers marker to the Downtown Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 6 -->
+    <!-- Exhibit Encounter 6 -->
     <exhibit-encounter>
         <title>Someone Has to Take the Fall</title>
         <entry>
@@ -59,7 +60,7 @@
             Move the Ancient Whispers marker to the French Hill Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 7 -->
+    <!-- Exhibit Encounter 7 -->
     <exhibit-encounter>
         <title>They Will Never Let You Rest</title>
         <entry>
@@ -69,7 +70,7 @@
             Move the Ancient Whispers marker to the Southside Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 8 -->
+    <!-- Exhibit Encounter 8 -->
     <exhibit-encounter>
         <title>This Was a Set Up</title>
         <entry>
@@ -79,7 +80,7 @@
             Move the Ancient Whispers marker to the Rivertown Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 9 -->
+    <!-- Exhibit Encounter 9 -->
     <exhibit-encounter>
         <title>Travelers in Need of Help</title>
         <entry>

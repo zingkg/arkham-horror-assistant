@@ -1,6 +1,7 @@
 package com.zingkg.arkhamhorrorassistant.app.fragments;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,9 +41,9 @@ public class ReckoningFragment extends DeckFragment {
         if (card.entry.isEmpty())
             titleView.setTextSize(getTitleDimensionPixelSize());
         else
-            ((TextView) view.findViewById(R.id.reckoning_entry)).setText(card.entry);    
+            ((TextView) view.findViewById(R.id.reckoning_entry)).setText(Html.fromHtml(card.entry));
 
-        titleView.setText(card.title);
+        titleView.setText(Html.fromHtml(card.title));
     }
 
     @Override

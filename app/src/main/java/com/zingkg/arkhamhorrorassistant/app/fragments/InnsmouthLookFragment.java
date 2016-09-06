@@ -1,6 +1,7 @@
 package com.zingkg.arkhamhorrorassistant.app.fragments;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,9 +41,9 @@ public class InnsmouthLookFragment extends DeckFragment {
         if (card.entry.isEmpty())
             loreView.setTextSize(getTitleDimensionPixelSize());
         else
-            ((TextView) view.findViewById(R.id.innsmouth_entry)).setText(card.entry);
+            ((TextView) view.findViewById(R.id.innsmouth_entry)).setText(Html.fromHtml(card.entry));
 
-        loreView.setText(card.lore);
+        loreView.setText(Html.fromHtml(card.lore));
     }
 
     @Override

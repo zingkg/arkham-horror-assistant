@@ -1,4 +1,5 @@
-<reckoning-cards expansionSet="miskatonic horror">
+<?xml version="1.0" ?>
+<reckoning-cards expansionSet="miskatonic">
     <!-- Reckoning 1 -->
     <reckoning>
         <title>An Unsettling Trend</title>
