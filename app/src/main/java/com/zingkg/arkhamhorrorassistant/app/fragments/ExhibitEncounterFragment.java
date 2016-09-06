@@ -1,6 +1,7 @@
 package com.zingkg.arkhamhorrorassistant.app.fragments;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,10 +43,14 @@ public class ExhibitEncounterFragment extends DeckFragment {
             titleView.setTextSize(getTitleDimensionPixelSize());
             view.findViewById(R.id.exhibit_encounter_entry_divider).setVisibility(View.INVISIBLE);
         } else {
-            ((TextView) view.findViewById(R.id.exhibit_encounter_entry)).setText(card.entry);
-            ((TextView) view.findViewById(R.id.exhibit_encounter_location)).setText(card.location);
+            ((TextView) view.findViewById(R.id.exhibit_encounter_entry)).setText(
+                Html.fromHtml(card.entry)
+            );
+            ((TextView) view.findViewById(R.id.exhibit_encounter_location)).setText(
+                Html.fromHtml(card.location)
+            );
         }
-        titleView.setText(card.title);
+        titleView.setText(Html.fromHtml(card.title));
     }
 
     @Override

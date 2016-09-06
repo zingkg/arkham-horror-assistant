@@ -1,8 +1,9 @@
+<?xml version="1.0" ?>
 <innsmouth-look-cards expansionSet="innsmouth horror">
     <!-- Innsmouth 1 -->
     <innsmouth-look>
         <lore>
-            Ia-R'lyehl Cihuiha flgagnl id Ia!
+            <i>Ia-R'lyehl Cihuiha flgagnl id Ia!</i>
         </lore>
         <entry>
             Search the monster cup for a Deep One and place it in your location, then add an uprising token to the Deep Ones Rising track. You are devoured. 
@@ -11,7 +12,7 @@
     <!-- Innsmouth 2 -->
     <innsmouth-look>
         <lore>
-            That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.
+            <i>That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.</i>
         </lore>
         <entry>
             You do not have the Innsmouth Look. Nothing happens.
@@ -20,7 +21,7 @@
     <!-- Innsmouth 3 -->
     <innsmouth-look>
         <lore>
-            That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.
+            <i>That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.</i>
         </lore>
         <entry>
             You do not have the Innsmouth Look. Nothing happens.
@@ -29,7 +30,7 @@
     <!-- Innsmouth 4 -->
     <innsmouth-look>
         <lore>
-            That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.
+            <i>That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.</i>
         </lore>
         <entry>
             You do not have the Innsmouth Look. Nothing happens.
@@ -38,7 +39,7 @@
     <!-- Innsmouth 5 -->
     <innsmouth-look>
         <lore>
-            That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.
+            <i>That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.</i>
         </lore>
         <entry>
             You do not have the Innsmouth Look. Nothing happens.
@@ -47,7 +48,7 @@
     <!-- Innsmouth 6 -->
     <innsmouth-look>
         <lore>
-            That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.
+            <i>That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.</i>
         </lore>
         <entry>
             You do not have the Innsmouth Look. Nothing happens.
@@ -56,7 +57,7 @@
     <!-- Innsmouth 7 -->
     <innsmouth-look>
         <lore>
-            That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.
+            <i>That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.</i>
         </lore>
         <entry>
             You do not have the Innsmouth Look. Nothing happens.
@@ -65,7 +66,7 @@
     <!-- Innsmouth 8 -->
     <innsmouth-look>
         <lore>
-            That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.
+            <i>That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.</i>
         </lore>
         <entry>
             You do not have the Innsmouth Look. Nothing happens.
@@ -74,7 +75,7 @@
     <!-- Innsmouth 9 -->
     <innsmouth-look>
         <lore>
-            That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.
+            <i>That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.</i>
         </lore>
         <entry>
             You do not have the Innsmouth Look. Nothing happens.
@@ -83,7 +84,7 @@
     <!-- Innsmouth 10 -->
     <innsmouth-look>
         <lore>
-            That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.
+            <i>That night, I dreamed. Great watery spaces opened out before me, and I seemed to wander through titanic sunken porticos and labyrinths of weedy cyclopean walls with grotesque fishes as my companions.</i>
         </lore>
         <entry>
             You do not have the Innsmouth Look. Nothing happens.

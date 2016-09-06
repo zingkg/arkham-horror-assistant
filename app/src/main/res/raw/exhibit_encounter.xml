@@ -1,5 +1,6 @@
+<?xml version="1.0" ?>
 <exhibit-encounter-cards expansionSet="the curse of the dark pharoah">
-    <!-- Cult Encounter 1 -->
+    <!-- Exhibit Encounter 1 -->
     <exhibit-encounter>
         <title>A Chance Encounter</title>
         <entry>
@@ -9,7 +10,7 @@
             Move the Ancient Whispers marker to the French Hill Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 2 -->
+    <!-- Exhibit Encounter 2 -->
     <exhibit-encounter>
         <title>A Corrupting Influence</title>
         <entry>
@@ -19,7 +20,7 @@
             Move the Ancient Whispers marker to the Downtown Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 3 -->
+    <!-- Exhibit Encounter 3 -->
     <exhibit-encounter>
         <title>An Inside Job</title>
         <entry>
@@ -29,7 +30,7 @@
             Move the Ancient Whispers marker to the Easttown Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 4 -->
+    <!-- Exhibit Encounter 4 -->
     <exhibit-encounter>
         <title>An Insidious Trap</title>
         <entry>
@@ -39,7 +40,7 @@
             Move the Ancient Whispers marker to the Miskatonic University Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 5 -->
+    <!-- Exhibit Encounter 5 -->
     <exhibit-encounter>
         <title>An Intruder in the Mind</title>
         <entry>
@@ -49,7 +50,7 @@
             Move the Ancient Whispers marker to the Downtown Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 6 -->
+    <!-- Exhibit Encounter 6 -->
     <exhibit-encounter>
         <title>Ancient Artifact on Display</title>
         <entry>
@@ -59,7 +60,7 @@
             Move the Ancient Whispers marker to the Uptown Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 7 -->
+    <!-- Exhibit Encounter 7 -->
     <exhibit-encounter>
         <title>Carnivorous Beetles</title>
         <entry>
@@ -69,7 +70,7 @@
             Move the Ancient Whispers marker to the Southside Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 8 -->
+    <!-- Exhibit Encounter 8 -->
     <exhibit-encounter>
         <title>Hidden in Plain Sight</title>
         <entry>
@@ -79,7 +80,7 @@
             Move the Ancient Whispers marker to the French Hill Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 9 -->
+    <!-- Exhibit Encounter 9 -->
     <exhibit-encounter>
         <title>It Calls from Beyond</title>
         <entry>
@@ -89,7 +90,7 @@
             Move the Ancient Whispers marker to the Miskatonic University Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 10 -->
+    <!-- Exhibit Encounter 10 -->
     <exhibit-encounter>
         <title>It Keeps a Constant Vigil</title>
         <entry>
@@ -99,7 +100,7 @@
             Move the Ancient Whispers marker to the Rivertown Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 11 -->
+    <!-- Exhibit Encounter 11 -->
     <exhibit-encounter>
         <title>Lost in Transit</title>
         <entry>
@@ -109,7 +110,7 @@
             Move the Ancient Whispers marker to the Southside Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 12 -->
+    <!-- Exhibit Encounter 12 -->
     <exhibit-encounter>
         <title>Purified by Fire</title>
         <entry>
@@ -119,7 +120,7 @@
             Move the Ancient Whispers marker to the Northside Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 13 -->
+    <!-- Exhibit Encounter 13 -->
     <exhibit-encounter>
         <title>Quid Pro Quo</title>
         <entry>
@@ -129,7 +130,7 @@
             Move the Ancient Whispers marker to the Rivertown Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 14 -->
+    <!-- Exhibit Encounter 14 -->
     <exhibit-encounter>
         <title>Stolen Property for Sale</title>
         <entry>
@@ -139,7 +140,7 @@
             Move the Ancient Whispers marker to the Uptown Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 15 -->
+    <!-- Exhibit Encounter 15 -->
     <exhibit-encounter>
         <title>The Application of Force</title>
         <entry>
@@ -149,7 +150,7 @@
             Move the Ancient Whispers marker to the Merchant District Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 16 -->
+    <!-- Exhibit Encounter 16 -->
     <exhibit-encounter>
         <title>The Culprit Apprehended</title>
         <entry>
@@ -159,7 +160,7 @@
             Move the Ancient Whispers marker to the Easttown Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 17 -->
+    <!-- Exhibit Encounter 17 -->
     <exhibit-encounter>
         <title>The Legacy of Anubis</title>
         <entry>
@@ -169,7 +170,7 @@
             Move the Ancient Whispers marker to the Merchant District Street Location.
         </location>
     </exhibit-encounter>
-    <!-- Cult Encounter 18 -->
+    <!-- Exhibit Encounter 18 -->
     <exhibit-encounter>
         <title>Too Late</title>
         <entry>
