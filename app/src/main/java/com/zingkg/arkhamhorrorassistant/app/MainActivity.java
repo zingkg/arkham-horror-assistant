@@ -303,7 +303,6 @@ public class MainActivity
                     return fragment;
                 } else if (mCardClass == InnsmouthLook.class) {
                     Bundle arguments = new Bundle();
-                    arguments.putString("lore", "Innsmouth Look Deck");
                     InnsmouthLookFragment fragment = new InnsmouthLookFragment();
                     fragment.setArguments(arguments);
                     return fragment;
