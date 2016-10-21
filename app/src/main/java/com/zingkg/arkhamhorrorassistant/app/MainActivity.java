@@ -37,6 +37,9 @@ import com.zingkg.arkhamhorrorassistant.xml.ExhibitEncounter;
 import com.zingkg.arkhamhorrorassistant.xml.InnsmouthLook;
 import com.zingkg.arkhamhorrorassistant.xml.Reckoning;
 
+/**
+ * Main activity that contains the fragments representing cards.
+ */
 public class MainActivity
     extends AppCompatActivity
     implements ListView.OnItemClickListener, DeckFragment.DeckCallbacks {
@@ -79,10 +82,12 @@ public class MainActivity
             R.string.drawer_open,   // "open drawer" description for accessibility
             R.string.drawer_close   // "close drawer" description for accessibility
         ) {
+            @Override
             public void onDrawerClosed(View view) {
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
+            @Override
             public void onDrawerOpened(View drawerView) {
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
@@ -97,6 +102,11 @@ public class MainActivity
         setPagerAdapter(createCultEncounterDeck(), CultEncounter.class);
     }
 
+    /**
+     * Returns if the Misktaonic Horror expansion set is enabled.
+     *
+     * @return True if the user enabled the Miskatonic Horror expansion set. False otherwise. 
+     */
     private boolean getMiskatonicSetting() {
         return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
             getString(R.string.miskatonic_horror_expansion_title),
@@ -147,6 +157,15 @@ public class MainActivity
         }
     }
 
+    /**
+     * Sets the pager adapter with the cards and given card class. This will affect which cards are
+     * being shown to the user.
+     *
+     * @param cards
+     *     The cards that are parsed and to be shown to the user.
+     * @param cardClass
+     *     The card's class.
+     */
     private void setPagerAdapter(List<CardXML> cards, Class<? extends CardXML> cardClass) {
         mPagerAdapter = new DeckPagerAdapter(
             getSupportFragmentManager(),
@@ -157,10 +176,22 @@ public class MainActivity
         mViewPager.setAdapter(mPagerAdapter);
     }
 
+    /**
+     * Opens the resource id and returns the reader.
+     *
+     * @param resource
+     *     The Android raw resource id to be used.
+     */
     private Reader readResource(int resource) {
         return new InputStreamReader(getResources().openRawResource(resource));
     }
 
+    /**
+     * Creates the Cult Encounter deck and returns it as the abstract CardXML type. If the
+     * Miskatonic setting is enabled, this will also parse the Miskatonic Cult Encounters.
+     *
+     * @return A list of Cult Encounters.
+     */
     private List<CardXML> createCultEncounterDeck() {
         List<CultEncounter> base = CultEncounter.parseFile(readResource(R.raw.cult_encounter));
         if (mMiskatonicSetting)
@@ -169,6 +200,12 @@ public class MainActivity
         return shuffleCards(base);
     }
 
+    /**
+     * Creates the Exhibit Encounter deck and returns it as an abstract CardXML type. If the
+     * Miskatonic setting is enabled, this will also parse the Miskatonic Exhibit Encounters.
+     *
+     * @return A list of Exhibit Encounters.
+     */
     private List<CardXML> createExhibitEncounterDeck() {
         List<ExhibitEncounter> base = ExhibitEncounter.parseFile(
             readResource(R.raw.exhibit_encounter)
@@ -181,6 +218,12 @@ public class MainActivity
         return shuffleCards(base);
     }
 
+    /**
+     * Creates the Innsmouth Look deck and returns it as an abstract CardXML type. If the Miskatonic
+     * setting is eanbled, this will also parse the Miskatonic Innsmouth Look cards.
+     *
+     * @return A list of Innsmouth Look cards.
+     */
     private List<CardXML> createInnsmouthLookDeck() {
         List<InnsmouthLook> base = InnsmouthLook.parseFile(readResource(R.raw.innsmouth_look));
         if (mMiskatonicSetting)
@@ -303,8 +346,8 @@ public class MainActivity
                     return fragment;
                 } else if (mCardClass == InnsmouthLook.class) {
                     Bundle arguments = new Bundle();
-                    arguments.putString("lore", "Innsmouth Look Deck");
                     InnsmouthLookFragment fragment = new InnsmouthLookFragment();
+                    arguments.putString("lore", "Innsmouth Look Deck");
                     fragment.setArguments(arguments);
                     return fragment;
                 } else if (mCardClass == Reckoning.class) {

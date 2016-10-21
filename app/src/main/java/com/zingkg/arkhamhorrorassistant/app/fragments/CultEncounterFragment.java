@@ -40,19 +40,18 @@ public class CultEncounterFragment extends DeckFragment {
         );
         TextView titleView = (TextView) view.findViewById(R.id.cult_encounter_title);
         if (card.lore.isEmpty() && card.entry.isEmpty()) {
+            view.findViewById(R.id.cult_encounter_title_divider).setVisibility(View.INVISIBLE);
             titleView.setTextSize(getTitleDimensionPixelSize());
-            view.findViewById(R.id.cult_encounter_lore_divider).setVisibility(View.INVISIBLE);
         } else {
-            ((TextView) view.findViewById(R.id.cult_encounter_lore)).setText(
-                Html.fromHtml(card.lore)
-            );
-            ((TextView) view.findViewById(R.id.cult_encounter_entry)).setText(
-                Html.fromHtml(card.entry)
-            );
+            TextView loreText = (TextView) view.findViewById(R.id.cult_encounter_lore);
+            TextView entryText = (TextView) view.findViewById(R.id.cult_encounter_entry);
+            final float textSize = calculateCardTextSize(getScreenLength());
+            loreText.setText(Html.fromHtml(card.lore));
+            loreText.setTextSize(textSize);
+            entryText.setText(Html.fromHtml(card.entry));
+            entryText.setTextSize(textSize);
         }
-        ((TextView) view.findViewById(R.id.cult_encounter_title)).setText(
-            Html.fromHtml(card.title)
-        );
+        titleView.setText(Html.fromHtml(card.title));
     }
 
     @Override
