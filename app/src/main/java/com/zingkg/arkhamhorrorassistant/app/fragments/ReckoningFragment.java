@@ -2,11 +2,13 @@ package com.zingkg.arkhamhorrorassistant.app.fragments;
 
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zingkg.arkhamhorrorassistant.app.R;
@@ -38,11 +40,17 @@ public class ReckoningFragment extends DeckFragment {
             getArguments().getString("expansionSet", "")
         );
         TextView titleView = (TextView) view.findViewById(R.id.reckoning_title);
-        if (card.entry.isEmpty())
+        if (card.entry.isEmpty()) {
             titleView.setTextSize(getTitleDimensionPixelSize());
-        else
-            ((TextView) view.findViewById(R.id.reckoning_entry)).setText(Html.fromHtml(card.entry));
-
+            ((LinearLayout) view.findViewById(R.id.reckoning_layout)).setGravity(
+                Gravity.CENTER_HORIZONTAL
+            );
+            view.findViewById(R.id.reckoning_divider).setVisibility(View.INVISIBLE);
+        } else {
+            TextView entryText = (TextView) view.findViewById(R.id.reckoning_entry);
+            entryText.setText(Html.fromHtml(card.entry));
+            entryText.setTextSize(calculateCardTextSize(getScreenLength()));
+        }
         titleView.setText(Html.fromHtml(card.title));
     }
 
