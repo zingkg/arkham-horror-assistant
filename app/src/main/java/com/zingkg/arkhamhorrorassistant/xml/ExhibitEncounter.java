@@ -9,6 +9,9 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * An ExhibitEncounter object that binds to the text of a Exhibit Encounter card.
+ */
 public class ExhibitEncounter extends CardXML {
     public final String title;
     public final String entry;
@@ -24,6 +27,13 @@ public class ExhibitEncounter extends CardXML {
     public static final String BASE = "the curse of the dark pharoah";
     private static final String exhibitEncounterCard = "exhibit-encounter";
 
+    /**
+     * Parses the stream to retrieve a list of Exhibit Encounters.
+     *
+     * @param reader
+     *     The reader on the file containing Exhibit Encounters.
+     * @return A list of ExhibitEncounter cards.
+     */
     public static List<ExhibitEncounter> parseFile(Reader reader) {
         List<ExhibitEncounter> cards = new ArrayList<>();
         try {
@@ -57,6 +67,17 @@ public class ExhibitEncounter extends CardXML {
         return cards;
     }
 
+    /**
+     * Parses the specific XML element that contains a Exhibit Encounter.
+     *
+     * @param xpp
+     *     The XmlPullParser instantiated with a Exhibit Encounter document as well as currently on
+     *     a Exhibit Encounter.
+     * @param expansionSet
+     *     The expansion set of the Exhibit Encounter. Typically this is The Curse of the Dark
+     *     Pharoah or Miskatonic.
+     * @return A ExhibitEncounter object.
+     */
     private static ExhibitEncounter parseXML(
         XmlPullParser xpp,
         String expansionSet

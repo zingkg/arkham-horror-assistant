@@ -9,6 +9,9 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A Reckoning object that binds to the text of a Reckoning card.
+ */
 public class Reckoning extends CardXML {
     public final String title;
     public final String entry;
@@ -22,6 +25,13 @@ public class Reckoning extends CardXML {
     public static final String BASE = "the lurker at the threshold";
     private static final String reckoningCard = "reckoning";
 
+    /**
+     * Parses the stream to retrieve a list of Reckoning cards.
+     *
+     * @param reader
+     *     The reader on the file containing Reckoning Encounters.
+     * @return A list of Reckoning cards.
+     */
     public static List<Reckoning> parseFile(Reader reader) {
         List<Reckoning> reckoningCards = new ArrayList<>();
         try {
@@ -51,6 +61,17 @@ public class Reckoning extends CardXML {
         return reckoningCards;
     }
 
+    /**
+     * Parses the specific XML element that contains a Reckoning card.
+     *
+     * @param xpp
+     *     The XmlPullParser instantiated with a Reckoning document as well as currently on a
+     *     Reckoning card.
+     * @param expansionSet
+     *     The expansion set of the Reckoning card. Typically this is the Lurker at the Threshold or
+     *     Miskatonic.
+     * @return A Reckoning object.
+     */
     private static Reckoning parseXML(
         XmlPullParser xpp,
         String expansionSet

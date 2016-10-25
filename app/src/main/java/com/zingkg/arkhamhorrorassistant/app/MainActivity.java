@@ -26,8 +26,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.zingkg.arkhamhorrorassistant.app.fragments.CardFragment;
 import com.zingkg.arkhamhorrorassistant.app.fragments.CultEncounterFragment;
-import com.zingkg.arkhamhorrorassistant.app.fragments.DeckFragment;
 import com.zingkg.arkhamhorrorassistant.app.fragments.ExhibitEncounterFragment;
 import com.zingkg.arkhamhorrorassistant.app.fragments.InnsmouthLookFragment;
 import com.zingkg.arkhamhorrorassistant.app.fragments.ReckoningFragment;
@@ -42,7 +42,7 @@ import com.zingkg.arkhamhorrorassistant.xml.Reckoning;
  */
 public class MainActivity
     extends AppCompatActivity
-    implements ListView.OnItemClickListener, DeckFragment.DeckCallbacks {
+    implements ListView.OnItemClickListener, CardFragment.CardCallbacks {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -220,7 +220,7 @@ public class MainActivity
 
     /**
      * Creates the Innsmouth Look deck and returns it as an abstract CardXML type. If the Miskatonic
-     * setting is eanbled, this will also parse the Miskatonic Innsmouth Look cards.
+     * setting is enabled, this will also parse the Miskatonic Innsmouth Look cards.
      *
      * @return A list of Innsmouth Look cards.
      */
@@ -232,6 +232,12 @@ public class MainActivity
         return shuffleCards(base);
     }
 
+    /**
+     * Creates the Reckoning deck and returns it as an abstract CardXML list. If the Miskatonic
+     * setting is enabled, this will also parse the Miskatonic Reckoning cards.
+     *
+     * @return A list of Reckoning cards.
+     */
     private List<CardXML> createReckoningDeck() {
         List<Reckoning> base = Reckoning.parseFile(readResource(R.raw.reckoning));
         if (mMiskatonicSetting)
@@ -312,11 +318,27 @@ public class MainActivity
         setPagerAdapter(shuffleCards(mPagerAdapter.getCards()), mPagerAdapter.getCardClass());
     }
 
+    /**
+     * An adapter that will be used to display the fragments representing each card.
+     */
     private static class DeckPagerAdapter extends FragmentStatePagerAdapter {
         private List<CardXML> mCards;
         private Class<? extends CardXML> mCardClass;
         private boolean mMiskatonicSetting;
 
+        /**
+         * Constructor for the Deck Pager Adapter. This will take in cards, the card class for
+         * comparisons, and if the miskatonic setting is enabled or not.
+         *
+         * @param fm
+         *     The Android FragmentManager that the activity uses.
+         * @param cards
+         *     The cards that will be displayed to the user.
+         * @param cardClass
+         *     The class of each card given in the list.
+         * @param miskatonicSetting
+         *     A setting whether the Miskatonic expansion is enabled or not.
+         */
         public DeckPagerAdapter(
             FragmentManager fm,
             List<CardXML> cards,
@@ -405,10 +427,20 @@ public class MainActivity
             }
         }
 
+        /**
+         * Returns the cards that the pager adapter currently has.
+         *
+         * @return The cards in this pager adapter.
+         */
         public List<CardXML> getCards() {
             return mCards;
         }
 
+        /**
+         * Returns the card class the pager adapter is assigned.
+         *
+         * @return The card class of the pager adapter.
+         */
         public Class<? extends CardXML> getCardClass() {
             return mCardClass;
         }
@@ -422,6 +454,14 @@ public class MainActivity
         }
     }
 
+    /**
+     * Shuffles the cards in the list. This is written functionally, and will not cause side effects
+     * for the input cards.
+     *
+     * @param cards
+     *     The cards that will be shuffled.
+     * @return A list of shuffled cards.
+     */
     protected static <T extends CardXML> List<CardXML> shuffleCards(List<T> cards) {
         List<CardXML> shuffledCards = new ArrayList<>();
         shuffledCards.addAll(cards);

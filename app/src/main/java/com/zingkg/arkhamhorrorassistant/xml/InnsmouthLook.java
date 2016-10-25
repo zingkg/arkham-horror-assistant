@@ -9,6 +9,9 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A InnsmouthLook object that binds to the text of a Innsmouth Look card.
+ */
 public class InnsmouthLook extends CardXML {
     public final String lore;
     public final String entry;
@@ -22,6 +25,13 @@ public class InnsmouthLook extends CardXML {
     public static final String BASE = "innsmouth horror";
     private static final String innsmouthLookCard = "innsmouth-look";
 
+    /**
+     * Parses the stream to retrieve a list of Innsmouth Look cards.
+     *
+     * @param reader
+     *     The reader on the file containing Innsmouth Look cards.
+     * @return A list of InnsmouthLook cards.
+     */
     public static List<InnsmouthLook> parseFile(Reader reader) {
         List<InnsmouthLook> innsmouthLookCards = new ArrayList<>();
         try {
@@ -51,6 +61,17 @@ public class InnsmouthLook extends CardXML {
         return innsmouthLookCards;
     }
 
+    /**
+     * Parses the specific XML element that contains a Innsmouth Look card.
+     *
+     * @param xpp
+     *     The XmlPullParser instantiated with a Innsmouth Look document as well as currently on a
+     *     Innsmouth Look card.
+     * @param expansionSet
+     *     The expansion set of the Innsmouth Look card. Typically this is the Innsmouth Horror or
+     *     Miskatonic.
+     * @return A InnsmouthLook object.
+     */
     private static InnsmouthLook parseXML(
         XmlPullParser xpp,
         String type

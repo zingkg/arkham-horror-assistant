@@ -9,6 +9,9 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A CultEncounter object that binds to the text of a Cult Encounter card.
+ */
 public class CultEncounter extends CardXML {
     public final String title;
     public final String lore;
@@ -24,6 +27,13 @@ public class CultEncounter extends CardXML {
     public static final String BASE = "the black goat of the woods";
     private static final String cultEncounterCard = "cult-encounter";
 
+    /**
+     * Parses the stream to retrieve a list of Cult Encounters.
+     *
+     * @param reader
+     *     The reader on the file containing Cult Encounters.
+     * @return A list of CultEncounter cards.
+     */
     public static List<CultEncounter> parseFile(Reader reader) {
         List<CultEncounter> cards = new ArrayList<>();
         try {
@@ -53,6 +63,17 @@ public class CultEncounter extends CardXML {
         return cards;
     }
 
+    /**
+     * Parses the specific XML element that contains a Cult Encounter.
+     *
+     * @param xpp
+     *     The XmlPullParser instantiated with a Cult Encounter document as well as currently on a
+     *     Cult Encounter.
+     * @param expansionSet
+     *     The expansion set of the Cult Encounter. Typically this is The Black Goat of the Woods or
+     *     Miskatonic.
+     * @return A CultEncounter object.
+     */
     private static CultEncounter parseXML(
         XmlPullParser xpp,
         String expansionSet

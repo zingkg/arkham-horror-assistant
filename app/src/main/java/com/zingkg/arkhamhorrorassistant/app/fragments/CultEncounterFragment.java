@@ -12,7 +12,10 @@ import android.widget.TextView;
 import com.zingkg.arkhamhorrorassistant.app.R;
 import com.zingkg.arkhamhorrorassistant.xml.CultEncounter;
 
-public class CultEncounterFragment extends DeckFragment {
+/**
+ * This fragment represents the text of a Cult Encounter card.
+ */
+public class CultEncounterFragment extends CardFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

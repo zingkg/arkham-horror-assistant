@@ -1,5 +1,6 @@
 package com.zingkg.arkhamhorrorassistant.app.fragments;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -12,7 +13,10 @@ import android.widget.TextView;
 import com.zingkg.arkhamhorrorassistant.app.R;
 import com.zingkg.arkhamhorrorassistant.xml.InnsmouthLook;
 
-public class InnsmouthLookFragment extends DeckFragment {
+/**
+ * This fragment represents the text of an Innsmouth Look card.
+ */
+public class InnsmouthLookFragment extends CardFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +44,22 @@ public class InnsmouthLookFragment extends DeckFragment {
         TextView loreView = (TextView) view.findViewById(R.id.innsmouth_lore);
         if (!card.lore.isEmpty() && card.entry.isEmpty()) {
             // Simply a title.
-            loreView.setTextSize(getTitleDimensionPixelSize());
+            loreView.setTextSize(calculateTitleTextSize());
             view.findViewById(R.id.innsmouth_divider).setVisibility(View.INVISIBLE);
         } else {
             ((TextView) view.findViewById(R.id.innsmouth_entry)).setText(Html.fromHtml(card.entry));
         }
         loreView.setText(Html.fromHtml(card.lore));
+    }
+
+    /**
+     * Calculates the text size for a title.
+     *
+     * @return The text size that is defined in the dimens.xml file.
+     */
+    private float calculateTitleTextSize() {
+        Resources resources = getResources();
+        return resources.getDimension(R.dimen.title) / resources.getDisplayMetrics().density;
     }
 
     @Override

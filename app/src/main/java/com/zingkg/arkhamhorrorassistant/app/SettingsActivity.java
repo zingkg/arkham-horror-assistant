@@ -8,6 +8,10 @@ import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.widget.Toolbar;
 
+/**
+ * This activity governs the settings. These settings will be read from the XML file and generated
+ * accordingly.
+ */
 public class SettingsActivity
     extends AppCompatActivity
     implements PreferenceFragmentCompat.OnPreferenceStartScreenCallback {
@@ -56,12 +60,12 @@ public class SettingsActivity
         return true;
     }
 
+    /**
+     * The fragment that is meant to be embedded into the SettingsActivity.
+     */
     public static class SettingsFragment extends PreferenceFragmentCompat {
         public static final String FRAGMENT_TAG = "settings_fragment";
-    
-        public SettingsFragment() {
-        }
-    
+
         @Override
         public void onCreatePreferences(Bundle bundle, String rootKey) {
             setPreferencesFromResource(R.xml.preferences, rootKey);

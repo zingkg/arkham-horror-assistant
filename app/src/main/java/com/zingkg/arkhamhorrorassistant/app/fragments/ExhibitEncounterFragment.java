@@ -12,7 +12,10 @@ import android.widget.TextView;
 import com.zingkg.arkhamhorrorassistant.app.R;
 import com.zingkg.arkhamhorrorassistant.xml.ExhibitEncounter;
 
-public class ExhibitEncounterFragment extends DeckFragment {
+/**
+ * This fragment represents the text of an Exhibit Encounter card.
+ */
+public class ExhibitEncounterFragment extends CardFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

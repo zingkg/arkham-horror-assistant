@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="navigation_drawer_width">320dp</dimen>
+    <dimen name="navigation_drawer_width">240dp</dimen>
+    <dimen name="navigation_item_text_size">24sp</dimen>
     <dimen name="title">48sp</dimen>
-    <dimen name="card">36sp</dimen>
+    <dimen name="card">32sp</dimen>
 </resources>
