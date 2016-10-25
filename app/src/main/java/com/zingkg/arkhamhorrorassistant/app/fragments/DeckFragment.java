@@ -2,6 +2,7 @@ package com.zingkg.arkhamhorrorassistant.app.fragments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Point;
 import android.support.v4.app.Fragment;
 import android.view.MenuItem;
@@ -28,18 +29,9 @@ public abstract class DeckFragment extends Fragment {
         mCallbacks = castDeckCallbacks(context);
     }
 
-    protected int getTitleDimensionPixelSize() {
-        return getResources().getDimensionPixelSize(R.dimen.title);
-    }
-
-    protected int getScreenLength() {
-        Point point = new Point();
-        getActivity().getWindowManager().getDefaultDisplay().getSize(point);
-        return point.y;
-    }
-
-    protected float calculateCardTextSize(int length) {
-        return length / 60F;
+    protected float getTitleDimensionPixelSize() {
+        Resources resources = getResources();
+        return resources.getDimension(R.dimen.title) / resources.getDisplayMetrics().density;
     }
 
     public interface DeckCallbacks {

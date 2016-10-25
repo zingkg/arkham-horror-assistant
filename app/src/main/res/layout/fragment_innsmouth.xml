@@ -10,6 +10,7 @@
 
     <TextView android:id="@+id/innsmouth_lore"
         android:padding="5dp"
+        android:textSize="@dimen/card"
         android:layout_margin="5dp"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />
@@ -23,6 +24,7 @@
 
     <TextView android:id="@+id/innsmouth_entry"
         android:padding="5dp"
+        android:textSize="@dimen/card"
         android:layout_margin="5dp"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content" />

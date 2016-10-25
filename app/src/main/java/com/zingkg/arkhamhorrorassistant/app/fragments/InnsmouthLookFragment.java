@@ -43,11 +43,7 @@ public class InnsmouthLookFragment extends DeckFragment {
             loreView.setTextSize(getTitleDimensionPixelSize());
             view.findViewById(R.id.innsmouth_divider).setVisibility(View.INVISIBLE);
         } else {
-            TextView entryText = (TextView) view.findViewById(R.id.innsmouth_entry);
-            final float textSize = calculateCardTextSize(getScreenLength());
-            loreView.setTextSize(textSize);
-            entryText.setTextSize(textSize);
-            entryText.setText(Html.fromHtml(card.entry));
+            ((TextView) view.findViewById(R.id.innsmouth_entry)).setText(Html.fromHtml(card.entry));
         }
         loreView.setText(Html.fromHtml(card.lore));
     }

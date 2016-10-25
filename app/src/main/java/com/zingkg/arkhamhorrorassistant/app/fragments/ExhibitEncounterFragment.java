@@ -38,21 +38,20 @@ public class ExhibitEncounterFragment extends DeckFragment {
             getArguments().getString("location", ""),
             getArguments().getString("expansionSet", "")
         );
-        TextView titleView = (TextView) view.findViewById(R.id.exhibit_encounter_title);
         if (card.entry.isEmpty() && card.location.isEmpty()) {
-            titleView.setTextSize(getTitleDimensionPixelSize());
             view.findViewById(R.id.exhibit_encounter_title_divider).setVisibility(View.INVISIBLE);
             view.findViewById(R.id.exhibit_encounter_entry_divider).setVisibility(View.INVISIBLE);
         } else {
-            TextView entryText = (TextView) view.findViewById(R.id.exhibit_encounter_entry);
-            TextView locationText = (TextView) view.findViewById(R.id.exhibit_encounter_location);
-            final float textSize = calculateCardTextSize(getScreenLength());
-            entryText.setText(Html.fromHtml(card.entry));
-            entryText.setTextSize(textSize);
-            locationText.setText(Html.fromHtml(card.location));
-            locationText.setTextSize(textSize);
+            ((TextView) view.findViewById(R.id.exhibit_encounter_entry)).setText(
+                Html.fromHtml(card.entry)
+            );
+            ((TextView) view.findViewById(R.id.exhibit_encounter_location)).setText(
+                Html.fromHtml(card.location)
+            );
         }
-        titleView.setText(Html.fromHtml(card.title));
+        ((TextView) view.findViewById(R.id.exhibit_encounter_title)).setText(
+            Html.fromHtml(card.title)
+        );
     }
 
     @Override

@@ -23,12 +23,14 @@
         android:layout_height="1dip" />
 
     <TextView android:id="@+id/cult_encounter_lore"
+        android:textSize="@dimen/card"
         android:padding="5dp"
         android:layout_margin="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView android:id="@+id/cult_encounter_entry"
+        android:textSize="@dimen/card"
         android:padding="5dp"
         android:layout_margin="10dp"
         android:layout_width="wrap_content"

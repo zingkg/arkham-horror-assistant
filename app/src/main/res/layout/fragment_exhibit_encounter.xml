@@ -22,6 +22,7 @@
 
     <TextView android:id="@+id/exhibit_encounter_entry"
         android:padding="5dp"
+        android:textSize="@dimen/card"
         android:layout_margin="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -35,6 +36,7 @@
 
     <TextView android:id="@+id/exhibit_encounter_location"
         android:padding="5dp"
+        android:textSize="@dimen/card"
         android:layout_margin="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
