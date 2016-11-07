@@ -14,5 +14,5 @@
     <dimen name="spacing">4dp</dimen>
 
     <dimen name="title">24sp</dimen>
-    <dimen name="card">16sp</dimen>
+    <dimen name="card">14sp</dimen>
 </resources>
