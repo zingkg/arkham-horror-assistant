@@ -206,7 +206,7 @@ public class MainActivity
     }
 
     private List<CultEncounter> parseCultEncounterResource(int resource) {
-        Reader reader = readResource(R.raw.cult_encounter);
+        Reader reader = readResource(resource);
         List<CultEncounter> cards = CultEncounter.parseReader(reader);
         try {
             reader.close();
@@ -233,7 +233,7 @@ public class MainActivity
     }
 
     private List<ExhibitEncounter> parseExhibitEncounterResource(int resource) {
-        Reader reader = readResource(R.raw.cult_encounter);
+        Reader reader = readResource(resource);
         List<ExhibitEncounter> cards = ExhibitEncounter.parseReader(reader);
         try {
             reader.close();
