@@ -40,8 +40,6 @@ import com.zingkg.arkhamhorrorassistant.xml.ExhibitEncounter;
 import com.zingkg.arkhamhorrorassistant.xml.InnsmouthLook;
 import com.zingkg.arkhamhorrorassistant.xml.Reckoning;
 
-import org.xmlpull.v1.XmlPullParserException;
-
 /**
  * Main activity that contains the fragments representing cards.
  */
@@ -140,7 +138,10 @@ public class MainActivity
             } else if (mPagerAdapter.getCardClass() == Reckoning.class) {
                 miskatonic = castList(parseReckoningResource(R.raw.reckoning_miskatonic));
             }
-            List<CardXML> cards = mPagerAdapter.getCards();
+            List<CardXML> cards = new ArrayList<>(
+                mPagerAdapter.getCards().size() + miskatonic.size()
+            );
+            cards.addAll(mPagerAdapter.getCards());
             cards.addAll(miskatonic);
             setPagerAdapter(shuffleCards(cards), mPagerAdapter.getCardClass());
         } else if (previousMiskatonicSetting != mMiskatonicSetting) {
