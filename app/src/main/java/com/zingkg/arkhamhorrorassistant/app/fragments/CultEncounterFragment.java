@@ -35,12 +35,7 @@ public class CultEncounterFragment extends CardFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        CultEncounter card = new CultEncounter(
-            getArguments().getString("title", ""),
-            getArguments().getString("lore", ""),
-            getArguments().getString("entry", ""),
-            getArguments().getString("expansionSet", "")
-        );
+        CultEncounter card = importCultEncounter(getArguments());
         if (card.lore.isEmpty() && card.entry.isEmpty()) {
             view.findViewById(R.id.cult_encounter_title_divider).setVisibility(View.INVISIBLE);
         } else {
@@ -60,5 +55,28 @@ public class CultEncounterFragment extends CardFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_decks, menu);
+    }
+
+    private static final String titleKey = "title";
+    private static final String loreKey = "lore";
+    private static final String entryKey = "entry";
+    private static final String expansionSetKey = "expansionSet";
+
+    public static Bundle exportCultEncounter(CultEncounter cultEncounter) {
+        Bundle bundle = new Bundle();
+        bundle.putString(titleKey, cultEncounter.title);
+        bundle.putString(loreKey, cultEncounter.lore);
+        bundle.putString(entryKey, cultEncounter.entry);
+        bundle.putString(expansionSetKey, cultEncounter.expansionSet);
+        return bundle;
+    }
+
+    public static CultEncounter importCultEncounter(Bundle bundle) {
+        return new CultEncounter(
+            bundle.getString(titleKey, ""),
+            bundle.getString(loreKey, ""),
+            bundle.getString(entryKey, ""),
+            bundle.getString(expansionSetKey, "")
+        );
     }
 }

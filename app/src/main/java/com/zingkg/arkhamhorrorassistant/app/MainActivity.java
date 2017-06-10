@@ -13,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,9 +21,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -37,6 +40,8 @@ import com.zingkg.arkhamhorrorassistant.xml.ExhibitEncounter;
 import com.zingkg.arkhamhorrorassistant.xml.InnsmouthLook;
 import com.zingkg.arkhamhorrorassistant.xml.Reckoning;
 
+import org.xmlpull.v1.XmlPullParserException;
+
 /**
  * Main activity that contains the fragments representing cards.
  */
@@ -50,7 +55,13 @@ public class MainActivity
     private DeckPagerAdapter mPagerAdapter;
     private int mLastPosition;
     private boolean mMiskatonicSetting;
-
+    private final List<String> mTitleStrings = Arrays.asList(
+        "Cult Encounter",
+        "Exhibit Encounter",
+        "Innsmouth Look",
+        "Reckoning",
+        "Settings"
+    );
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,13 +69,7 @@ public class MainActivity
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.nav_drawer);
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        List<String> titleStrings = new ArrayList<>();
-        titleStrings.add("Cult Encounter");
-        titleStrings.add("Exhibit Encounter");
-        titleStrings.add("Innsmouth Look");
-        titleStrings.add("Reckoning");
-        titleStrings.add("Settings");
-        mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, titleStrings));
+        mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, mTitleStrings));
         mDrawerList.setOnItemClickListener(this);
 
         // enable ActionBar app icon to behave as action to toggle nav drawer
@@ -93,13 +98,13 @@ public class MainActivity
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        getSupportActionBar().setTitle("Cult Encounter");
         mLastPosition = 0;
+        getSupportActionBar().setTitle(mTitleStrings.get(mLastPosition));
 
         // Instantiate a view pager and a pager adapter.
         mMiskatonicSetting = getMiskatonicSetting();
         mViewPager = (ViewPager) findViewById(R.id.fragment_container);
-        setPagerAdapter(createCultEncounterDeck(), CultEncounter.class);
+        setPagerAdapter(generateCultEncounterDeck(), CultEncounter.class);
     }
 
     /**
@@ -123,25 +128,17 @@ public class MainActivity
         // the miskatonic setting is disabled, the miskatonic cards should be removed from the set.
         if (previousMiskatonicSetting != mMiskatonicSetting && mMiskatonicSetting) {
             // Miskatonic setting is enabled.
-            List<CardXML> miskatonic;
+            List<CardXML> miskatonic = Collections.emptyList();
             if (mPagerAdapter.getCardClass() == CultEncounter.class) {
-                miskatonic = new ArrayList<CardXML>(
-                    CultEncounter.parseFile(readResource(R.raw.cult_encounter_miskatonic))
-                );
+                miskatonic = castList(parseCultEncounterResource(R.raw.cult_encounter_miskatonic));
             } else if (mPagerAdapter.getCardClass() == ExhibitEncounter.class) {
-                miskatonic = new ArrayList<CardXML>(
-                    ExhibitEncounter.parseFile(readResource(R.raw.exhibit_encounter_miskatonic))
+                miskatonic = castList(
+                    parseExhibitEncounterResource(R.raw.exhibit_encounter_miskatonic)
                 );
             } else if (mPagerAdapter.getCardClass() == InnsmouthLook.class) {
-                miskatonic = new ArrayList<CardXML>(
-                    InnsmouthLook.parseFile(readResource(R.raw.innsmouth_look_miskatonic))
-                );
+                miskatonic = castList(parseInnsmouthLookResource(R.raw.innsmouth_look_miskatonic));
             } else if (mPagerAdapter.getCardClass() == Reckoning.class) {
-                miskatonic = new ArrayList<CardXML>(
-                    Reckoning.parseFile(readResource(R.raw.reckoning_miskatonic))
-                );
-            } else {
-                miskatonic = new ArrayList<>();
+                miskatonic = castList(parseReckoningResource(R.raw.reckoning_miskatonic));
             }
             List<CardXML> cards = mPagerAdapter.getCards();
             cards.addAll(miskatonic);
@@ -155,6 +152,12 @@ public class MainActivity
             }
             setPagerAdapter(shuffleCards(filteredCards), mPagerAdapter.getCardClass());
         }
+    }
+
+    private <T extends CardXML> List<CardXML> castList(List<T> list) {
+        @SuppressWarnings("unchecked")
+        List<CardXML> result = (List<CardXML>) list;
+        return result;
     }
 
     /**
@@ -187,63 +190,111 @@ public class MainActivity
     }
 
     /**
-     * Creates the Cult Encounter deck and returns it as the abstract CardXML type. If the
+     * Generates the Cult Encounter deck and returns it as the abstract CardXML type. If the
      * Miskatonic setting is enabled, this will also parse the Miskatonic Cult Encounters.
      *
      * @return A list of Cult Encounters.
      */
-    private List<CardXML> createCultEncounterDeck() {
-        List<CultEncounter> base = CultEncounter.parseFile(readResource(R.raw.cult_encounter));
+    private List<CardXML> generateCultEncounterDeck() {
+        List<CultEncounter> base = parseCultEncounterResource(R.raw.cult_encounter);
+        List<CultEncounter> allCards = new ArrayList<>(base.size());
+        allCards.addAll(base);
         if (mMiskatonicSetting)
-            base.addAll(CultEncounter.parseFile(readResource(R.raw.cult_encounter_miskatonic)));
+            allCards.addAll(parseCultEncounterResource(R.raw.cult_encounter_miskatonic));
 
-        return shuffleCards(base);
+        return shuffleCards(allCards);
+    }
+
+    private List<CultEncounter> parseCultEncounterResource(int resource) {
+        Reader reader = readResource(R.raw.cult_encounter);
+        List<CultEncounter> cards = CultEncounter.parseReader(reader);
+        try {
+            reader.close();
+        } catch (IOException e) {
+            Log.w(TAG, "Error closing cult encounter reader " + e);
+        }
+        return cards;
     }
 
     /**
-     * Creates the Exhibit Encounter deck and returns it as an abstract CardXML type. If the
+     * Generates the Exhibit Encounter deck and returns it as an abstract CardXML type. If the
      * Miskatonic setting is enabled, this will also parse the Miskatonic Exhibit Encounters.
      *
      * @return A list of Exhibit Encounters.
      */
-    private List<CardXML> createExhibitEncounterDeck() {
-        List<ExhibitEncounter> base = ExhibitEncounter.parseFile(
-            readResource(R.raw.exhibit_encounter)
-        );
-        if (mMiskatonicSetting) {
-            base.addAll(
-                ExhibitEncounter.parseFile(readResource(R.raw.exhibit_encounter_miskatonic))
-            );
+    private List<CardXML> generateExhibitEncounterDeck() {
+        List<ExhibitEncounter> base = parseExhibitEncounterResource(R.raw.exhibit_encounter);
+        List<ExhibitEncounter> allCards = new ArrayList<>(base.size());
+        allCards.addAll(base);
+        if (mMiskatonicSetting)
+            allCards.addAll(parseExhibitEncounterResource(R.raw.exhibit_encounter_miskatonic));
+
+        return shuffleCards(allCards);
+    }
+
+    private List<ExhibitEncounter> parseExhibitEncounterResource(int resource) {
+        Reader reader = readResource(R.raw.cult_encounter);
+        List<ExhibitEncounter> cards = ExhibitEncounter.parseReader(reader);
+        try {
+            reader.close();
+        } catch (IOException e) {
+            Log.w(TAG, "Error closing exhibit encounter reader " + e);
         }
-        return shuffleCards(base);
+        return cards;
     }
 
     /**
-     * Creates the Innsmouth Look deck and returns it as an abstract CardXML type. If the Miskatonic
+     * Generates the Innsmouth Look deck and returns it as an abstract CardXML type. If the Miskatonic
      * setting is enabled, this will also parse the Miskatonic Innsmouth Look cards.
      *
      * @return A list of Innsmouth Look cards.
      */
-    private List<CardXML> createInnsmouthLookDeck() {
-        List<InnsmouthLook> base = InnsmouthLook.parseFile(readResource(R.raw.innsmouth_look));
+    private List<CardXML> generateInnsmouthLookDeck() {
+        List<InnsmouthLook> base = parseInnsmouthLookResource(R.raw.innsmouth_look);
+        List<InnsmouthLook> allCards = new ArrayList<>(base.size());
+        allCards.addAll(base);
         if (mMiskatonicSetting)
-            base.addAll(InnsmouthLook.parseFile(readResource(R.raw.innsmouth_look_miskatonic)));
+            allCards.addAll(parseInnsmouthLookResource(R.raw.innsmouth_look_miskatonic));
 
-        return shuffleCards(base);
+        return shuffleCards(allCards);
+    }
+
+    private List<InnsmouthLook> parseInnsmouthLookResource(int resource) {
+        Reader reader = readResource(resource);
+        List<InnsmouthLook> cards = InnsmouthLook.parseReader(reader);
+        try {
+            reader.close();
+        } catch (IOException e) {
+            Log.w(TAG, "Error closing innsmouth look reader " + e);
+        }
+        return cards;
     }
 
     /**
-     * Creates the Reckoning deck and returns it as an abstract CardXML list. If the Miskatonic
+     * Generates the Reckoning deck and returns it as an abstract CardXML list. If the Miskatonic
      * setting is enabled, this will also parse the Miskatonic Reckoning cards.
      *
      * @return A list of Reckoning cards.
      */
-    private List<CardXML> createReckoningDeck() {
-        List<Reckoning> base = Reckoning.parseFile(readResource(R.raw.reckoning));
+    private List<CardXML> generateReckoningDeck() {
+        List<Reckoning> base = parseReckoningResource(R.raw.reckoning);
+        List<Reckoning> allCards = new ArrayList<>(base.size());
+        allCards.addAll(base);
         if (mMiskatonicSetting)
-            base.addAll(Reckoning.parseFile(readResource(R.raw.reckoning_miskatonic)));
+            allCards.addAll(parseReckoningResource(R.raw.reckoning_miskatonic));
 
-        return shuffleCards(base);
+        return shuffleCards(allCards);
+    }
+
+    private List<Reckoning> parseReckoningResource(int resource) {
+        Reader reader = readResource(resource);
+        List<Reckoning> cards = Reckoning.parseReader(reader);
+        try {
+            reader.close();
+        } catch (IOException e) {
+            Log.w(TAG, "Error closing reckoning reader " + e);
+        }
+        return cards;
     }
 
     @Override
@@ -275,25 +326,19 @@ public class MainActivity
         } else {
             switch (position) {
                 case 0:
-                    setPagerAdapter(createCultEncounterDeck(), CultEncounter.class);
-                    getSupportActionBar().setTitle("Cult Encounter");
+                    setPagerAdapter(generateCultEncounterDeck(), CultEncounter.class);
                     break;
                 case 1:
-                    setPagerAdapter(createExhibitEncounterDeck(), ExhibitEncounter.class);
-                    getSupportActionBar().setTitle("Exhibit Encounter");
+                    setPagerAdapter(generateExhibitEncounterDeck(), ExhibitEncounter.class);
                     break;
                 case 2:
-                    setPagerAdapter(createInnsmouthLookDeck(), InnsmouthLook.class);
-                    getSupportActionBar().setTitle("Innsmouth Look");
+                    setPagerAdapter(generateInnsmouthLookDeck(), InnsmouthLook.class);
                     break;
                 case 3:
-                    setPagerAdapter(createReckoningDeck(), Reckoning.class);
-                    getSupportActionBar().setTitle("Reckoning");
-                    break;
-                case 4:
-                    startActivity(new Intent(this, SettingsActivity.class));
+                    setPagerAdapter(generateReckoningDeck(), Reckoning.class);
                     break;
             }
+            getSupportActionBar().setTitle(mTitleStrings.get(position));
             mLastPosition = position;
         }
         mDrawerLayout.closeDrawer(mDrawerList);
@@ -317,6 +362,8 @@ public class MainActivity
     public void onDoneItemClick() {
         setPagerAdapter(shuffleCards(mPagerAdapter.getCards()), mPagerAdapter.getCardClass());
     }
+
+    private static final String TAG = "MainActivity";
 
     /**
      * An adapter that will be used to display the fragments representing each card.
@@ -385,39 +432,25 @@ public class MainActivity
                 final int cardPosition = position - 1;
                 if (mCardClass == CultEncounter.class) {
                     CultEncounter card = (CultEncounter) mCards.get(cardPosition);
-                    Bundle arguments = new Bundle();
-                    arguments.putString("title", card.title);
-                    arguments.putString("lore", card.lore);
-                    arguments.putString("entry", card.entry);
-                    arguments.putString("expansionSet", card.expansionSet);
+                    Bundle arguments = CultEncounterFragment.exportCultEncounter(card);
                     CultEncounterFragment fragment = new CultEncounterFragment();
                     fragment.setArguments(arguments);
                     return fragment;
                 } else if (mCardClass == ExhibitEncounter.class) {
                     ExhibitEncounter card = (ExhibitEncounter) mCards.get(cardPosition);
-                    Bundle arguments = new Bundle();
-                    arguments.putString("title", card.title);
-                    arguments.putString("entry", card.entry);
-                    arguments.putString("location", card.location);
-                    arguments.putString("expansionSet", card.expansionSet);
+                    Bundle arguments = ExhibitEncounterFragment.exportExhibitEncounter(card);
                     ExhibitEncounterFragment fragment = new ExhibitEncounterFragment();
                     fragment.setArguments(arguments);
                     return fragment;
                 } else if (mCardClass == InnsmouthLook.class) {
                     InnsmouthLook card = (InnsmouthLook) mCards.get(cardPosition);
-                    Bundle arguments = new Bundle();
-                    arguments.putString("lore", card.lore);
-                    arguments.putString("entry", card.entry);
-                    arguments.putString("expansionSet", card.expansionSet);
+                    Bundle arguments = InnsmouthLookFragment.exportInnsmouthLook(card);
                     InnsmouthLookFragment fragment = new InnsmouthLookFragment();
                     fragment.setArguments(arguments);
                     return fragment;
                 } else if (mCardClass == Reckoning.class) {
                     Reckoning card = (Reckoning) mCards.get(cardPosition);
-                    Bundle arguments = new Bundle();
-                    arguments.putString("title", card.title);
-                    arguments.putString("entry", card.entry);
-                    arguments.putString("expansionSet", card.expansionSet);
+                    Bundle arguments = ReckoningFragment.exportReckoning(card);
                     ReckoningFragment fragment = new ReckoningFragment();
                     fragment.setArguments(arguments);
                     return fragment;
@@ -463,9 +496,9 @@ public class MainActivity
      * @return A list of shuffled cards.
      */
     protected static <T extends CardXML> List<CardXML> shuffleCards(List<T> cards) {
-        List<CardXML> shuffledCards = new ArrayList<>();
+        List<CardXML> shuffledCards = new ArrayList<>(cards.size());
         shuffledCards.addAll(cards);
         Collections.shuffle(shuffledCards);
-        return shuffledCards;
+        return Collections.unmodifiableList(shuffledCards);
     }
 }

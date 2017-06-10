@@ -7,6 +7,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -31,10 +32,10 @@ public class CultEncounter extends CardXML {
      * Parses the stream to retrieve a list of Cult Encounters.
      *
      * @param reader
-     *     The reader on the file containing Cult Encounters.
+     *     The reader containing Cult Encounters.
      * @return A list of CultEncounter cards.
      */
-    public static List<CultEncounter> parseFile(Reader reader) {
+    public static List<CultEncounter> parseReader(Reader reader) {
         List<CultEncounter> cards = new ArrayList<>();
         try {
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
@@ -49,7 +50,7 @@ public class CultEncounter extends CardXML {
                     xpp.getName().equals("cult-encounter-cards") &&
                     expansionSet.isEmpty()
                 ) {
-                    expansionSet = getAttribute(xpp, "expansionSet");
+                    expansionSet = getAttribute(xpp, "expansion_set");
                 }
 
                 if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(cultEncounterCard))
@@ -58,9 +59,9 @@ public class CultEncounter extends CardXML {
                 eventType = xpp.next();
             }
         } catch (XmlPullParserException | IOException e) {
-            e.printStackTrace();
+            System.err.println("Error parsing reader for cult encounters " + e);
         }
-        return cards;
+        return Collections.unmodifiableList(cards);
     }
 
     /**

@@ -35,12 +35,7 @@ public class ExhibitEncounterFragment extends CardFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ExhibitEncounter card = new ExhibitEncounter(
-            getArguments().getString("title", ""),
-            getArguments().getString("entry", ""),
-            getArguments().getString("location", ""),
-            getArguments().getString("expansionSet", "")
-        );
+        ExhibitEncounter card = importExhibitEncounter(getArguments());
         if (card.entry.isEmpty() && card.location.isEmpty()) {
             view.findViewById(R.id.exhibit_encounter_title_divider).setVisibility(View.INVISIBLE);
             view.findViewById(R.id.exhibit_encounter_entry_divider).setVisibility(View.INVISIBLE);
@@ -61,5 +56,28 @@ public class ExhibitEncounterFragment extends CardFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_decks, menu);
+    }
+
+    private static final String titleKey = "title";
+    private static final String entryKey = "entry";
+    private static final String locationKey = "location";
+    private static final String expansionSetKey = "expansionSet";
+
+    public static Bundle exportExhibitEncounter(ExhibitEncounter exhibitEncounter) {
+        Bundle bundle = new Bundle();
+        bundle.putString(titleKey, exhibitEncounter.title);
+        bundle.putString(entryKey, exhibitEncounter.entry);
+        bundle.putString(locationKey, exhibitEncounter.location);
+        bundle.putString(expansionSetKey, exhibitEncounter.expansionSet);
+        return bundle;
+    }
+
+    public static ExhibitEncounter importExhibitEncounter(Bundle bundle) {
+        return new ExhibitEncounter(
+            bundle.getString(titleKey, ""),
+            bundle.getString(entryKey, ""),
+            bundle.getString(locationKey, ""),
+            bundle.getString(expansionSetKey, "")
+        );
     }
 }

@@ -7,6 +7,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -32,7 +33,7 @@ public class Reckoning extends CardXML {
      *     The reader on the file containing Reckoning Encounters.
      * @return A list of Reckoning cards.
      */
-    public static List<Reckoning> parseFile(Reader reader) {
+    public static List<Reckoning> parseReader(Reader reader) {
         List<Reckoning> reckoningCards = new ArrayList<>();
         try {
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
@@ -47,7 +48,7 @@ public class Reckoning extends CardXML {
                     xpp.getName().equals("reckoning-cards") &&
                     expansionSet.isEmpty()
                 ) {
-                    expansionSet = getAttribute(xpp, "expansionSet");
+                    expansionSet = getAttribute(xpp, "expansion_set");
                 }
 
                 if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(reckoningCard))
@@ -56,9 +57,9 @@ public class Reckoning extends CardXML {
                 eventType = xpp.next();
             }
         } catch (XmlPullParserException | IOException e) {
-            e.printStackTrace();
+            System.err.println("Error parsing reader for reckoning " + e);
         }
-        return reckoningCards;
+        return Collections.unmodifiableList(reckoningCards);
     }
 
     /**

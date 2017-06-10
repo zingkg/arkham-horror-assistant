@@ -7,6 +7,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public class ExhibitEncounter extends CardXML {
      *     The reader on the file containing Exhibit Encounters.
      * @return A list of ExhibitEncounter cards.
      */
-    public static List<ExhibitEncounter> parseFile(Reader reader) {
+    public static List<ExhibitEncounter> parseReader(Reader reader) {
         List<ExhibitEncounter> cards = new ArrayList<>();
         try {
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
@@ -49,7 +50,7 @@ public class ExhibitEncounter extends CardXML {
                     xpp.getName().equals("exhibit-encounter-cards") &&
                     expansionSet.isEmpty()
                 ) {
-                    expansionSet = getAttribute(xpp, "expansionSet");
+                    expansionSet = getAttribute(xpp, "expansion_set");
                 }
 
                 if (
@@ -62,9 +63,9 @@ public class ExhibitEncounter extends CardXML {
                 eventType = xpp.next();
             }
         } catch (XmlPullParserException | IOException e) {
-            e.printStackTrace();
+            System.err.println("Error parsing reader for exhibit encounter " + e);
         }
-        return cards;
+        return Collections.unmodifiableList(cards);
     }
 
     /**

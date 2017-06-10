@@ -36,11 +36,7 @@ public class InnsmouthLookFragment extends CardFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        InnsmouthLook card = new InnsmouthLook(
-            getArguments().getString("lore", ""),
-            getArguments().getString("entry", ""),
-            getArguments().getString("expansionSet", "")
-        );
+        InnsmouthLook card = importInnsmouthLook(getArguments());
         TextView loreView = (TextView) view.findViewById(R.id.innsmouth_lore);
         if (!card.lore.isEmpty() && card.entry.isEmpty()) {
             // Simply a title.
@@ -66,5 +62,25 @@ public class InnsmouthLookFragment extends CardFragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_decks, menu);
+    }
+
+    private static final String loreKey = "lore";
+    private static final String entryKey = "entry";
+    private static final String expansionSetKey = "expansionSet";
+
+    public static Bundle exportInnsmouthLook(InnsmouthLook innsmouthLook) {
+        Bundle bundle = new Bundle();
+        bundle.putString(loreKey, innsmouthLook.lore);
+        bundle.putString(entryKey, innsmouthLook.entry);
+        bundle.putString(expansionSetKey, innsmouthLook.expansionSet);
+        return bundle;
+    }
+
+    public static InnsmouthLook importInnsmouthLook(Bundle bundle) {
+        return new InnsmouthLook(
+            bundle.getString(loreKey, ""),
+            bundle.getString(entryKey, ""),
+            bundle.getString(expansionSetKey, "")
+        );
     }
 }

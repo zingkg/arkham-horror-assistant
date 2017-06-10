@@ -7,6 +7,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -32,7 +33,7 @@ public class InnsmouthLook extends CardXML {
      *     The reader on the file containing Innsmouth Look cards.
      * @return A list of InnsmouthLook cards.
      */
-    public static List<InnsmouthLook> parseFile(Reader reader) {
+    public static List<InnsmouthLook> parseReader(Reader reader) {
         List<InnsmouthLook> innsmouthLookCards = new ArrayList<>();
         try {
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
@@ -47,7 +48,7 @@ public class InnsmouthLook extends CardXML {
                     xpp.getName().equals("innsmouth-look-cards") &&
                     expansionSet.isEmpty()
                 ) {
-                    expansionSet = getAttribute(xpp, "expansionSet");
+                    expansionSet = getAttribute(xpp, "expansion_set");
                 }
 
                 if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(innsmouthLookCard))
@@ -56,9 +57,9 @@ public class InnsmouthLook extends CardXML {
                 eventType = xpp.next();
             }
         } catch (XmlPullParserException | IOException e) {
-            e.printStackTrace();
+            System.err.println("Error parsing reader for innsmouth look " + e);
         }
-        return innsmouthLookCards;
+        return Collections.unmodifiableList(innsmouthLookCards);
     }
 
     /**
@@ -74,7 +75,7 @@ public class InnsmouthLook extends CardXML {
      */
     private static InnsmouthLook parseXML(
         XmlPullParser xpp,
-        String type
+        String expansionSet
     ) throws XmlPullParserException, IOException {
         String previousKey = "", lore = "", entry = "";
         int eventType = xpp.next();
@@ -90,6 +91,6 @@ public class InnsmouthLook extends CardXML {
             }
             eventType = xpp.next();
         }
-        return new InnsmouthLook(lore, entry, type);
+        return new InnsmouthLook(lore, entry, expansionSet);
     }
 }

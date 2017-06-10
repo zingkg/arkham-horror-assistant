@@ -5,6 +5,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -137,7 +138,7 @@ public abstract class CardXML {
      * Retrieves a list of all the strings matching the tag.
      *
      * @param xpp
-     *     The XmlPullParser instantuated with a XML document.
+     *     The XmlPullParser instantiated with a XML document.
      * @param startTag
      *     The starting tag to retrieve strings.
      * @return A list of strings.
@@ -149,11 +150,8 @@ public abstract class CardXML {
         List<String> strings = new ArrayList<>();
         int eventType = xpp.getEventType();
         boolean hitStartTag = false;
-        while (
-            eventType != XmlPullParser.END_TAG || (
-                xpp.getName() != null && !xpp.getName().equals(startTag)
-            )
-        ) {
+        String name = xpp.getName();
+        while (eventType != XmlPullParser.END_TAG || (name != null && name.equals(startTag))) {
             if (eventType == XmlPullParser.START_TAG) {
                 hitStartTag = true;
             } else if (eventType == XmlPullParser.TEXT && hitStartTag) {
@@ -161,7 +159,8 @@ public abstract class CardXML {
                 hitStartTag = false;
             }
             eventType = xpp.next();
+            name = xpp.getName();
         }
-        return strings;
+        return Collections.unmodifiableList(strings);
     }
 }
