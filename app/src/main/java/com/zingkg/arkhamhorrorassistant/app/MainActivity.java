@@ -338,6 +338,9 @@ public class MainActivity
                 case 3:
                     setPagerAdapter(generateReckoningDeck(), Reckoning.class);
                     break;
+                case 4:
+                    startActivity(new Intent(this, SettingsActivity.class));
+                    break;
             }
             getSupportActionBar().setTitle(mTitleStrings.get(position));
             mLastPosition = position;
