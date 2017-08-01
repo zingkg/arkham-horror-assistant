@@ -486,6 +486,10 @@ public class MainActivity
         public int getCount() {
             if (mCardClass == InnsmouthLook.class && mMiskatonicSetting)
                 return 11 < mCards.size() ? 11 : mCards.size();
+            else if (mCardClass == Reckoning.class && !mMiskatonicSetting)
+                return 28 < mCards.size() ? 28 : mCards.size();
+            else if (mCardClass == Reckoning.class && mMiskatonicSetting)
+                return 42 < mCards.size() ? 42 : mCards.size();
             else
                 return 6 < mCards.size() ? 6 : mCards.size();
         }
