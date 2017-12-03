@@ -25,11 +25,11 @@ import java.io.Reader
 import java.util.Arrays
 import java.util.Collections
 
-import app.fragments.CardFragment
-import app.fragments.CultEncounterFragment
-import app.fragments.ExhibitEncounterFragment
-import app.fragments.InnsmouthLookFragment
-import app.fragments.ReckoningFragment
+import com.zingkg.arkhamhorrorassistant.app.fragments.CardFragment
+import com.zingkg.arkhamhorrorassistant.app.fragments.CultEncounterFragment
+import com.zingkg.arkhamhorrorassistant.app.fragments.ExhibitEncounterFragment
+import com.zingkg.arkhamhorrorassistant.app.fragments.InnsmouthLookFragment
+import com.zingkg.arkhamhorrorassistant.app.fragments.ReckoningFragment
 import com.zingkg.arkhamhorrorassistant.xml.CardXML
 import com.zingkg.arkhamhorrorassistant.xml.CultEncounter
 import com.zingkg.arkhamhorrorassistant.xml.ExhibitEncounter
@@ -42,8 +42,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
     private var drawerToggle: ActionBarDrawerToggle? = null
     private var viewPager: ViewPager? = null
     private var pagerAdapter: DeckPagerAdapter? = null
-    private var lastPosition: Int = 0
+    private var lastDrawerPosition: Int = 0
     private var miskatonicSetting: Boolean = false
+    private var reckoningSeenIndex: Int = 0
+    private var reckoningDeck: List<Reckoning> = emptyList()
 
     private fun miskatonicSetting(): Boolean {
         return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
@@ -86,8 +88,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
         }
         drawerLayout?.addDrawerListener(currentDrawerToggle)
         drawerToggle = currentDrawerToggle
-        lastPosition = 0
-        supportActionBar?.title = titleStrings[lastPosition]
+        lastDrawerPosition = 0
+        supportActionBar?.title = titleStrings[lastDrawerPosition]
 
         // Instantiate a view pager and a pager adapter.
         miskatonicSetting = miskatonicSetting()
@@ -105,13 +107,13 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
             // Miskatonic setting is enabled.
             val miskatonic = when {
                 pagerAdapter?.cardClass == CultEncounter::class.java ->
-                    castList(parseCultEncounterResource(R.raw.cult_encounter_miskatonic))
+                    parseCultEncounterResource(R.raw.cult_encounter_miskatonic)
                 pagerAdapter?.cardClass == ExhibitEncounter::class.java ->
-                    castList(parseExhibitEncounterResource(R.raw.exhibit_encounter_miskatonic))
+                    parseExhibitEncounterResource(R.raw.exhibit_encounter_miskatonic)
                 pagerAdapter?.cardClass == InnsmouthLook::class.java ->
-                    castList(parseInnsmouthLookResource(R.raw.innsmouth_look_miskatonic))
+                    parseInnsmouthLookResource(R.raw.innsmouth_look_miskatonic)
                 pagerAdapter?.cardClass == Reckoning::class.java ->
-                    castList(parseReckoningResource(R.raw.reckoning_miskatonic))
+                    parseReckoningResource(R.raw.reckoning_miskatonic)
                 else ->
                     emptyList()
             }
@@ -131,10 +133,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
         }
     }
 
-    private fun <T : CardXML> castList(list: List<T>): List<CardXML> {
-        return list
-    }
-
     private fun setPagerAdapter(cards: List<CardXML>, cardClass: Class<out CardXML>) {
         pagerAdapter = DeckPagerAdapter(
             supportFragmentManager,
@@ -143,6 +141,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
             miskatonicSetting
         )
         viewPager?.adapter = pagerAdapter
+
+        if (cardClass == Reckoning::class.java)
+            viewPager?.currentItem = reckoningSeenIndex
+    }
+
+    private fun setReckoningSeenIndex() {
+        if (pagerAdapter?.cardClass == Reckoning::class.java)
+            reckoningSeenIndex = viewPager?.currentItem ?: 0
     }
 
     private fun readResource(resource: Int): Reader {
@@ -166,7 +172,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
         return cards
     }
 
-    private fun generateExhibitEncounterDeck(): List<CardXML> {
+    private fun generateExhibitEncounterDeck(): List<ExhibitEncounter> {
         val base = parseExhibitEncounterResource(R.raw.exhibit_encounter)
         val miskatonic = if (miskatonicSetting)
             parseExhibitEncounterResource(R.raw.exhibit_encounter_miskatonic)
@@ -200,7 +206,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
         return cards
     }
 
-    private fun generateReckoningDeck(): List<CardXML> {
+    private fun generateReckoningDeck(): List<Reckoning> {
         val base = parseReckoningResource(R.raw.reckoning)
         val miskatonic = if (miskatonicSetting)
             parseReckoningResource(R.raw.reckoning_miskatonic)
@@ -238,32 +244,36 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
     }
 
     override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-        if (lastPosition == position) {
-            pagerAdapter?.let {
-                setPagerAdapter(shuffleCards(it.cards), it.cardClass)
-            }
+        if (lastDrawerPosition == position) {
+            pagerAdapter?.let { setPagerAdapter(shuffleCards(it.cards), it.cardClass) }
         } else {
             when (position) {
                 0 -> {
+                    setReckoningSeenIndex()
                     setPagerAdapter(generateCultEncounterDeck(), CultEncounter::class.java)
                     supportActionBar?.title = titleStrings[position]
                 }
                 1 -> {
+                    setReckoningSeenIndex()
                     setPagerAdapter(generateExhibitEncounterDeck(), ExhibitEncounter::class.java)
                     supportActionBar?.title = titleStrings[position]
                 }
                 2 -> {
+                    setReckoningSeenIndex()
                     setPagerAdapter(generateInnsmouthLookDeck(), InnsmouthLook::class.java)
                     supportActionBar?.title = titleStrings[position]
                 }
                 3 -> {
-                    setPagerAdapter(generateReckoningDeck(), Reckoning::class.java)
+                    if (reckoningDeck.isEmpty())
+                        reckoningDeck = generateReckoningDeck()
+
+                    setPagerAdapter(reckoningDeck, Reckoning::class.java)
                     supportActionBar?.title = titleStrings[position]
                 }
                 4 ->
                     startActivity(Intent(this, SettingsActivity::class.java))
             }
-            lastPosition = position
+            lastDrawerPosition = position
         }
         drawerLayout?.closeDrawer(drawerList)
     }
@@ -281,7 +291,15 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
     }
 
     override fun onDoneItemClick() {
-        pagerAdapter?.let { setPagerAdapter(shuffleCards(it.cards), it.cardClass) }
+        pagerAdapter?.let {
+            if (it.cardClass == Reckoning::class.java) {
+                reckoningDeck = shuffleCards(reckoningDeck)
+                reckoningSeenIndex = 0
+                setPagerAdapter(shuffleCards(reckoningDeck), it.cardClass)
+            } else {
+                setPagerAdapter(shuffleCards(it.cards), it.cardClass)
+            }
+        }
     }
 
     private class DeckPagerAdapter(
@@ -381,7 +399,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
             "Settings"
         )
 
-        private fun <T : CardXML> shuffleCards(cards: List<T>): List<CardXML> {
+        private fun <T : CardXML> shuffleCards(cards: List<T>): List<T> {
             val shuffledCards = cards.map { it }
             Collections.shuffle(shuffledCards)
             return shuffledCards

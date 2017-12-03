@@ -1,4 +1,4 @@
-package app.fragments
+package com.zingkg.arkhamhorrorassistant.app.fragments
 
 import android.app.Activity
 import android.content.Context
