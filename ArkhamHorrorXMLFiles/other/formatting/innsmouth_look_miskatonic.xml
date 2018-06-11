@@ -1,0 +1,50 @@
+<innsmouth-look-cards expansionSet="miskatonic">
+    <!-- Innsmouth 1 -->
+    <innsmouth-look>
+        <lore>
+            <i>Your blood chills when you see your friend. You&apos;ve seen his face so many times, but now it seems different. Your friend&apos;s large, watery eyes no longer appear human.</i>
+        </lore>
+        <entry>
+            Draw one Ally card and return it to the box. Then draw another Innsmouth Look card.
+        </entry>
+    </innsmouth-look>
+    <!-- Innsmouth 2 -->
+    <innsmouth-look>
+        <lore>
+            <i>Looking into your own family&apos;s history, you discover a line of your ancestry that descended from the small fishing village of Innsmouth.</i>
+        </lore>
+        <entry>
+            You may gain up to three Clue tokens. For each Clue token you choose to gain, draw another Innsmouth Look card.
+        </entry>
+    </innsmouth-look>
+    <!-- Innsmouth 3 -->
+    <innsmouth-look>
+        <lore>
+            <i>You wake up after dreaming of a dark, submerged city. Shadowy figures floated everywhere, and the entire ocean was teeming with activity.</i>
+        </lore>
+        <entry>
+            All monsters with the plus sign dimensional symbol, regardless of special movement abilities, move to an adjacent street area, location, or vortex, following the path with a black movement arrow. Then draw another Innsmouth Look card.
+        </entry>
+    </innsmouth-look>
+    <!-- Innsmouth 4 -->
+    <innsmouth-look>
+        <lore>
+            <i>In the dimmest corner of your mind, you hear a faintly echoing call. Something is moving across the water.</i>
+        </lore>
+        <entry>
+            All monsters with the plus sign dimensional symbol, regardless of special movement abilities, move to an adjacent street area, location, or vortex, following the path with a white movement arrow. Then draw another Innsmouth Look card.
+        </entry>
+    </innsmouth-look>
+    <!-- Innsmouth 5 -->
+    <innsmouth-look>
+        <lore>
+            <i>Each time you pass the mirror, the thought occurs to you, &quot;Do I dare look? How deeply do I dare gaze into my own eyes?&quot;</i>
+        </lore>
+        <entry>
+            Choose 1 of the following:
+            <p>1. Draw 1 additional Innsmouth Look card and you are Cursed.</p>
+            <p>2. Draw 2 additional Innsmouth Look cards.</p>
+            <p>3. Draw 3 additional Innsmouth Look cards and you are Blessed</p>
+        </entry>
+    </innsmouth-look>
+</innsmouth-look-cards>

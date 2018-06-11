@@ -1,0 +1,232 @@
+<cult-encounter-cards expansionSet="the black goat of the woods">
+    <!-- Cult Encounter 1 -->
+    <cult-encounter>
+        <title>A Simple Choice</title>
+        <lore>
+            <i>&quot;These tools are for the collective good.&quot;</i>
+        </lore>
+        <entry>
+            Draw 1 Common item, then either discard a different item or draw a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 2 -->
+    <cult-encounter>
+        <title>A Simple Choice</title>
+        <lore>
+            <i>&quot;These tools are for the collective good.&quot;</i>
+        </lore>
+        <entry>
+            Draw 1 Common item, then either discard a different item or draw a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 3 -->
+    <cult-encounter>
+        <title>Baptized in Blood</title>
+        <lore>
+            <i>&quot;Kneel and receive the Mother&apos;s Blessing!&quot;</i>
+        </lore>
+        <entry>
+            You may choose to be blessed, then lose 2 Sanity and draw a Corruption card. If you choose not to do so, you are Cursed and must discard your Cult Membership, then move to the street.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 4 -->
+    <cult-encounter>
+        <title>Birthing Chant</title>
+        <lore>
+            <i>&quot;Iä! Iä! Shub-Niggurath! The Black Goat of the Woods with a Thousand Young!&quot;</i>
+        </lore>
+        <entry>
+            Out of the darkness a grotesque monster appears!
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 5 -->
+    <cult-encounter>
+        <title>Blood Offering</title>
+        <lore>
+            <i>&quot;Service demands sacrifice.&quot;</i>
+        </lore>
+        <entry>
+            Either discard 1 Ally, discard 2 toughness worth of monster trophies, or lose 3 Stamina. If you cannot or will not do any of these things, discard your Cult Membership and move to the street.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 6 -->
+    <cult-encounter>
+        <title>Blood-drenched Altar</title>
+        <lore>
+            <i>The chanting seems to echo through the trees and in your mind as the circle leader makes a series of ritual cuts in the beast's flesh.</i>
+        </lore>
+        <entry>
+            Raise the terror level by 1.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 7 -->
+    <cult-encounter>
+        <title>Calling forth the Darkness</title>
+        <lore>
+            <i>&quot;Hooded figures kneel before a stone altar and begin a blasphemous ritual that draws power from a dark and malevolent source.&quot;</i>
+        </lore>
+        <entry>
+            If you participate in the ceremony, each investigator must draw a Corruption card. If you choose not to do so, a monster surge occurs.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 8 -->
+    <cult-encounter>
+        <title>Curious Endowment</title>
+        <lore>
+            <i>A shadowy figure reveals two strange items and whispers&quot;Choose wisely, friend&quot;</i>
+        </lore>
+        <entry>
+            You may draw 2 Unique items, choose one to keep, and discard the other. If you do, draw a Corruption card. Otherwise, move to the street.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 9 -->
+    <cult-encounter>
+        <title>Dance of the Chosen</title>
+        <lore>
+            <i>Deranged figures gyrate around the bonfire, beseeching the Black Goat for power.</i>
+        </lore>
+        <entry>
+            You may draw 2 Spells, choose one to keep, and discard the other. If you do, draw a Corruption card. Otherwise, move to the street.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 10 -->
+    <cult-encounter>
+        <title>Dance of the Chosen</title>
+        <lore>
+            <i>Deranged figures gyrate around the bonfire, beseeching the Black Goat for power.</i>
+        </lore>
+        <entry>
+            You may draw 2 Spells, choose one to keep, and discard the other. If you do, draw a Corruption card. Otherwise, move to the street.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 11 -->
+    <cult-encounter>
+        <title>No Turning Back</title>
+        <lore>
+            <i>Your quickened heartbeat and the drone of chanting voices create a strange rhythm as you approach the stone altar. You hesitate, then step into its long shadow and feel a bit of your humanity slip away.</i>
+        </lore>
+        <entry>
+            Draw a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 12 -->
+    <cult-encounter>
+        <title>No Turning Back</title>
+        <lore>
+            <i>Your quickened heartbeat and the drone of chanting voices create a strange rhythm as you approach the stone altar. You hesitate, then step into its long shadow and feel a bit of your humanity slip away.</i>
+        </lore>
+        <entry>
+            Draw a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 13 -->
+    <cult-encounter>
+        <title>Questioned Loyalty</title>
+        <lore>
+            <i>&quot;New members often struggle with total commitment&quot;, says a senior cult member. &quot;But, a few honest answers about your recent activities should reassure us.&quot;</i>
+        </lore>
+        <entry>
+            Discard 2 Clue tokens, if able. You may reduce this loss by 1 for each Corruption card you have. If you cannot or will not, lose 2 Stamina and move to the street.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 14 -->
+    <cult-encounter>
+        <title>Startling Revelation</title>
+        <lore>
+            <i>&quot;You bump into a pair of cloaked figures conversing in the darkness and are shocked that you recognize them both!&quot;</i>
+        </lore>
+        <entry>
+            Return 2 Allies from the Ally deck to the box. They have joined &quot;One of the Thousand&quot; Cult!
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 15 -->
+    <cult-encounter>
+        <title>Teetering Sanity</title>
+        <lore>
+            <i>The reality of the situation suddenly slaps you in the face. Questioning your motives, you wonder when all of this became so compelling...</i>
+        </lore>
+        <entry>
+            Lose 2 Sanity.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 16 -->
+    <cult-encounter>
+        <title>Tempations of Power</title>
+        <lore>
+            <i>&quot;The Black Goat favors you.&quot;</i>
+        </lore>
+        <entry>
+            You may search the Spell deck for a card of your choice, then lose 1 Sanity and draw a Corruption card. If you choose not to do so, discard your Cult Membership and move to the street.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 17 -->
+    <cult-encounter>
+        <title>The Chosen One</title>
+        <lore>
+            <i>You stand before the stone altar, knife in hand. Will it be another's blood, or your own that you shed?</i>
+        </lore>
+        <entry>
+            You must either draw 2 Corruption cards and add 1 doom token to the doom track, or remove 1 doom token from the doom track and be devoured.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 18 -->
+    <cult-encounter>
+        <title>Tithes That Bind</title>
+        <lore>
+            <i>&quot;We require a small donation.&quot;</i>
+        </lore>
+        <entry>
+            Spend $3 (or discard items worth at least $3) to gain 2 Clue tokens and a Corruption card. If you cannot or will not, discard your Cult Membership and move to the street.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 19 -->
+    <cult-encounter>
+        <title>Tithes That Bind</title>
+        <lore>
+            <i>&quot;We require a small donation.&quot;</i>
+        </lore>
+        <entry>
+            Spend $3 (or discard items worth at least $3) to gain 2 Clue tokens and a Corruption card. If you cannot or will not, discard your Cult Membership and move to the street.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 20 -->
+    <cult-encounter>
+        <title>Unbreakable Oath</title>
+        <lore>
+            <i>&quot;The Mother's milk is her most sacred gift. Drink deeply.&quot;</i>
+        </lore>
+        <entry>
+            You may search the Unique item deck for a Milk of Shub-Niggurath card, if it is available. If you do, draw a Corruption card. Otherwise move to the street.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 21 -->
+    <cult-encounter>
+        <title>Watching and Waiting</title>
+        <lore>
+            <i>Cautious subterfuge earns you a glimpse at things to come, yet there is truth in the old adage about the bliss of ignorance.</i>
+        </lore>
+        <entry>
+            You may either gain 1 Clue token, or 3 Clue tokens and a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 22 -->
+    <cult-encounter>
+        <title>Watching and Waiting</title>
+        <lore>
+            <i>Cautious subterfuge earns you a glimpse at things to come, yet there is truth in the old adage about the bliss of ignorance.</i>
+        </lore>
+        <entry>
+            You may either gain 1 Clue token, or 3 Clue tokens and a Corruption card.
+        </entry>
+    </cult-encounter>
+    <!-- Cult Encounter 23 -->
+    <cult-encounter>
+        <title>Whispers in Shadows</title>
+        <lore>
+            <i>&quot;Take this to help with your cause, friend.&quot;</i>
+        </lore>
+        <entry>
+            You may either gain $3 and draw a Corruption card, or move to the street.
+        </entry>
+    </cult-encounter>
+</cult-encounter-cards>

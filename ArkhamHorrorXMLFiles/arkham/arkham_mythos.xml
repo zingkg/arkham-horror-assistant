@@ -1,0 +1,1288 @@
+<mythos_cards expansionSet="arkham horror">
+    <!-- Mythos 3 -->
+    <mythos expansionSet="arkham">
+        <title>A Strange Plague</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail>Investigators cannot gain Stamina except by receiving medical care in St. Mary's Hospital (or from Vincent Lee).</detail>
+        <clues>
+            <location>The Unnamable</location>
+        </clues>
+        <gates>
+            <location>Independence Square</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 2 -->
+    <mythos expansionSet="arkham">
+        <title>Alien Technology</title>
+        <expansionSet>Environment (Urban)</expansionSet>
+        <detail>Mi-Go have their toughness increased by 2. If an investigator passes a <b> Combat check</b> against a Mi-Go, he draws 1 extra Unique Item.</detail>
+        <clues>
+            <location>Science Building</location>
+        </clues>
+        <gates>
+            <location>Unvisited Isle</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 1 -->
+    <mythos expansionSet="arkham">
+        <title>All Quiet in Arkham!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>Each player may pass a <b>Luck (-1) check</b> to be <i>Blessed</i>.</detail>
+        <clues>
+            <location>Historical Society</location>
+        </clues>
+        <gates>
+            <location>Woods</location>
+        </gates>
+        <white_symbols >
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 6 -->
+    <mythos expansionSet="arkham">
+        <title>An Evil Fog</title>
+        <expansionSet>Environment (Weather)</expansionSet>
+        <detail><p>Will checks in Arkham are made at a -1 penalty.</p><p>Sneak checks in Arkham are made at a +1 bonus.</p><p>Fliers do not move.</p></detail>
+        <clues>
+            <location>Unvisited Isle</location>
+        </clues>
+        <gates>
+            <location>Graveyard</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 5 -->
+    <mythos expansionSet="arkham">
+        <title>Big Storm Sweeps Arkham!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the Sky and Outskirts are returned to the cup.</detail>
+        <clues>
+            <location>The Unnamable</location>
+        </clues>
+        <gates>
+            <location>Independence Square</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 4 -->
+    <mythos expansionSet="arkham">
+        <title>Bizarre Dreams Plague Citizens!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All Gugs and Nightgaunts in Arkham are returned to the cup. If at least one monster returns to the cup, raise the terror level by 1.</detail>
+        <clues>
+            <location>The Witch House</location>
+        </clues>
+        <gates>
+            <location>Science Building</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 9 -->
+    <mythos expansionSet="arkham">
+        <title>Blackest Night</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail><p>Luck checks in Arkham are made at a -1 penalty.</p><p>Sneak checks in Arkham are made at a +1 bonus.</p></detail>
+        <clues>
+            <location>Hibb&apos;s Roadhouse</location>
+        </clues>
+        <gates>
+            <location>Black Cave</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 8 -->
+    <mythos expansionSet="arkham">
+        <title>Blood Magic</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail>Investigators who end their movement in Rivertown streets may choose to delve into dark mysteries using their life force. They roll dice equal to their current Stamina, and for every failed die, they lose 1 Stamina. If this reduces them to 0 Stamina, they are <b>devoured</b> and the player must start a new character. Otherwise, they gain 3 Clue tokens</detail>
+        <activity >
+            <location>Rivertown Streets</location>
+        </activity>
+        <clues>
+            <location>The Unnamable</location>
+        </clues>
+        <gates>
+            <location>Independence Square</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 7 -->
+    <mythos expansionSet="arkham">
+        <title>Blue Flu!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All investigators in jail are released. No investigators may be <i>arrested</i> until the end of next turn. Leave this card in play until then to indicate this.</detail>
+        <clues>
+            <location>Woods</location>
+        </clues>
+        <gates>
+            <location>The Unnamable</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 12 -->
+    <mythos expansionSet="arkham">
+        <title>Campus Security Increased!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the Miskatonic U. streets or locations are returned to the cup.</detail>
+        <clues>
+            <location>The Unnamable</location>
+        </clues>
+        <gates>
+            <location>Independence Square</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 11 -->
+    <mythos expansionSet="arkham">
+        <title>Church Group Recalims Southside!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the Southside streets or locations are returned to the cup.</detail>
+        <clues>
+            <location>Hibb's Roadhouse</location>
+        </clues>
+        <gates>
+            <location>Black Cave</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 10 -->
+    <mythos expansionSet="arkham">
+        <title>City Gripped by Blackouts!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>The General Store, Curiositie Shoppe, and Ye Olde Magick Shoppe are closed until the end of next turn. Leave this card in play until then to indicate this.</detail>
+        <activity close="true">
+            <location>The General Store</location>
+            <location>Curiositie Shoppe</location>
+            <location>Ye Olde Magick Shoppe</location>
+        </activity>
+        <clues>
+            <location>Science Building</location>
+        </clues>
+        <gates>
+            <location>Unvisitied Isle</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 15 -->
+    <mythos expansionSet="arkham">
+        <title>Curfew Enforced</title>
+        <expansionSet>Environment (Urban)</expansionSet>
+        <detail>Any investigator who ends his movement in the streets must pass a <b>Will (+0) check</b> or be arrested and taken to the Police Station.</detail>
+        <clues>
+            <location>Science Building</location>
+        </clues>
+        <gates>
+            <location>Unvisited Isle</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 14 -->
+    <mythos expansionSet="arkham">
+        <title>Darke&apos;s Carnival Arrives</title>
+        <expansionSet>Environment (Urban)</expansionSet>
+        <detail>Investigators who end their movement in the Northside streets gain 1 Clue token from the sinister wonders they witness, but must pass a <b>Will (-1) check</b> or lose 1 Sanity.</detail>
+        <activity >
+            <location>Northside Streets</location>
+        </activity>
+        <clues>
+            <location>Woods</location>
+        </clues>
+        <gates>
+            <location>The Unnamable</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 13 -->
+    <mythos expansionSet="arkham">
+        <title>Disturbing the Dead</title>
+        <expansionSet>Rumor</expansionSet>
+        <detail><p><b>Ongoing Effect:</b> Roll a die at the end of every <b>Mythos Phase</b> while this card is in play (beginning the turn after it entered play). On a 1 or 2, increase the terror level by 1.</p><p><b>Pass:</b> If a singple player discards 2 gate trophies during the <b>Arkham Encounter Phase</b> while in the Rivertown streets, return this card to the box. Each player draws 1 Spell.</p><p><b>Fail:</b> If the terror level reaches 10, return this card to the box. Every investigator is <i>Cursed</i>.</p></detail>
+        <activity>
+            <location>Rivertown Streets</location>
+        </activity>
+        <gates>
+            <location>Black Cave</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 18 -->
+    <mythos expansionSet="arkham">
+        <title>Dreams of a Sunken City</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail>Investigators cannot gain Sanity except by receiving psychiatric care at Arkham Asylum (or from Carolyn Fern).</detail>
+        <clues>
+            <location>The Unnamable</location>
+        </clues>
+        <gates>
+            <location>Independence Square</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 17 -->
+    <mythos expansionSet="arkham">
+        <title>Egyptian Exhibit Visits Miskatonic U.</title>
+        <expansionSet>Environment (Urban)</expansionSet>
+        <detail>Any investigator who ends his movement in the Miskatonic U. streets may pass a <b>Lore (-1) check</b> to gain 1 Clue token by reading the strange heiroglyphics on the artifacts in the exhibit.</detail>
+        <activity>
+            <location>Miskatonic U. Streets</location>
+        </activity>
+        <clues>
+            <location>Black Cave</location>
+        </clues>
+        <gates>
+            <location>The Witch House</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 16 -->
+    <mythos expansionSet="arkham">
+        <title>Estate Sale</title>
+        <expansionSet>Environment (Urban)</expansionSet>
+        <detail>Investigators who end their movement in the Uptown streets may draw 2 Unique Items and purchase one, none, or both of them at list price, discarding any that are not purchased.</detail>
+        <activity>
+            <location>Uptown Streets</location>
+        </activity>
+        <clues>
+            <location>Black Cave</location>
+        </clues>
+        <gates>
+            <location>The Witch House</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 21 -->
+    <mythos expansionSet="arkham">
+        <title>Family Found Butchered!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>The terror level increases by 1 in light of this tragic news.</detail>
+        <clues>
+            <location>Unvisited Isle</location>
+        </clues>
+        <gates>
+            <location>Graveyard</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 20 -->
+    <mythos expansionSet="arkham">
+        <title>Feds Raid Arkham!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the streets are returned to the cup.</detail>
+        <clues>
+            <location>Hibb&apos;s Roadhouse</location>
+        </clues>
+        <gates>
+            <location>Black Cave</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 19 -->
+    <mythos expansionSet="arkham">
+        <title>Fourth of July Parade!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>Investigators cannot move into or out of the Merchant Dist. streets until the end of next turn. Leave this card in play until then to indicate this.</detail>
+        <activity close="true">
+            <location>Merchant Dist. Streets</location>
+        </activity>
+        <clues>
+            <location>Black Cave</location>
+        </clues>
+        <gates>
+            <location>The Witch House</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols >
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 24 -->
+    <mythos expansionSet="arkham">
+        <title>Gangs Clean Up Easttown!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the Easttown streets or locations are returned to the cup.</detail>
+        <clues>Black Cave</clues>
+        <gates>The Witch House</gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 23 -->
+    <mythos expansionSet="arkham">
+        <title>Ghost Ship Docks by Itself!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>An ancient ghost ship arrives in Arkham, releasing 2 monsters into the Merchant Dist. streets.</detail>
+        <clues>
+            <location>Woods</location>
+        </clues>
+        <gates>
+            <location>The Unnamable</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 22 -->
+    <mythos expansionSet="arkham">
+        <title>Goat-like Creature Spotted in Woods!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All Dark Young in Arkham are returned to the cup. If at least one monster returns to the cup, raise the terror level by 1.</detail>
+        <clues>
+            <location>The Unnamable</location>
+        </clues>
+        <gates>
+            <location>Independence Square</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 27 -->
+    <mythos expansionSet="arkham">
+        <title>Good Work Undone</title>
+        <expansionSet>Rumor</expansionSet>
+        <detail><p>When this card enters play, place 6 Clue tokens on it. Any player may spend Clue tokens during the <b>Arkham Encounter Phase</b> while in the Easttown streets to discard Clue tokens from this card on a 1-for-1 basis.</p><p><b>Ongoing Effect:</b>Roll two dice at the end of every <b>Mythos Phase</b> (beginning the turn after it entered play). For every 1 or 2 rolled, place 1 Clue token on this card.</p><p><b>Pass:</b> If there are no Clue tokens on this card, return it to the box. Each player draws 1 Unique item.</p><p><b>Fail:</b> If there are 10 Clue tokens on this card, return it to the box. All elder sign tokens are removed from the board.</p></detail>
+        <activity>
+            <location>Easttown Streets</location>
+        </activity>
+        <gates>
+            <location>Unvisited Isle</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Star</symbol>
+            <symbol>Triangle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 26 -->
+    <mythos expansionSet="arkham">
+        <title>Happy Days are Here Again</title>
+        <expansionSet>Environment (Urban)</expansionSet>
+        <detail>Due to the renewed prosperity that has come to Arkham, the terror level cannot increase.</detail>
+        <clues>
+            <location>Historical Society</location>
+        </clues>
+        <gates>
+            <location>Woods</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 25 -->
+    <mythos expansionSet="arkham">
+        <title>Heat Wave</title>
+        <expansionSet>Environment (Weather)</expansionSet>
+        <detail><p>Fight checks in Arkham are made at a -1 penalty.</p><p>Lore checks in Arkham are made at a +1 bonus.</p><p>Fire Vampires have their toughness increased by 1.</p></detail>
+        <clues>
+            <location>Independence Square</location>
+        </clues>
+        <gates>
+            <location>Woods</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 30 -->
+    <mythos expansionSet="arkham">
+        <title>Horror at Groundbreaking!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>An ancient stone is disturbed by the construction, releasing 2 monsters in to the Miskatonic U. streets.</detail>
+        <clues>
+            <location>Silver Twilight Lodge</location>
+        </clues>
+        <gates>
+            <location>Historical Society</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 29 -->
+    <mythos expansionSet="arkham">
+        <title>Icy Conditions</title>
+        <expansionSet>Environment (Weather)</expansionSet>
+        <detail><p>Investigators receive 1 less movement point during the Movement Phase.</p><p><i>Fast monsters</i> move like normal monsters.</p></detail>
+        <clues>
+            <location>Silver Twilight Lodge</location>
+        </clues>
+        <gates>
+            <location>Historical Society</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 28 -->
+    <mythos expansionSet="arkham">
+        <title>Ill Wind Grips Arkham!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>The first player must pass a <b>Luck (-1) check</b> or be <i>Cursed</i>.</detail>
+        <clues>
+            <location>Unvisited Isle</location>
+        </clues>
+        <gates>
+            <location>Graveyard</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 33 -->
+    <mythos expansionSet="arkham">
+        <title>Lodge Member Held for Questioning!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>A Silver Lodge ritual lets 2 monsters loose in the French Hill streets.</detail>
+        <clues>
+            <location>Hibb's Roadhouse</location>
+        </clues>
+        <gates>
+            <location>Black Cave</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 32 -->
+    <mythos expansionSet="arkham">
+        <title>Lodge Members Watch the Night!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the French Hill streets or locations are returned to the cup.</detail>
+        <clues>
+            <location>Science Building</location>
+        </clues>
+        <gates>
+            <location>Unvisited Isle</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 31 -->
+    <mythos expansionSet="arkham">
+        <title>Manhunt in Arkham!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in locations are returned to the cup.</detail>
+        <clues>
+            <location>Independence Square</location>
+        </clues>
+        <gates>
+            <location>Woods</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols >
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 36 -->
+    <mythos expansionSet="arkham">
+        <title>Merchants March on Crime!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the Merchant Dist. streets or locations are returned to the cup.</detail>
+        <clues>
+            <location>The Unnamable</location>
+        </clues>
+        <gates>
+            <location>Independence Square</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 35 -->
+    <mythos expansionSet="arkham">
+        <title>Miskatonic Arctic Expedition Returns!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>Any Elder Things previously claimed as monster trophies by players return to life and are placed in the River Docks.</detail>
+        <clues>
+            <location>Independence Square</location>
+        </clues>
+        <gates>
+            <location>Hibb&apos;s Roadhouse</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 34 -->
+    <mythos expansionSet="arkham">
+        <title>Missing People Return!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All investigators currently <i>lost in time and space</i> immediately return to Arkham, appearing in a street or location of their choice.</detail>
+        <clues>
+            <location>Woods</location>
+        </clues>
+        <gates>
+            <location>The Unnamable</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 39 -->
+    <mythos expansionSet="arkham">
+        <title>No One Can Help You Now</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail>Gates cannot be <b>sealed</b>, although they can still be <b>closed</b>.</detail>
+        <clues>
+            <location>Woods</location>
+        </clues>
+        <gates>
+            <location>The Unnamable</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols >
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 38 -->
+    <mythos expansionSet="arkham">
+        <title>Nodens&apos;s Favor</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail>It consts 2 fewer Clue tokens to <b>seal</b> gates.</detail>
+        <clues>
+            <location>Black Cave</location>
+        </clues>
+        <gates>
+            <location>The Witch House</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 37 -->
+    <mythos expansionSet="arkham">
+        <title>Picnickers Panic!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>A careless picnicker unleashes 2 monsters on the Downtown streets.</detail>
+        <clues>
+            <location>Science Building</location>
+        </clues>
+        <gates>
+            <location>Unvisited Isle</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols >
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 42 -->
+    <mythos expansionSet="arkham">
+        <title>Planetary Alignment</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail>Thanks to the mystic energy generated by the planetary alignment, all spells have a Sanity cost of 0.</detail>
+        <clues>
+            <location>Black Cave</location>
+        </clues>
+        <gates>
+            <location>The Witch House</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols >
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 41 -->
+    <mythos expansionSet="arkham">
+        <title>Police Step Up Patrols in Northside!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the Northside streets or locations are returned to the cup.</detail>
+        <clues>
+            <location>Graveyard</location>
+        </clues>
+        <gates>
+            <location>Silver Twilight Lodge</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 40 -->
+    <mythos expansionSet="arkham">
+        <title>Private Security Hired in Uptown!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the Uptown streets or locations are returned to the cup.</detail>
+        <clues>
+            <location>Historical Society</location>
+        </clues>
+        <gates>
+            <location>Woods</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 44 -->
+    <mythos expansionSet="arkham">
+        <title>Raining Cats and Dogs</title>
+        <expansionSet>Environment (Weather)</expansionSet>
+        <detail><p> Speed checks in Arkham are made at a -1 penalty, and players receive 1 less movement point during the <b>Movement Phase</b></p><p>Sneak checks in Arkham are made at a +1 bonus.</p><p>Return any Fire Vampires in play to the cup. If a Fire Vampire enters play, return it to the cup and draw a different monster.</p></detail>
+        <clues>
+            <location>Independence Square</location>
+        </clues>
+        <gates>
+            <location>Hibb&apos;s Roadhouse</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 43 -->
+    <mythos expansionSet="arkham">
+        <title>Rivertown Residents Take Back Streets!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the Rivertown streets or locations are returned to the cup.</detail>
+        <clues>
+            <location>Black Cave</location>
+        </clues>
+        <gates>
+            <location>The Witch House</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 45 -->
+    <mythos expansionSet="arkham">
+        <title>R&apos;lyeh Rising</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail><p>Star Spawn and Maniacs have their toughness increased by 1.</p><p>The difficulty to <b>seal</b> or <b>close</b> gates to R&apos;lyeh is increased by 1.</p></detail>
+        <clues>
+            <location>Historical Society</location>
+        </clues>
+        <gates>
+            <location>Woods</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols >
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 48 -->
+    <mythos expansionSet="arkham">
+        <title>Scientist Warns of Dimensional Rift!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All Dimensional Shamblers and Hounds of Tindalos in Arkham are returned to the cup. If at least one monster returns to the cup, raise the terror level by 1.</detail>
+        <clues>
+            <location>Science Building</location>
+        </clues>
+        <gates>
+            <location>Unvisited Isle</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 47 -->
+    <mythos expansionSet="arkham">
+        <title>Sheldon Gang Turns to Police for Aid!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>The Sheldon Gang disturbs a burial mound, releasing 2 monsters into the Uptown streets.</detail>
+        <clues>
+            <location>Unvisited Isle</location>
+        </clues>
+        <gates>
+            <location>Graveyard</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 46 -->
+    <mythos expansionSet="arkham">
+        <title>Slum Murders Continue!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>An old basement is opened, releasing 2 monsters into the Easttown streets.</detail>
+        <clues>
+            <location>Historical Society</location>
+        </clues>
+        <gates>
+            <location>Woods</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols >
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 51 -->
+    <mythos expansionSet="arkham">
+        <title>Solar Eclipse</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail>Due to the interference of the solar eclipse, no spells may be cast.</detail>
+        <clues>
+            <location>Unvisited Isle</location>
+        </clues>
+        <gates>
+            <location>Graveyard</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 50 -->
+    <mythos expansionSet="arkham">
+        <title>Southside Strangler Suspected!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>However, the press is mistaken, and the murders were caused by 2 monsters that are released into the Southside streets.</detail>
+        <clues>
+            <location>Historical Society</location>
+        </clues>
+        <gates>
+            <location>Woods</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 49 -->
+    <mythos expansionSet="arkham">
+        <title>Strange Lights on Campus!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>The Library, Administration Building, and Science Building are all closed until the end of next turn. Leave this card in play until then to indicate this.</detail>
+        <activity close="true">
+            <location>Administration Building</location>
+            <location>Library</location>
+            <location>Science Building</location>
+        </activity>
+        <clues>
+            <location>Historical Society</location>
+        </clues>
+        <gates>
+            <location>Woods</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 54 -->
+    <mythos expansionSet="arkham">
+        <title>Strange Power Flux Plagues City!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All investigators in Other World areas may immediately return to Arkham.</detail>
+        <clues>
+            <location>The Unnamable</location>
+        </clues>
+        <gates>
+            <location>Independence Square</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 53 -->
+    <mythos expansionSet="arkham">
+        <title>Strange Tremors Cease!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All Chthonians and Dholes are returned to the cup. If at least one monster returns to the cup, raise the terror level by 1.</detail>
+        <clues>
+            <location>The Unnamable</location>
+        </clues>
+        <gates>
+            <location>Independence Square</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 52 -->
+    <mythos expansionSet="arkham">
+        <title>Sunny and Clear</title>
+        <expansionSet>Environment (Weather)</expansionSet>
+        <detail><p>Sneak checks in Arkham are made at a -1 penalty.</p><p>Will checks in Arkham are made at a +1 bonus.</p><p>If the Haunter in Darkness is in play, return it to the cup. If the Haunter in Darkness enters play, return it to the cup and draw a different monster.</p></detail>
+        <clues>
+            <location>Hibb&apos;s Roadhouse</location>
+        </clues>
+        <gates>
+            <location>Black Cave</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 57 -->
+    <mythos expansionSet="arkham">
+        <title>Temperence Fever Sweeps City</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>Any investigator with Whiskey must pass a <b>Sneak (-1) check</b> or get arrested and taken to the Police Station. If this occurs, they must dicard their Whiskey. In addiction, Hibb&apos;s Roadhouse is closed until the end of next turn. Leave this card in play until then to indicate this.</detail>
+        <activity close="true">
+            <location>Hibb&apos;s Roadhouse</location>
+        </activity>
+        <clues>
+            <location>Black Cave</location>
+        </clues>
+        <gates>
+            <location>The Witch House</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 56 -->
+    <mythos expansionSet="arkham">
+        <title>Terror at the Train Station!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>A rusty train arrives in Arkham, disgorging 2 monsters into the Northside streets.</detail>
+        <clues>
+            <location>Black Cave</location>
+        </clues>
+        <gates>
+            <location>The Witch House</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 55 -->
+    <mythos expansionSet="arkham">
+        <title>The Chill of the Grave</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail>All <b>Undead</b> monsters have their toughness increased by 1.</detail>
+        <clues>
+            <location>Science Building</location>
+        </clues>
+        <gates>
+            <location>Unvisited Isle</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 60 -->
+    <mythos expansionSet="arkham">
+        <title>The Festival</title>
+        <expansionSet>Environment (Urban)</expansionSet>
+        <detail>The festival has begun! Cultists ans Byakhee have their toughness increased by 1.</detail>
+        <clues>
+            <location>Historical Society</location>
+        </clues>
+        <gates>
+            <location>Woods</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 59 -->
+    <mythos expansionSet="arkham">
+        <title>The Great Ritual</title>
+        <expansionSet>Rumor</expansionSet>
+        <detail><p><b>Ongoing Effect:</b> Cultists, Witches, Warlocks, and High Priests have their toughness increased by 2 while this card is in play.</p><p>Place 1 Clue token on this card at the end of every <b>Mythos Phase</b> (beginning the turn after it entered play).</p><p><b>Pass:</b> If a single player discards 3 spells (4 if there are 5 or more players) while in the French Hill streets during the <b>Arkham Encounter Phase</b>, return this card to the box. Each player gains 2 Clue tokens.</p><p><b>Fail:</b> If there are ever 5 Clue tokens on this card, return it to the box. From now on, draw 2 mythos cards each <b>Mythos Phase</b>. Ignore everything on the first card except for the gate opening.</p></detail>
+        <activity>
+            <location>French Hill Streets</location>
+        </activity>
+        <gates>
+            <location>Graveyard</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 58 -->
+    <mythos expansionSet="arkham">
+        <title>The Man in Black</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail>Investigators who end their movement in the French Hill streets may deal with the Man in Black to gain power. They roll dice equal to their current sanity, and for every failed die, they lose 1 Sanity. If this reduces them to 0 Sanity, they are <b>devoured</b> and the player must start a new character. Otherwise, they gain 1 Clue token and draw 1 Spell.</detail>
+        <activity>
+            <location>French Hill Streets</location>
+        </activity>
+        <clues>
+            <location>Black Cave</location>
+        </clues>
+        <gates>
+            <location>The Witch House</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 62 -->
+    <mythos expansionSet="arkham">
+        <title>The Southside Strangler Strikes</title>
+        <expansionSet>Rumor</expansionSet>
+        <detail><p><b>Ongoing Effect:</b> Return one Ally from the Ally deck to the box at random at the end of every <b>Mythos Phase</b> while this card is in play (beginning the turn after it entered play). The Southside Strangler has struck again!</p><p><b>Pass:</b> If a single player discards 5 Clue tokens while in Ma&apos;s Boarding House during the <b>Arkham Encounter Phase</b>, return this card to the box. Each player gains $5 as a reward from the police.</p><p><b>Fail:</b> If there are no Allies to return to the box at the end of the <b>Mythos Phase</b>, return this card to the box. Each player must lower either their maximum Sanity or Stamina (their choice) by 1 for the rest of the game.</p></detail>
+        <activity>
+            <location>Southside Streets</location>
+        </activity>
+        <gates>
+            <location>Independence Square</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 63 -->
+    <mythos expansionSet="arkham">
+        <title>The Stars Are Right</title>
+        <expansionSet>Rumor</expansionSet>
+        <detail><p><b>Ongoing Effect:</b> Roll a die at the end of every <b>Mythos Phase</b> while this card is in play (beginning the turn after it entered play). On a 1 or 2, place one doom token on the ancient one's doom track.</p><p><b>Pass:</b> If a player discards an Ally card while in the Downtown streets during the <b>Arkham Encounter Phase</b>, return this card to the box. Each player draws 2 Common Items.</p><p><b>Fail:</b> If the Ancient One awakens, return this card to the box.</p></detail>
+        <activity>
+            <location>Downtown Streets</location>
+        </activity>
+        <gates>
+            <location>Science Building</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 61 -->
+    <mythos expansionSet="arkham">
+        <title>The Story Continues...</title>
+        <expansionSet>&quot;I cannot remember, I <b>must</b> not remember what I saw on that dark and foreboding night...&quot;</expansionSet>
+        <detail>Shuffle the mythos deck, being sure to include this card in it. After the deck is shuffled, draw a new mythos card fo the turn.</detail>
+    </mythos>
+    <!-- Mythos 65 -->
+    <mythos expansionSet="arkham">
+        <title>The Terrible Experiment</title>
+        <expansionSet>Rumor</expansionSet>
+        <detail><p>When this card enters play, place 5 monsters from the cup on it. Any player may choose to fight one or more of these monsters while in the Miskatonic U. streets during the <b>Arkham Encounter Phase</b>. If defeated, they are claimed as monster trophies. These monsters do not move, are not considered to be on the board, and do not count against the monster limit.</p><p><b>Ongoing Effect:</b> Place a monster on this card at the end of every <b>Mythos Phase</b> (beginning the turn after it entered play).</p><p><b>Pass:</b> If there are no monsters on this card, return it to the box. Each player draws 1 Skill.</p><p><b>Fail:</b> If there are 8 monsters on this card, return it to the box. Raise the terror level to 10 and place the monsters that were on it into play in the Miskatonic U. streets.</p></detail>
+        <activity>
+            <location>Miskatonic U. Streets</location>
+        </activity>
+        <gates>
+            <location>Unvisited Isle</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 64 -->
+    <mythos expansionSet="arkham">
+        <title>Things of Darkness</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail>Ghouls, Formless Spawns, Shoggoths, and Flying Polyps have their toughness increased by 1.</detail>
+        <clues>
+            <location>Graveyard</location>
+        </clues>
+        <gates>
+            <location>Silver Twilight Lodge</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 67 -->
+    <mythos expansionSet="arkham">
+        <title>Vigilante Guards the Night!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the Downtown streets or locations are returned to the cup.</detail>
+        <clues>
+            <location>Woods</location>
+        </clues>
+        <gates>
+            <location>The Unnamable</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 66 -->
+    <mythos expansionSet="arkham">
+        <title>Witch Brning Anniversary!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>An ancient curse strikes Arkham, releasing 2 monsters into the Rivertown streets.</detail>
+        <clues>
+            <location>Science Building</location>
+        </clues>
+        <gates>
+            <location>Unvisited Isle</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+</mythos_cards>

@@ -1,0 +1,123 @@
+<southside-cards expansionSet="arkham horror"
+    <!-- Southside 1 -->
+    <southside expansionSet="arkham">
+        <entry>
+            <title>Historical Society</title>
+            <value>The Society members are bird watching in the woods. The janitor offers you a ride there. If you accept, move to the Woods and draw 2 cards, encountering one card of your choice and discarding the other.</value>
+        </entry>
+        <entry>
+            <title>Ma&apos;s Boarding House</title>
+            <value>Staring at a painting in one of the rooms, you find yourself drawn into it. Make a <b>Luck (+0) check</b>. If you pass, move to The Dreamlands. Have one encounter there and immediately return here. If you fail, move to the Abyss. Have one encounter there and immediately return here.</value>
+        </entry>
+        <entry>
+            <title>South Church</title>
+            <value>You could swear a drain pipe gargoyle moved. Lose 1 Sanity.</value>
+        </entry>
+    </southside>
+    <!-- Southside 2 -->
+    <southside expansionSet="arkham">
+        <entry>
+            <title>Historical Society</title>
+            <value>Pay a $3 fee to gain access to the private library. If you refuse, move to the street. If you pay, make a <b>Luck (-1) check</b>. If you pass, you learn an ancient spell from a dusty ledger. Draw 1 Spell. If you fail, you doze off and enter The Dreamlands. Have one encounter there, then immediately return here.</value>
+        </entry>
+        <entry>
+            <title>Ma&apos;s Boarding House</title>
+            <value>You find a poorly boarded-up passage in the basement that opens into a winding tunnel. If you venture into it, you exit in the Silver Twilight Lodge. Draw 2 cards and encounter one card of your choice, discarding the other.</value>
+        </entry>
+        <entry>
+            <title>South Church</title>
+            <value>Knowing that you are engaged in God&apos;s work, Father Michael <i>Blesses</i> you.</value>
+        </entry>
+    </southside>
+    <!-- Southside 3 -->
+    <southside expansionSet="arkham">
+        <entry>
+            <title>Historical Society</title>
+            <value>You notice a creepy man watching you as you peruse the books. With a feeling of dread you try to slip out without being followed. Make a <b>Sneak (-1) check</b>. If you pass, you lose the man, gaining 1 Sanity in the process. If you fail, you are accosted by the man in the street. He is a wizard and he casts a dark spell on you as you flee. Lose 2 Stamina, move to the street, and you are <i>Cursed</i>.</value>
+        </entry>
+        <entry>
+            <title>Ma&apos;s Boarding House</title>
+            <value>Ma Mathison serves her special soup at supper. Roll a die and gain that much Stamina.</value>
+        </entry>
+        <entry>
+            <title>South Church</title>
+            <value>Father Michael convinces you that there are members of his congregation in greater need than you. Donate either half your money (rounded up) or half your items (your choice, rounded up) to the poor.</value>
+        </entry>
+    </southside>
+    <!-- Southside 4 -->
+    <southside expansionSet="arkham">
+        <entry>
+            <title>Historical Society</title>
+            <value>Pass a <b>Luck (-1) [2] check</b> to gain insight into a skill while studying the old volumes of books. Draw 1 Skill, but stay here next turn.</value>
+        </entry>
+        <entry>
+            <title>Ma&apos;s Boarding House</title>
+            <value>After supper while sitting on the porch you strike up a conversation with another guest: Ryan Dean, a traveling salesman. You may make a <b>Will (+0) check</b> if you want. If you pass, Ryan has a deal for you. You may draw either 1 Common or 1 Unique Item and purchase it at list price. If you fail, stay here next turn listening to bawdy stories and tall tales.</value>
+        </entry>
+        <entry>
+            <title>South Church</title>
+            <value>Noticing you eying the holy water, Father Michael tells you, &quot;Take what you need, my child.&quot; You may search the Unique Item deck for a Holy Water card and take it.</value>
+        </entry>
+    </southside>
+    <!-- Southside 5 -->
+    <southside expansionSet="arkham">
+        <entry>
+            <title>Historical Society</title>
+            <value>Perusing the county records, you discover something horrifying about your family tree. Lose 1 Sanity.</value>
+        </entry>
+        <entry>
+            <title>Ma&apos;s Boarding House</title>
+            <value>The last guest to stay in your room had to leave in a hurry and left something behind. Draw 1 Common Item.</value>
+        </entry>
+        <entry>
+            <title>South Church</title>
+            <value>You enter the confessional. &quot;Bless me, Father for I have sinned.&quot; Make a <b>Luck (+0) check</b> and consult the chart below:<p>Successes:</p><p>0) &quot;Father? Are you there?&quot; You hear a scream in the next compartment! Lose 3 Sanity and move to the street.</p><p>&quot;Father?&quot; There is no answer. Sighing, you leave. Move to the street.</p><p>2+) &quot;I don&apos;t remember my last confession.&quot; Raise your Sanity to its maximum value.</value>
+        </entry>
+    </southside>
+    <!-- Southside 6 -->
+    <southside expansionSet="arkham">
+        <entry>
+            <title>Historical Society</title>
+            <value>You encounter a friendly old professor from Miskatonic University. If you spend 1 gate trophy, he introduces himself as Profesoor Armitage and offers to join forces with you. Take his Ally card if it is available, otherwise draw 1 Unique Item.</value>
+        </entry>
+        <entry>
+            <title>Ma&apos;s Boarding House</title>
+            <value>Chanting neighbors keep you up all night. Pass a <b>Luck (-1) check</b> or lose your choice of 1 Stamina or 1 Sanity.</value>
+        </entry>
+        <entry>
+            <title>South Church</title>
+            <value>You join in the morning mass. Spend 1 Clue token to ask for heavenly aid. If you do so, roll a die. On a success, your prayers are answered. Remove 1 doom token from the Ancient One&apos;s doom track.</value>
+        </entry>
+    </southside>
+    <!-- Southside 7 -->
+    <southside expansionSet="arkham">
+        <entry>
+            <title>Historical Society</title>
+            <value>You meet Cindy Fleming, a young geology professor at the University. She offers to show you some interesting formations at the Black Cave. If you accept, move to the Black Cave and draw 2 cards, encountering one card of your choice and discarding the other.</value>
+        </entry>
+        <entry>
+            <title>Ma&apos;s Boarding House</title>
+            <value>Ma Mathison tells you that the best room in the house is available for the night. If you want, pay $3 to spend the night there. Gain 4 points split between Sanity and Stamina however you choose.</value>
+        </entry>
+        <entry>
+            <title>South Church</title>
+            <value>Upon entering the church, you are attacked by Father Michael with a giant cross, who for some reason believes you to be in league with the devil. Make a <b>Speed (-1) check</b>. If you pass, you escapte. If you fail, lose 2 Stamina. In either case, move to the street.</value>
+        </entry>
+    </southside>
+    <!-- Sample format
+    <southside expansionSet="arkham">
+        <entry>
+            <title>Historical Society</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>Ma&apos;s Boarding House</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>South Church</title>
+            <value></value>
+        </entry>
+    </southside>
+    -->
+</southside-cards>

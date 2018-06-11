@@ -1,0 +1,123 @@
+<easttown-cards expansionSet="arkham horror"
+    <!-- Easttown 1 -->
+    <easttown expansionSet="arkham">
+        <entry>
+            <title>Hibb&apos; Roadhouse</title>
+            <value>&quot;So, what&apos;s your story, friend?" A smiling man inquires about your adventures over a glass of gin. You tell him your story. If you spend 3 Clue tokens, he introduces himself as <b>Ryan Dean</b> and asks to join you. Take his Ally card. If it&apos; not available, he gives you some useful items instead. Draw 2 Common Items.</value>
+        </entry>
+        <entry>
+            <title>Police Station</title>
+            <value>One of the men in the holding cells tries to intimidate you with stores about the things that he&apos;s seen. Make a <b>Will (-1) check</b>. If you pass, gain 1 Clue token. If you fail, move the street and lose 1 Sanity as the man laughs at your retreating back.</value>
+        </entry>
+        <entry>
+            <title>Velma&apos;s Diner</title>
+            <value>&quot;What&apos;ll it be hon?&quot; Velma takes your order. Pay up to $6 to gain that many points split between Sanity and Stamina however you like.</value>
+        </entry>
+    </easttown>
+    <!-- Easttown 2 -->
+    <easttown expansionSet="arkham">
+        <entry>
+            <title>Hibb&apos;s Roadhouse</title>
+            <value>You enter a &quot;friendly&quot; card game. Make a <b>Luck (-1) check</b>. If you pass, you win $5. If you fail, you lose $3. If you can&apos;t pay, the boys rough you up and throw you outside. Lose 1 Stamina and move to the street.</value>
+        </entry>
+        <entry>
+            <title>Police Station</title>
+            <value>Deputy Dingby, excitedly cleaning his gun, fires a bullet in your direction. Pass a <b>Luck (-1) check</b> to avoid getting shot. If you fail, lose 2 Stamina.</value>
+        </entry>
+        <entry>
+            <title>Velma&apos;s Diner</title>
+            <value>Velma comments on how skinny you look and gives you a sandwich on the house. You may search the Common Item deck for a Food card and take it.</value>
+        </entry>
+    </easttown>
+    <!-- Easttown 3 -->
+    <easttown expansionSet="arkham">
+        <entry>
+            <title>Hibb&apos;s Roadhouse</title>
+            <value>A stranger buys you a drink. You may search the Common Item deck for a Whiskey card and take it.</value>
+        </entry>
+        <entry>
+            <title>Police Station</title>
+            <value>Pass a <b>Will (-1) check</b> to convince Deputy Dingby to share some files with you that are very interesting. Gain 2 Clue tokens.</value>
+        </entry>
+        <entry>
+            <title>Velma&apos;s Diner</title>
+            <value>&quot;This must be where pies go when they die.&quot; If you want, pay $1 to enjoy a fine slice of cherry pie. If you do, gain 2 Stamina.</value>
+        </entry>
+    </easttown>
+    <!-- Easttown 4 -->
+    <easttown expansionSet="arkham">
+        <entry>
+            <title>Hibb&apos;s Roadhouse</title>
+            <value>A horrible monster appears!</value>
+        </entry>
+        <entry>
+            <title>Police Station</title>
+            <value>Sheriff Engle notes that you&apos;re carrying an awful lot of weapons. Either pay him $5 or discard all of your <b>Weapons</b>.</value>
+        </entry>
+        <entry>
+            <title>Velma&apos;s Diner</title>
+            <value>Velma reads the tea leaves left in your cup. Make a <b>Luck (-1) check</b>. If you pass, the formation of the leaves indicates hope, you are <i>Blessed</i>. If you fail, the future looks bleak, you are <i>Cursed</i>.</value>
+        </entry>
+    </easttown>
+    <!-- Easttown  -->
+    <easttown expansionSet="arkham">
+        <entry>
+            <title>Hibb&apos;s Roadhouse</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>Police Station</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>Velma&apos;s Diner</title>
+            <value></value>
+        </entry>
+    </easttown>
+    <!-- Easttown  -->
+    <easttown expansionSet="arkham">
+        <entry>
+            <title>Hibb&apos;s Roadhouse</title>
+            <value>Prohibition failed to influence the proprietor of Hibb&apos;. You drink heavily while quizzing the locals about the strage goings-on in Arkham. Make a <b>Will (-1) check</b>. If you pass, you hold your liquor and learn something. If you fail, you pass out. Move to the street and either have 1 item (your choice) or all of your money stolen.</value>
+        </entry>
+        <entry>
+            <title>Police Station</title>
+            <value>Sheriff Engle trusts you and asks you to step into his office to discuss the recent strange events. Pass a <b>Luck (-2) check</b> to convince him to take you into his confidence and give you something to help you out. Draw 1 Unique Item.</value>
+        </entry>
+        <entry>
+            <title>Velma&apos;s Diner</title>
+            <value>You get food poisoning! Pass a <b>Luck (-1) check</b> or lose 2 Stamina.</value>
+        </entry>
+    </easttown>
+    <!-- Easttown  -->
+    <easttown expansionSet="arkham">
+        <entry>
+            <title>Hibb&apos;s Roadhouse</title>
+            <value>Pass a <b>Luck (-1) check</b> or a pickpocket cleans you out! Lose all your money.</value>
+        </entry>
+        <entry>
+            <title>Police Station</title>
+            <value>Deputy Dingby accidentally drops a case file as he makes his way past you. Pass a <b>Sneak (+0) check</b> to search the Common Item deck for a Research Materials card and take it.</value>
+        </entry>
+        <entry>
+            <title>Velma&apos;s Diner</title>
+            <value>You find some money on the floor under the back booth. If you take it, make a <b>Sneak (-1) check</b>. If you pass, roll a die and gain that much money. If you fail, Velma sees you pick up the money. She comes over and swipes it out of your hands screaming, "Stealing my tips!" so loudly that you flee the diner. Move to the street.</value>
+        </entry>
+    </easttown>
+    <!-- Sample format
+    <easttown expansionSet="arkham">
+        <entry>
+            <title>Hibb&apos;s Roadhouse</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>Police Station</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>Velma&apos;s Diner</title>
+            <value></value>
+        </entry>
+    </easttown>
+    -->
+</easttown-cards>

@@ -1,0 +1,123 @@
+<merchant_district-cards expansionSet="arkham horror"
+    <!-- Merchant District 1 -->
+    <merchant_district expansionSet="arkham">
+        <entry>
+            <title>River Docks</title>
+            <value>You bump into Abner Weems, the local drunk. You help him find a place to sleep for the night, and he mumbles something to you over and over. Make a <b>Luck (-1) check</b>. If you pass, his mumbling is a magical chant. Draw 1 Spell. If you fail, it&apos; gibberish. Nothing happens.</value>
+        </entry>
+        <entry>
+            <title>The Unnamable</title>
+            <value>You bump into <b>Eric Colt</b> He tells you a horrible tale of the Mythos to test your nerve. If you listen. lose 2 Sanity. If this doesn&apos;t drive you insant, take his Ally card if it is available. If it is not available, you may pump him for information instead. Gain 3 Clue tokens.</value>
+        </entry>
+        <entry>
+            <title>Unvisited Isle</title>
+            <value>You come across a large pile of human bones under the boughs of one of the willows on the isle. Lose 1 Sanity, but find a scroll among the bones. Draw 1 Spell.</value>
+        </entry>
+    </merchant_district>
+    <!-- Merchant District 2 -->
+    <merchant_district expansionSet="arkham">
+        <entry>
+            <title>River Docks</title>
+            <value>You open some crates on the dock. Inside you find some useful things. Draw 2 Common Items. Next, make a <b>Luck (-1) check</b>. If you pass, you get away without being seen. If you fail, you are arrested and taken to the Police Station.</value>
+        </entry>
+        <entry>
+            <title>The Unnamable</title>
+            <value>In a dusty and decaying roll-top desk, you find a mysterious manuscript. If you read it, make a <b>Lore (-1) check</b>. If you pass, draw 1 Spell. If you fail, the manuscript is nothing but the insane babbling of a previous renter. Stay here next turn reading it, but gain 2 Clue tokens.</value>
+        </entry>
+        <entry>
+            <title>Unvisited Isle</title>
+            <value>You come across a man examining some old bones. Pass a <b>Sneak (-1) check</b> to get close enough to see what he's doing. He finally notices you and is impressed with your skills, introducing himself as <b>John Legrasse</b>. Take his Ally card if it&apos;s available, otherwise he shares a meal with you. Restore your Sanity and Stamina to their maximum values.</value>
+        </entry>
+    </merchant_district>
+    <!-- Merchant District 3 -->
+    <merchant_district expansionSet="arkham">
+        <entry>
+            <title>River Docks</title>
+            <value>The dock workers are short-handed and offer you a job for a stevedore for the day. Make a <b>Fight (+0) check</b> If you pass, gain $3 for every success you rolled. If you fail, the boss gets tired of your lollygagging and throws you out. Lose 1 Stamina and move to the street.</value>
+        </entry>
+        <entry>
+            <title>The Unnamable</title>
+            <value>A monster and gate appear!</value>
+        </entry>
+        <entry>
+            <title>Unvisited Isle</title>
+            <value>A silent man brushes past you on the trail. Your arm goes numb with cold from the brief contact, and you whirl around to look at him, but he has disappeared. Lose 1 Stamina and pass a <b>Will (-1) check</b> or lose 1 Sanity as well.</value>
+        </entry>
+    </merchant_district>
+    <!-- Merchant District 4 -->
+    <merchant_district expansionSet="arkham">
+        <entry>
+            <title>River Docks</title>
+            <value>A horrific stench draws your attention to the body of some bizarre marine creature, rotting on the edge of the docks. As you move towards it, an uneasy feeling grows in the pit of your stomach, as though you are meddling with something best left alone. Make a <b>Will (-1) check</b>. If you pass, lose 1 Sanity. If you fail, lose 2 Sanity. In either event, if you are not reduced to 0 Sanity, you find something clenched in its webbed hands.</value>
+        </entry>
+        <entry>
+            <title>The Unnamable</title>
+            <value>The ceiling beam suddenly buckles. Make a <b>Speed (-1) check</b>. If you pass, move the street. If you fail, lose 2 Stamina.</value>
+        </entry>
+        <entry>
+            <title>Unvisited Isle</title>
+            <value>As you start to climb back into your canoe and row to shore, you see a huge, shadowy shape disturb the water near the island. Waves of intense dread grip you, and you must pass a <b>Will (-1) check</b> or be <i>Cursed</i></value>
+        </entry>
+    </merchant_district>
+    <!-- Merchant District 5 -->
+    <merchant_district expansionSet="arkham">
+        <entry>
+            <title>River Docks</title>
+            <value>You notice a piece of wood floating in the water; carved into it is the name of a ship long since sunk. As you touch it, visions of the drowning passengers' last moments of life flood through your mind. Pass <b>Speed (-1) check</b> to hurl it away from you. If you fail, you fall to the ground with a cry. Lose 1 Sanity.</value>
+        </entry>
+        <entry>
+            <title>The Unnamable</title>
+            <value>You notice a glint of light in a crevice. If you reach in, make a <b>Luck (-1) check</b>. If you pass, draw 1 Unique Item. If you fail, you feel a sharp pain as teeth clamp down on your hand. You manage to pull free, but you lose 2 Stamina and 1 Sanity.</value>
+        </entry>
+        <entry>
+            <title>Unvisited Isle</title>
+            <value>The willows sway in a wind that you cannot hear or feel, and for a moment, the hatred of these ancient trees for the invader who has come to their island drives you to your knees. Pass a <b>Will (-2) check</b> or lose 3 Sanity.</value>
+        </entry>
+    </merchant_district>
+    <!-- Merchant District 6 -->
+    <merchant_district expansionSet="arkham">
+        <entry>
+            <title>River Docks</title>
+            <value>As you look out across the waves, you feel strangely compelled to throw yourself into the ocean's watery embrace. Pass a <b>Will (+1) check</b> or you are <i>lost in time and space</i>.</value>
+        </entry>
+        <entry>
+            <title>The Unnamable</title>
+            <value>You hear the scurrying and squeaking of a horde of rats from inside the walls. Abruptly, you realize that they are moving to surround you. Pass a <b>Speed (-1) check to make it to the front door first. If you fail, you are <i>lost in time and space</i>.</value>
+        </entry>
+        <entry>
+            <title>Unvisited Isle</title>
+            <value>Looking up at the night sky from the island, you see constellations that you&apos;ve never seen before. The entire night sky is different here! Lose 1 Sanity and gain 1 Clue token.</value>
+        </entry>
+    </merchant_district>
+    <!-- Merchant District 7 -->
+    <merchant_district expansionSet="arkham">
+        <entry>
+            <title>River Docks</title>
+            <value>Walking along the dock you see something floating in the water near the edge of the dock. You reach for it - make a <b>Luck (-1) check</b>. If you pass, you dredge up something useful. Draw 1 Common Item. If you fail, you pull to the surface a tentacle that immediately wraps around your neck and drags you under the water and out to sea. Lose 1 Sanity and 3 Stamina bfore you can break free.</value>
+        </entry>
+        <entry>
+            <title>The Unnamable</title>
+            <value>Pass a <b>Luck (-1) check</b> to find a hidden cache concealed in the wall of an upstairs bedroom. Draw 1 Unique Item.</value>
+        </entry>
+        <entry>
+            <title>Unvisited Isle</title>
+            <value>A group of hodded cultists are having a meeting among the standing stones of the island. Pass a <b>Sneak (-1) check</b> to overhear some of thwat they have to say. Gain 2 Clue tokens.</value>
+        </entry>
+    </merchant_district>
+    <!-- Sample format
+    <merchant_district expansionSet="arkham">
+        <entry>
+            <title>River Docks</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>The Unnamable</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>Unvisited Isle</title>
+            <value></value>
+        </entry>
+    </merchant_district>
+    -->
+</merchant_district-cards>

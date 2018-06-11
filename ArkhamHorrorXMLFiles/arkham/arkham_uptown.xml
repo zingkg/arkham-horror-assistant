@@ -1,0 +1,63 @@
+<uptown-cards expansionSet="arkham horror"
+    <!-- Uptown 1 -->
+    <uptown expansionSet="arkham">
+        <entry>
+            <title>St. Mary&apos;s Hospital/title>
+            <value>One of the staff physicians talks some sense into you. You are disabused of certain crazy but accurate notions. Lose 1 Clue token.</value>
+        </entry>
+        <entry>
+            <title>Woods</title>
+            <value>You trip over an object which turns out to be a rusty lockbox. If you open it, make a <b>Luck (+0) check</b> and consult the following chart:<p>Successes:</p><p>0) A rotted human foot. Lose 1 Sanity.</p><p>1) Draw 1 Common Item</p><p>2) Draw 1 Unique Item</p><p>3+) $10 in jewelry</p></value>
+        </entry>
+        <entry>
+            <title>Ye Olde Magick Shoppe</title>
+            <value>Looking closely at a mummified head in the shop, you are horrified to find it looking back at you! Lose 1 Sanity.</value>
+        </entry>
+    </uptown>
+    <!-- Uptown 2 -->
+    <uptown expansionSet="arkham">
+        <entry>
+            <title>St. Mary&apos;s Hospital/title>
+            <value>The corpse you are examining isn&apos;t quite dead yet. It reaches out and grabs you by the throat. Lose 1 Sanity. Then, you must fight the corpse. If you pass a <b>Combat (-1) check, you defeat it and gain 1 Clue token. Otherwise, move to the street.</value>
+        </entry>
+        <entry>
+            <title>Woods</title>
+            <value>You have stumbled onto a still owned by the Sheldon Gang. Make a <b>Sneak (-1) check</b>. If you pass, skulk away without being seen. If you fail, lose 2 Stamina as the Sheldon Gang works you over while escorting you from the woods. In either case, move to the street.</value>
+        </entry>
+        <entry>
+            <title>Ye Olde Magick Shoppe</title>
+            <value>Looking into a glass ball, you receive a vision of things to come. Turn the top card of one location deck of your choice face up. The next investigator to have an enounter at that location draws that encounter card.</value>
+        </entry>
+    </uptown>
+    <!-- Uptown 3 -->
+    <uptown expansionSet="arkham">
+        <entry>
+            <title>St. Mary&apos;s Hospital/title>
+            <value>You agree to undergo an experminetal treatment. Roll a die. On a 1-3, gain that many Stamina. On a 4-6, nothing happens.</value>
+        </entry>
+        <entry>
+            <title>Woods</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>Ye Olde Magick Shoppe</title>
+            <value>You find a sleeping Sheldon Gang member near the still. Make a <b>Sneak (-2) check</b> to try to swipe the shotgun he has dropped on the ground. If you pass, take a Shotgun from the Common Item deck if there is one. If you fail, the guard awakens. You are caught and beaten losing 2 Stamina, but escape with your life. Move to the street.</value>
+        </entry>
+    </uptown>
+    <!-- Sample format
+    <uptown expansionSet="arkham">
+        <entry>
+            <title>St. Mary&apos;s Hospital/title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>Woods</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>Ye Olde Magick Shoppe</title>
+            <value></value>
+        </entry>
+    </uptown>
+    -->
+</uptown-cards>

@@ -1,0 +1,274 @@
+<gate-cards expansionSet="arkham horror">
+    <!-- Gate 1 -->
+    <gate expansionSet="arkham" expansionSet="arkham" color="blue">
+        <entry>
+            <title>Abyss</title>
+            <value>A glowing light ahead draws you towards it. <b>Make a Luck (-1) check.</b> If you pass, the glow is a way home. Return to Arkham. If you fail, the light is a trap set by one of the monsters that lives here. A monster appears!</value>
+        </entry>
+        <entry>
+            <title>Celeano</title>
+            <value>That's it! That's the document you need! Quietly, you reach for it, trying not to disturb its guardian. Make a <b>Sneak (-2) check.</b> If you pass, search the Spell deck and take 1 Spell of your choice. If you fail, lose 2 Stamina.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>Pass a <b>Fight (-1) check</b> to hang on to your prize despite the wind. Draw 1 Spell.</value>
+        </entry>
+    </gate>
+    <!-- Gate 2 -->
+    <gate expansionSet="arkham" color="blue">
+        <entry>
+            <title>Abyss</title>
+            <value>The feeble glow and warmth of the candle is enough to restore you a bit. Gain 1 Stamina.</value>
+        </entry>
+        <entry>
+            <title>Yuggoth</title>
+            <value>The creature's grip is like steel! Pass a <b>Fight (-2) check</b> to break free and escapre. If you fail, the creature's grip tightens with a sickening pop. <i>You are lost in time and space.</i></value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>You've completed your task, but now you must escapre before the portal closes! Pass a <b>Speed (-2) check</b> to return to Arkham. If you fail, you are <i>lost in time and space</i>. In either event you automatically close the gate you entered through.</value>
+        </entry>
+    </gate>
+    <!-- Gate 3 -->
+    <gate expansionSet="arkham" color="blue">
+        <entry>
+            <title>Abyss</title>
+            <value>You are bewildered. Pass a <b>Lore (-1) check</b> or stay here next turn.</value>
+        </entry>
+        <entry>
+            <title>Yuggoth</title>
+            <value>Pass a <b>Sneak (-1) check</b> or the creatures capture and experiment on you. Lose half of your items, then immediately return to Arkham with no memory of the experiments.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>The insanity of this place finally hits you. Lose 1 Sanity.</value>
+        </entry>
+    </gate>
+    <!-- Gate 4 -->
+    <gate expansionSet="arkham" color="blue">
+        <entry>
+            <title>Abyss</title>
+            <value>The caverns split. Make a <b>Luck (+1) check</b> and consult the chart below:<p>Successes:</p><p><b>0-1:</b> Move to the Black Cave.</p><p><b>2:</b> Move to The Dreamlands.</p><p><b>3+:</b> You enter a dark temple. Pass a <b>Luck (-1) check</b> to draw a Unique Item.</value>
+        </entry>
+        <entry>
+            <title>Celeano</title>
+            <value>The huge book opens noiselessly at your approach. If you choose, you may read it, in which case you must pass a <b>Fight (-1) [2] check</b> to defeat its guardian. If you do, draw 3 Spells and keep 2 of them. If you fail, lose 3 Stamina.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>A monster appears!</value>
+        </entry>
+    </gate>
+    <!-- Gate 5 -->
+    <gate expansionSet="arkham" color="blue">
+        <entry>
+            <title>The Dreamlands</title>
+            <value>You wanter the frozen wastes. No encounter.</value>
+        </entry>
+        <entry>
+            <title>Abyss</title>
+            <value>You rest a bit beside a small, glowing pool filled with black, blind fish. Pass a <b>Luck (-1) check</b> to notice an unusual object in the water. Fishing it out, you draw 1 Unique Item and gain $3.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>Pass a <b>Luck (-1) check</b> to discover a cache of ancient papers containing valuable information about the Mythos. Gain 1 Clue token for every success you rolled on your Luck check.</value>
+        </entry>
+    </gate>
+    <!-- Gate 6 -->
+    <gate expansionSet="arkham" color="blue">
+        <entry>
+            <title>The Dreamlands</title>
+            <value>As you are climbing the cliffs in the underworld, your pocket gets caught and tears open. Pass a <b>Speed (-1) check</b> or lose all your money.</value>
+        </entry>
+        <entry>
+            <title>Celeano</title>
+            <value>As you read the page, you realize you have stumbled into a written trap. Pass a <b>Lore (-1) check</b> or you are <i>Cursed</i>.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>A hideous monster appears.</value>
+        </entry>
+    </gate>
+    <!-- Gate 7 -->
+    <gate expansionSet="arkham" color="blue">
+        <entry>
+            <title>The Dreamlands</title>
+            <value>At the south gates of Thran, you are stopped by a red-robed sentry until you can tell three dreams beyond belief. Pass a <b>Luck (-1) check</b> to tour the golden spires of Thran, gaining 2 Clue tokens in the process. If you fail, stay here next turn.</value>
+        </entry>
+        <entry>
+            <title>Celeano</title>
+            <value>The symbol above the doorway glows. Make a <b>Luck (-1) check</b>. If you pass, gain 2 Stamina and 2 Sanity. If you fail, discard 2 items of your choice.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>Pass a <b>Fight (-2) check</b> to lever back the lid of the stone chest. Inside, you find $8. If you fail, lose 1 Stamina.</value>
+        </entry>
+    </gate>
+    <!-- Gate 8 -->
+    <gate expansionSet="arkham" color="blue">
+        <entry>
+            <title>The Dreamlands</title>
+            <value>Pass a <b>Lore (+0) check</b> to fight off your desire to sleep. If you fail, you freeze in the night. You are <i>lost in time and space</i>. If you succeed, return to Arkham.</value>
+        </entry>
+        <entry>
+            <title>Yuggoth</title>
+            <value>The stone creature pursues you. Pass a <b>Speed (-1) check</b> to escapre with the statue, gaining $5 and 2 Clue tokens. If you fail, the creature smashes you off the cliff. You are <i>lost in time and space</i>.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>Luck is with you. You stumble on a cache of supplies. Draw 1 Common Item.</value>
+        </entry>
+    </gate>
+    <!-- Gate 9 -->
+    <gate expansionSet="arkham" color="blue">
+        <entry>
+            <title>The Dreamlands</title>
+            <value>A thief attempts to rob you. Pass a <b>Sneak (+0) check</b> to notice him. If you fail, lose half your items (your choice) and half your money (rounded up).</value>
+        </entry>
+        <entry>
+            <title>Yuggoth</title>
+            <value>You&apos;re dizzy from the strange ray. Pass a <b>Will (-2) check</b> or lose 1 item of your choice.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>The strain is too much for your mind. Lose 1 Sanity.</value>
+        </entry>
+    </gate>
+    <!-- Gate 10 -->
+    <gate expansionSet="arkham" color="blue">
+        <entry>
+            <title>The Dreamlands</title>
+            <value>You drink impure water from the River Kra. Pass a <b>Luck (-1) check</b> or lose 1 Stamina and stay here next turn due to illness.</value>
+        </entry>
+        <entry>
+            <title>Abyss</title>
+            <value>You are lost in the darkness. Pass a <b>Luck (-2) check</b> or lose 1 Sanity and stay here next turn.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>You are lost in a labyrinth of high walls. Pass a <b>Lore (-1) check</b> or stay here next turn.</value>
+        </entry>
+    </gate>
+    <!-- Gate 11 -->
+    <gate expansionSet="arkham" color="blue">
+        <entry>
+            <title>Yuggoth</title>
+            <value>A monster appears from the darkness!</value>
+        </entry>
+        <entry>
+            <title>Celeano</title>
+            <value>Pass a <b>Luck (-1) check</b> or the book is a prison. If you fail, roll a die. On a failure, a monster appears from the book. On a success, you are drawn into the book for a time. Stay here next turn.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>Pass a <b>Luck (-1) check</b> to find something to defend yourself with. Take the first <b><i>Weapon</i></b> from the Common Item deck.</value>
+        </entry>
+    </gate>
+    <!-- Gate 12 -->
+    <gate expansionSet="arkham" color="">
+        <entry>
+            <title>Yuggoth</title>
+            <value>Exposure and fear weaken your mind. Pass a <b>Will (-2) check</b> or you must either lose 2 Spells of your choice or lose 2 Sanity.</value>
+        </entry>
+        <entry>
+            <title>Celeano</title>
+            <value>A lurking monster appears!</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>Monsters lurk everywhere. Pass a <b>Sneak (-2) check</b> or stay here next turn.</value>
+        </entry>
+    </gate>
+    <!-- Gate 13 -->
+    <gate expansionSet="arkham" color="green">
+        <entry>
+            <title>City of the Great Race</title>
+            <value>You must have that device if you are to escape from this accursed city. Pass a <b>Sneak (-1) [2] check</b> to draw 1 Unique Item and return to Arkham. If you fail, your captors are none too kind. Lose 3 Sanity and 1 Stamina.</value>
+        </entry>
+        <entry>
+            <title>Plateau of Leng</title>
+            <value>The hooved, wide-mouthed traders of this land are wealthy, but dangerous. You may make a <b>Lore (-2) check</b> to trade with them. If you pass, gain $6. If you fail, you are <i>lost in time and space</i>.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>Pass a <b>Luck (-1) check</b> to discover a vital document. Gain 2 Clue tokens.</value>
+        </entry>
+    </gate>
+    <!-- Gate 14 -->
+    <gate expansionSet="arkham" color="green">
+        <entry>
+            <title>City of the Great Race</title>
+            <value>You find yourself in an ancient and abandoned temple. Pass a <b>Luck (-1) check</b> to find a golden statue worth $10. However if you take it, you are <i>Cursed</i>.</value>
+        </entry>
+        <entry>
+            <title>Celeano</title>
+            <value>Your red-eyed reflection in the mirror captures your attention. Stay here next turn.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>The rope seems to extend upwards forever, but its the only way out of the crevasse you find yourself in. Pass a <b>Fight (-1) check</b> to climb it and return to Arkham. If you fail, you fall, losing 2 Stamina and staying here next turn.</value>
+        </entry>
+    </gate>
+    <!-- Gate 15 -->
+    <gate expansionSet="arkham" color="green">
+        <entry>
+            <title>City of the Great Race</title>
+            <value>The conical entity tries to teach you some magic. Pass a <b>Lore (-2) [2] check</b> to draw 2 Spells.</value>
+        </entry>
+        <entry>
+            <title>Celeano</title>
+            <value>You find secret lore hidden in the mosaics on the wall. Make a <b>Lore (+2) check</b> and gain Clue tokens equal to your successes.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>You find some valuable items that you can sell back in Arkham. Gain $3.</value>
+        </entry>
+    </gate>
+    <!-- Gate 16 -->
+    <gate expansionSet="arkham" color="green">
+        <entry>
+            <title>Plateau of Leng</title>
+            <value>You wander the frozen wastes. No encounter.</value>
+        </entry>
+        <entry>
+            <title>Celeano</title>
+            <value>An old professor from Earth teaches you a thing or two. Pass a <b>Luck (-1) [2] check</b> to draw 1 Skill.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>You come across a sleeping horror with a tentacle draped across a small gold idol. Silence is of the essence as you attempt to gently ease the idol out from under the creature's pseudopod. Make a <b>Sneak (-1) check</b>. If you pass, gain $3. If you fail, lose 2 Stamina.</value>
+        </entry>
+    </gate>
+    <!-- Gate 17 -->
+    <gate expansionSet="arkham" color="green">
+        <entry>
+            <title>Pleateau of Leng</title>
+            <value>Your mind and body are toughened by your experiences. Pass a <b>Will (+0) [2] check</b> to draw 1 Skill.</value>
+        </entry>
+        <entry>
+            <title>Celeano</title>
+            <value>Pass a <b>Luck (-2) check</b> to find a valuable book. If so, search the Unique Item deck and take the first <b><i>Tome</i></b> you find.</value>
+        </entry>
+        <entry>
+            <title>Other</title>
+            <value>Wedged beneath a fallen stone is a scroll. Draw 1 Spell.</value>
+        </entry>
+    </gate>
+    <!-- Gate  -->
+    <!-- Format
+    <gate expansionSet="arkham" color="">
+        <entry>
+            <title></title>
+            <value></value>
+        </entry>
+        <entry>
+            <title></title>
+            <value></value>
+        </entry>
+        <entry>
+            <title></title>
+            <value></value>
+        </entry>
+    </gate>
+    -->
+</gate-cards>

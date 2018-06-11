@@ -1,0 +1,124 @@
+<downtown-cards expansionSet="arkham horror">
+    <!-- Downtown 1 -->
+    <downtown expansionSet="arkham">
+        <entry>
+            <title>Arkham Asylum</title>
+            <value><p>In the Doctor's study, you find a book of helpful notes gathered from inmate interviews. Make a <b>Lore (+0) check</b> and consult the following chart:</p>
+            <p>Successes:</p><p>0) Their stories fill you with horror even as you learn a few bits of knowledge. Lose 1 Sanity and gain 1 Clue token.</p><p>1-2) You find several pieces of useful information. Gain 2 Clue tokens.</p><p>3+) One of the interviews contains vital information. Gain 3 Clue tokens.</p></value>
+        </entry>
+        <entry>
+            <title>Bank of Arkham</title>
+            <value>One of the other customers in the bank recognizes you and offers you a lift. Move to any location or street area in Arkham. If you move to a location, immediately have an encounter there.</value>
+        </entry>
+        <entry>
+            <title>Independence Square</title>
+            <value>A pair of friendly picnickers share their lunch with you. Gain 1 Stamina.</value>
+        </entry>
+    </downtown>
+    <!-- Downtown 2 -->
+    <downtown expansionSet="arkham">
+        <entry>
+            <title>Arkham Asylum</title>
+            <value>Nurse Heather is coming! Make a <b>Speed (-1) check</b> to hide in time. If you pass, you see her drop something as she walks by. Draw 1 Unique Item. If you fail, she thows you out. Move to the street.</value>
+        </entry>
+        <entry>
+            <title>Bank of Arkham</title>
+            <value>A man wearing dirty and tattered clothing is loitering outside the bank. He offers to sell you his last possession to get some food money for him and his family. If you accept, pay $2 and make a <b>Luck (-1) check</b>. If you pass, draw 1 Unique Item. If you fail, draw 1 Common Item.</value>
+        </entry>
+        <entry>
+            <title>Independence Square</title>
+            <value>Make a <b>Will (-1) check</b>. If you pass it, <b>Anna Kaslow</b> the fortune teller offers her help in your investigation. Take her Ally card if it is still available. Otherwise, gain 2 Clue tokens. If you fail, nothing happens.</value>
+        </entry>
+    </downtown>
+    <!-- Downtown 3 -->
+    <downtown expansionSet="arkham">
+        <entry>
+            <title>Arkham Asylum</title>
+            <value>The guards of the sanitarium are aware that there is an intruder. Make a <b>Sneak (-1) check</b> to escape. If you pass, move to the street. If you fail, you are arrested and taken to the Police Station.</value>
+        </entry>
+        <entry>
+            <title>Bank of Arkham</title>
+            <value>&quot;This is a stick-up, see? Nobody move!&quot; Three men armed with tommy guns rob the bank while you&apos;re standing in line. Make a <b>Combat (-1) check</b>. If you pass, you drive them off. Nothing happens. If you fail, lose all of your money.</value>
+        </entry>
+        <entry>
+            <title>Independence Square</title>
+            <value>A shadow falls across you from no apparent source and you shiver with more than just cold. Pass a <b>Will (-1) check</b> or lose 1 Stamina and 1 Sanity.</value>
+        </entry>
+    </downtown>
+    <!-- Downtown 4 -->
+    <downtown expansionSet="arkham">
+        <entry>
+            <title>Arkham Asylum</title>
+            <value>You find some strange medicine labeled &quot;Dream Enhancers&quot; in a dusty cabinet. If you choose to take it, make a <b>Lore (-1) check</b>. If you pass, your visions show you how to perform a ritual. Draw 1 Spell. Otherwise nothing happens.</value>
+        </entry>
+        <entry>
+            <title>Bank of Arkham</title>
+            <value>You find a penny with a strange sigil carved into it. Amused, you flip it in the air, then gasp as you feel the sudden gathering of magical forces around you. Make a <b>Luck (-2) check</b>. If you pass, the penny comes up heads. You are <i>Blessed</i>. If you fail, it comes up tails. You are <i>Cursed</i>.</value>
+        </entry>
+        <entry>
+            <title>Independence Square</title>
+            <value>There are gypsies camped in the park. They are master thieves and you are their target. Pass a <b>Luck (-2) check</b> or lose 1 item of your choice.</value>
+        </entry>
+    </downtown>
+    <!-- Downtown 5 -->
+    <downtown expansionSet="arkham">
+        <entry>
+            <title>Arkham Asylum</title>
+            <value>You are mistaken for an inmate. Doctor Mintz has the guards subdue you and conducts an experiment. Make a <b>Will (-1) [2] check</b> to discover the results. If you pass, the injections seem to increase your capacity for learning. Draw 1 Skill. If you fail, his memory drug fails miserably, resulting in lost knowledge. You must discard one of the following (your choice), if able: 4 Clue tokens, or 2 Spells, or 1 Skill.</value>
+        </entry>
+        <entry>
+            <title>Bank of Arkham</title>
+            <value>You see a richly dressed man making a large withdrawal. On the way out, he lights his cigar with a piece of green paper which he then drops on the ground. Pass a <b>Speed (-1) check</b> to stub it out with your toe before it burns up. You discover it to be a slightly singed two dollar bill. Gain $2.</value>
+        </entry>
+        <entry>
+            <title>Independence Square</title>
+            <value>Pass a <b>Fight (-1) check</b> to intimidate a policeman or he rousts you from the park. Move to the street.</value>
+        </entry>
+    </downtown>
+    <!-- Downtown 6 -->
+    <downtown expansionSet="arkham">
+        <entry>
+            <title>Arkham Asylum</title>
+            <value>You hear screaming. When you open a heavy cell door to investigate, a dark shape leaps out at you! It&apos;s an insane man in a straight jacket babbling about invisible horrors. Make a <b>Lore (-2) check</b> to glean some useful information from him. If you pass, gain 2 Clue tokens. If you fail, lose 1 Stamina as he attacks you.</value>
+        </entry>
+        <entry>
+            <title>Bank of Arkham</title>
+            <value>A little old lady stands in front of you in line counting out a bag of pennies to deposit. Lose 1 Sanity.</value>
+        </entry>
+        <entry>
+            <title>Independence Square</title>
+            <value>There are gypsies camped in the park. Make a <b>Luck (-1) check</b> if you wish to interact with them. If you pass, an old man has spread several items on a blanket for sale. Draw 1 Unique Item and you may buy it for $1 less than the list price. If you fail, a hag comes up to you and tells you that death shadows you. You scoff at her and she cuts the side of your face with her fingernail, drawing blood. Lose 1 Stamina and you are <i>Cursed</i>.</value>
+        </entry>
+    </downtown>
+    <!-- Downtown 7 -->
+    <downtown expansionSet="arkham">
+        <entry>
+            <title>Arkham Asylum</title>
+            <value>Nurse Heather accidentally injects you with a sleeping draught. You may make a <b>Fight (-2) check</b> to resist. If you fail or choose not to resist, lose your next turn and gain 2 Sanity from the prolonged rest. If you pass, nothing happens.</value>
+        </entry>
+        <entry>
+            <title>Bank of Arkham</title>
+            <value>A teller you've never seen before insists she just saw you come in and make a deposit the day before. She proves it by showing you your signature. Gain $5, but lost 1 Sanity.</value>
+        </entry>
+        <entry>
+            <title>Independence Square</title>
+            <value>You touch Founder&apos;s Rock. Make a <b>Luck (-1) check</b>. If you pass, there is an electrifying shock that opens your mind to the elder things of eons past. Lose 1 Stamina, but gain 2 Clue tokens and draw 1 Spell. If you fail, you find a strange carving. As you finger the grooves, a gate opens here and you are drawn through it.</value>
+        </entry>
+    </downtown>
+    <!-- Sample format
+    <downtown expansionSet="arkham">
+        <entry>
+            <title></title>
+            <value></value>
+        </entry>
+        <entry>
+            <title></title>
+            <value></value>
+        </entry>
+        <entry>
+            <title></title>
+            <value></value>
+        </entry>
+    </downtown>
+    -->
+</downtown-cards>

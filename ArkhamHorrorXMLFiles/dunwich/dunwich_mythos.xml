@@ -1,0 +1,708 @@
+<mythos_cards expansionSet="dunwich">
+    <!-- Mythos 70 -->
+    <mythos expansionSet="dunwich">
+        <title>Along Came Jones</title>
+        <expansionSet>Environment (Urban)</expansionSet>
+        <detail>The first investigator who ends his movement in the Train Station draws 1 Ally, then discards this card from play.</detail>
+        <activity>
+            <location>Train Station</location>
+        </activity>
+        <clues>
+            <location>Wizard&apos;s Hill</location>
+        </clues>
+        <gates burst="true">
+            <location>Devil&apos;s Hopyard</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 69 -->
+    <mythos expansionSet="dunwich">
+        <title>Angry Red Skies</title>
+        <expansionSet>Environment (Weather)</expansionSet>
+        <detail><p>Will checks in Arkham are made at a -1 penalty.</p><p>Lore checks in Arkham are made at a +1 bonus.</p><p>Fliers do not move to or from the Sky.</p></detail>
+        <clues>
+            <location>Gardeners&apos; Place</location>
+        </clues>
+        <gates>
+            <location>Wizard&apos;s Hill</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 68 -->
+    <mythos expansionSet="dunwich">
+        <title>Another Time, Another Place!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>Every open gate leading to Another Dimension or Another Time releases one monster into its location</detail>
+        <clues>
+            <location>Historical Society</location>
+            <location>Newspaper</location>
+        </clues>
+        <gates>
+            <location>Woods</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 73 -->
+    <mythos expansionSet="dunwich">
+        <title>Balmy</title>
+        <expansionSet>Environment (Weather)</expansionSet>
+        <detail><p>Sneak checks in Arkham are made at a -1 penalty.</p><p>Fight checks in Arkham are made at a +1 bonux.</p><p>When moving, stalkers move to investigators in street areas or unstable locations up to spaces away.</p></detail>
+        <clues>
+            <location>Gardnders&apos; Place</location>
+        </clues>
+        <gates>
+            <location>Wizard&apos;s Hill</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 72 -->
+    <mythos expansionSet="dunwich">
+        <title>Black Sabbath!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All Rat-things, Witches, and Warlocks in Arkham are returned to the cup. If at least one monster returns to the cup, raise the terror level by 1.</detail>
+        <clues>
+            <location>Historical Society</location>
+            <location>Newspaper</location>
+        </clues>
+        <gates burst="true">
+            <location>Woods</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 71 -->
+    <mythos expansionSet="dunwich">
+        <title>Blue Plate Special</title>
+        <expansionSet>Environment (Urban)</expansionSet>
+        <detail>Investigators who end their movement in Velma&apos;s Diner may spend up to $4 instead of having an Arkham encounter. They gain 1 Stamina and 1 Sanity for every $1 spend.</detail>
+        <activity>
+            <location>Velma's Diner</location>
+        </activity>
+        <clues>
+            <location>Wizard&apos; Hill</location>
+        </clues>
+        <gates>
+            <location>Devil&apos; Hopyard</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 76 -->
+    <mythos expansionSet="dunwich">
+        <title>Book Sale</title>
+        <expansionSet>Environment (Urban)</expansionSet>
+        <detail>Investigators who end their movment in the Library may spend $20 instead of having an Arkham encounter. Any investigator that does so then takes the first <b><i>Tome</i></b> from the Unique Items deck.</detail>
+        <activity>
+            <location>Library</location>
+        </activity>
+        <clues>
+            <location>Gardners&apos; Place</location>
+        </clues>
+        <gates burst="true">
+            <location>Wizard&apos; Hill</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 75 -->
+    <mythos expansionSet="dunwich">
+        <title>Brutal Accident!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>The first player must choose one investigator (even himself. That investigator loses 3 Stamina.</detail>
+        <clues>
+            <location>Gardners&apos; Place</location>
+        </clues>
+        <gates>
+            <location>Wizard&apos;s Hill</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 74 -->
+    <mythos expansionSet="dunwich">
+        <title>Contagion Kills Life in Blasted Heath!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the Blasted Heath streets or locations are returned to the cup.</detail>
+        <clues>
+            <location>Black Cave</location>
+            <location>Library</location>
+        </clues>
+        <gates burst="true">
+            <location>The Witch House</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 82 -->
+    <mythos expansionSet="dunwich">
+        <title>Couriers in Town!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>Until the end of next turn, investigators may trade Items with one another without being in the same space. Leave this card in place to signify this. Items may only be traded in this manner during Upkeep.</detail>
+        <clues>
+            <location>Gardners&apos; Place</location>
+        </clues>
+        <gates>
+            <location>Wizard&apos;s Hill</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 79 -->
+    <mythos expansionSet="dunwich">
+        <title>Dark Skies</title>
+        <expansionSet>Environment (Weather)</expansionSet>
+        <detail><p>Fight checks in Arkham are made at a -1 penalty</p><p>Sneak checks in Arkham are made at a +1 bonus.</p><p>Stalkers move like normal monsters</p></detail>
+        <clues>
+            <location>Devil&apos;s Hopyard</location>
+        </clues>
+        <gates>
+            <location>Whateley Farm</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 78 -->
+    <mythos expansionSet="dunwich">
+        <title>Deathly Still</title>
+        <expansionSet>Environment (Weather)</expansionSet>
+        <detail><p>Will checks in Arkham are made at a -1 penalty.</p><p>Fight checks in Arkham are made at a +1 bonus.</p><p>Monsters that move normally are stalkers.</p></detail>
+        <clues>
+            <location>Cold Spring Glen</location>
+        </clues>
+        <gates>
+            <location>Gardners&apos; Place</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 77 -->
+    <mythos expansionSet="dunwich">
+        <title>Dunwich Villagers Drive Out Undesirables!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the Village Commons streets or locations are returned to the cup.</detail>
+        <clues>
+            <location>The Unnamable</location>
+            <location>Train Station</location>
+        </clues>
+        <gates burst="true">
+            <location>Independence Square</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 81 -->
+    <mythos expansionSet="dunwich">
+        <title>Good Travelling Conditions</title>
+        <expansionSet>Environment (Weather) </expansionSet>
+        <detail><p>Fight checks in Arkham are made at a -1 penalty.</p><p>Speed checks in Arkham are made at a +1 bonus, and investigators receive 1 extra movement point.</p><p>Monsters that move normally are fast.</p></detail>
+        <clues>
+            <location>Cold Spring Glen</location>
+        </clues>
+        <gates>
+            <location>Gardner&apos;s Place</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 80 -->
+    <mythos expansionSet="dunwich">
+        <title>Gossip Runs Wild!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail><p>If the Dunwich Horror is in play, increase the terror level by 2.</p><p>Investigators can trade Clue tokens like other Items until the end of next turn. Leave this card in play until then to show this.</p></detail>
+        <clues>
+            <location>Gardner&apos;s Place</location>
+        </clues>
+        <gates>
+            <location>Wizard&apos;s Hill</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 85 -->
+    <mythos expansionSet="dunwich">
+        <title>Help Wanted</title>
+        <expansionSet>Environment (Urban) </expansionSet>
+        <detail>The first investigator without a Retainer who ends his movement at the Newspaper gains a Retainer, then discards this card from play. </detail>
+        <clues>
+            <location>Gardner&apos;s Place</location>
+            <location>Darke&apos;s Carnival</location>
+        </clues>
+        <gates burst="true">
+            <location>Wizard&apos;s Hill</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 84 -->
+    <mythos expansionSet="dunwich">
+        <title>Horrifying Sight!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>The first player must choose one investigator (even himself). That investigator loses 3 Sanity. </detail>
+        <clues>
+            <location>Gardners&apos; Place</location>
+        </clues>
+        <gates>
+            <location>Wizard&apos;s Hill</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 83 -->
+    <mythos expansionSet="dunwich">
+        <title>Lynch Mob!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>One Ally is randomly drawn from the Ally deck and returned to the box.</detail>
+        <clues>
+            <location>Gardners&apos; Place</location>
+        </clues>
+        <gates>
+            <location>Wizard&apos;s Hill</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 88 -->
+    <mythos expansionSet="dunwich">
+        <title>Mad Bomber</title>
+        <expansionSet>Rumor</expansionSet>
+        <detail><p>hen this card enters play, place $4 per player on it. Any player may pay money while in the Merchant District streets during the <b>Arkham Encounters Phase</b> to remove money from this card on a 1-for-1 basis.</p><p><b>Ongoing Effect</b>: Place $1 per player on this card at the end of every <b>Mythos Phase</b> (beginning the turn after it entered play).</p><p><b>Pass</b>: If there is no money on this card, return it to the box. Each player gains 2 Clue tokens.</p><p><b>Fail</b>: If there is $8 per player on this card, return it to the box. Every Investigator must immediately draw 1 Injury and 1 Madness card.</p></detail>
+        <activity>
+            <location>Merchant District Streets</location>
+        </activity>
+        <gates>
+            <location>Gardners&apos; Place</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 87 -->
+    <mythos expansionSet="dunwich">
+        <title>Meteorite Spotted in Blasted Heath!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>A crashed meteorite releases 2 monsters into the Blasted Heath streets.</detail>
+        <clues>
+            <location>Science Building</location>
+            <location>Velma&apos;s Diner</location>
+        </clues>
+        <gates burst="true">
+            <location>Unvisited Isle</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 86 -->
+    <mythos expansionSet="dunwich">
+        <title>Neighborhood Sale</title>
+        <expansionSet>Environment (Urban)</expansionSet>
+        <detail>Investigators who end their movement in the Easttown streets may draw 2 Common Items and purchase one, none, or both of them at list price, discarding any that are not purchased. </detail>
+        <clues>
+            <location>Cold Spring Glen</location>
+            <location>Bishop&apos;s Brook Bridge</location>
+        </clues>
+        <gates>
+            <location>Gardners&apos; Place</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 91 -->
+    <mythos expansionSet="dunwich">
+        <title>Nightmare Pool</title>
+        <expansionSet>Rumor</expansionSet>
+        <detail><p>When this card enters play, place 3 Sanity tokens per player on it. Any player may pay Sanity while in the Uptown streets during the <b>Arkham Encounters Phase</b> to remove Sanity tokens from this card on a one-for-one basis.</p><p><b>Ongoing Effect</b>: Place 1 Sanity token per player on this card at the end of every Mythos Phase (beginning the turn after it entered play).</p><p><b>Pass</b>: If there are no Sanity tokens on this card, return it to the box. Each player draws 1 Common Item.</p><p><b>Fail</b>: If there are 6 Sanity tokens per player on this card, return it to the box. Immeditately draw and resolve 3 more mythos cards, one after the other.</p></detail>
+        <activity>
+            <location>Uptown Streets</location>
+        </activity>
+        <gates>
+            <location>Wizard&apos;s Hill</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 90 -->
+    <mythos expansionSet="dunwich">
+        <title>Old Debts Come Due!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail><p>Raise the terror level by 1.</p><p>Any investigator who has previously made a deal with the Dark Man of Wizard's Hill is devoured. For every investigator devoured in this way, place 3 doom tokens on the doom track. All current debts to the Dark Man are now considered paid.</p></detail>
+        <clues>
+            <location>Hibb&apos;s Roadhouse</location>
+            <location>Merchant District Streets</location>
+        </clues>
+        <gates burst="true">
+            <location>Black Cave</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 89 -->
+    <mythos expansionSet="dunwich">
+        <title>Plague of Frogs</title>
+        <expansionSet>Environment (Weather)</expansionSet>
+        <detail><p>Lore checks in Arkham are made at a -1 penalty.</p><p>Will checks in Arkham are made at a +1 bonus.</p><p>Witches and Warlocks move like stalkers.</p></detail>
+        <clues>
+            <location>Cold Spring Glen</location>
+        </clues>
+        <gates>
+            <location>Gardners&apos; Place</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 94 -->
+    <mythos expansionSet="dunwich">
+        <title>Restful Day!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All investigators gain 1 Stamina.</detail>
+        <clues>
+            <location>Gardners&apos; Place</location>
+        </clues>
+        <gates>
+            <location>Wizard&apos;s Hill</location>
+        </gates>
+        <white_symbols>
+            <symbol>Crescent</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Plus</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 93 -->
+    <mythos expansionSet="dunwich">
+        <title>Riots</title>
+        <expansionSet>Rumor</expansionSet>
+        <detail><p>When this card enters play, place 3 Stamina tokens per player on it. Any player may pay Stamina while in the Northside streets during the <b>Arkham Encounters Phase</b> to remove Stamina tokens from this card on a 1-for-1 basis.</p><p><b>Ongoing Effect</b>: Place 1 Stamina token per player on this card at the end of every Mythos Phase (beginning the turn after it entered play).</p><p><b>Pass</b>: If there are no Stamina tokens on this card, return it to the box. Each player draws 1 Spell.</p><p><b>Fail</b>: If there are 6 Stamina tokens per player on this card, return it to the box. From now on, it costs investigators 2 movement points to enter a street area instead of 1.</p></detail>
+        <activity>
+            <location>Northside Streets</location>
+        </activity>
+        <gates>
+            <location>Cold Spring Glen</location>
+        </gates>
+        <white_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Hex</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 92 -->
+    <mythos expansionSet="dunwich">
+        <title>Songs from the Woods</title>
+        <expansionSet>Environment (Urban)</expansionSet>
+        <detail>Goat Spawn, Tcho-tchos, and Dark Young have their toughness increased by 1.</detail>
+        <clues>
+            <location>Whateley Farm</location>
+        </clues>
+        <gates>
+            <location>Cold Spring Glen</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 97 -->
+    <mythos expansionSet="dunwich">
+        <title>Soothing Night!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All investigators gain 1 Sanity.</detail>
+        <clues>
+            <location>Gardners&apos; Place</location>
+        </clues>
+        <gates>
+            <location>Wizard&apos;s Hill</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 96 -->
+    <mythos expansionSet="dunwich">
+        <title>Stalkers in the Night!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All Star Vampires, Hunting Horrors, and Spectral Hunters in Arkham are returned to the cup. If at least one monster returns to the cup, raise the terror level by 1.</detail>
+        <clues>
+            <location>Unvisited Isle</location>
+            <location>Uptown Streets</location>
+        </clues>
+        <gates burst="true">
+            <location>Graveyard</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 95 -->
+    <mythos expansionSet="dunwich">
+        <title>Strange Statue Destroyed!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>Unfortunately, the statue's destruction lets 2 monsters loose in the Village Commons streets.</detail>
+        <clues>
+            <location>Science Building</location>
+            <location>Velma&apos;s Diner</location>
+        </clues>
+        <gates burst="true">
+            <location>Unvisited Isle</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 100 -->
+    <mythos expansionSet="dunwich">
+        <title>Strange Waves Subside!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>The first player chooses one open gate and closes it, returning its gate token to the gate token pile.</detail>
+        <clues>
+            <location>Woods</location>
+            <location>Northside Streets</location>
+        </clues>
+        <gates burst="true">
+            <location>The Unnamable</location>
+        </gates>
+        <white_symbols>
+            <symbol>Circle</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 99 -->
+    <mythos expansionSet="dunwich">
+        <title>The Tempest</title>
+        <expansionSet>Environment (Weather)</expansionSet>
+        <detail><p>Luck checks in Arkham are made at a -1 penalty.</p><p>Speed checks in Arkham are made at a +1 bonus, and investigators receive 1 extra movement point.</p><p>All flying monsters in the Sky when this card enters play, or that move to the Sky while it remains in play, are returned to the monster cup.</p></detail>
+        <clues>
+            <location>Cold Spring Glen</location>
+        </clues>
+        <gates>
+            <location>Gardners&apos;s Place</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 98 -->
+    <mythos expansionSet="dunwich">
+        <title>Whateley Family Feud Escalates!</title>
+        <expansionSet>Headline</expansionSet>
+        <detail>All monsters in the Backwoods Country streets or locations are returned to the cup.</detail>
+        <clues>
+            <location>The Unnamable</location>
+            <location>Train Station</location>
+        </clues>
+        <gates burst="true">
+            <location>Independence Square</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 103 -->
+    <mythos expansionSet="dunwich">
+        <title></title>
+        <expansionSet>Headline</expansionSet>
+        <detail>The accusations come after someone (or something) releases 2 monsters into the Backwoods Country streets.</detail>
+        <clues>
+            <location>Black Cave</location>
+            <location>Libary</location>
+        </clues>
+        <gates burst="true">
+            <location>The Witch House</location>
+        </gates>
+        <white_symbols>
+            <symbol>Hex</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Slash</symbol>
+            <symbol>Triangle</symbol>
+            <symbol>Star</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos  -->
+    <mythos expansionSet="dunwich">
+        <title>Whippoorwills of Dunwich</title>
+        <expansionSet>Environment (Mystic)</expansionSet>
+        <detail>If an investigator is reduced to 0 Stamina or Sanity while this card is in play, roll a die. On a 1, the investigator is <b>devoured</b> as the whippoorwills catch his soul, and the terror level is increased by 1.</detail>
+        <clues>
+            <location>Devil&apos;s Hopyard</location>
+        </clues>
+        <gates>
+            <location>Whateley Farm</location>
+        </gates>
+        <white_symbols>
+            <symbol>Square</symbol>
+            <symbol>Diamond</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Circle</symbol>
+        </black_symbols>
+    </mythos>
+    <!-- Mythos 101 -->
+    <mythos expansionSet="dunwich">
+        <title>Windy</title>
+        <expansionSet>Environment (Weather)</expansionSet>
+        <detail><p>Sneak checks in Arkham are made at a -1 penalty.</p><p>Speed checks in Arkham are made at a +1 bonus, and investigators receive 1 extra movement point.</p><p>The Sky is considered to be adjacent to all unstable locations as well as all street areas.</p></detail>
+        <clues>
+            <location>Cold Spring Glen</location>
+        </clues>
+        <gates>
+            <location>Gardners&apos; Place</location>
+        </gates>
+        <white_symbols>
+            <symbol>Plus</symbol>
+        </white_symbols>
+        <black_symbols>
+            <symbol>Crescent</symbol>
+        </black_symbols>
+    </mythos>
+</mythos_cards>

@@ -1,0 +1,123 @@
+<miskatonic_university-cards expansionSet="arkham horror"
+    <!-- Miskatonic University  -->
+    <miskatonic_university expansionSet="arkham">
+        <entry>
+            <title>Administration Building</title>
+            <value>Discuss the opportunity to sell a monograph with the President of the University. Pass a <b>Lore (-1) check</b> to make the sale and gain $5.</value>
+        </entry>
+        <entry>
+            <title>Library</title>
+            <value>You look up to see Abigail Foreman leaning over you with hands on hips and a frustrated look on her face. Make a <b>Will (-1) check</b>. If you pass, she helps you find the book you were looking for. Take the first <b><i>Tome</i></b> from the Unique Item deck. If you fail, you&apos;ve made too much noise. She escorts you out of the library. Move to the street.</value>
+        </entry>
+        <entry>
+            <title>Science Building</title>
+            <value>As you enter the Department of Alchemy, a professor looks up in horror. He grabs an ancient artifcat from a locked drawer in his desk and holds it up before your face, chanting and making symbolic motions with the item. If you are <i>Cursed</i>, discard the Curse. If you are not <i>Cursed</i>, then you are <i>Blessed</i>.</value>
+        </entry>
+    </miskatonic_university>
+    <!-- Miskatonic University 2 -->
+    <miskatonic_university expansionSet="arkham">
+        <entry>
+            <title>Administration Building</title>
+            <value>The Dean introduces you to an anthropology professor who gives you some insight into your investigation. Gain 1 Clue token.</value>
+        </entry>
+        <entry>
+            <title>Library</title>
+            <value>Make a <b>Will (+0) check</b> and consult the chart below:<p>Successes:</p><p>0) Abigail tosses you out. Move to the street.</p><p>1) Abigail lets you into a private section of the library where you find an ancient tome. Draw 2 Spells and keep whichever one of them you want.</p><p>2+) Abigail loans you one of the strange items in the library&apos;s display case. Draw 1 Unique Item.</p></value>
+        </entry>
+        <entry>
+            <title>Science Building</title>
+            <value>Assisting a professor in his research, you find a valuable Spell. Draw 1 Spell. However, you must pass a <b>Fight (-1) check</b> or some sticky-fingered student steals one of your items. Lose 1 item of your choice.</value>
+        </entry>
+    </miskatonic_university>
+    <!-- Miskatonic University 3 -->
+    <miskatonic_university expansionSet="arkham">
+        <entry>
+            <title>Administration Building</title>
+            <value>Pass a <b>Will (-1) check</b> to get the Dean to offer you a retainer to write a manuscript for the college. Gain a Retainer card.</value>
+        </entry>
+        <entry>
+            <title>Library</title>
+            <value>You find an unusual book that radiates evil at the touch. You begin to read and are drawn into it. Make a <b>Lore (-2) check</b>. If you pass, you obtain vast knowledge of the eldritch threat. Roll a die and gain that many Clue tokens. If you fail, the book consumes you - mind and soul - lose 2 Sanity and 2 Stamina.</value>
+        </entry>
+        <entry>
+            <title>Science Building</title>
+            <value>An archaeology professor shows you an item he recovered in an Egyptian pyramid. If you have 2 or fewer Spells, it glows in your hands and you find yourself outside, still holding it. Not wanting to confront the professor again, you decide to keep it. Gain 1 Unique Item and move to the street. If you have more than 2 Spells, nothing happens.</value>
+        </entry>
+    </miskatonic_university>
+    <!-- Miskatonic University 4 -->
+    <miskatonic_university expansionSet="arkham">
+        <entry>
+            <title>Administration Building</title>
+            <value>You may choose to help an anthropology professor and his students decipher an ancient stone tablet. If so, make a <b>Lore (-2) check</b>. If you pass, you correctly interpret it, draw 1 Spell. If you fail, you mispronounce a word and are <i>Cursed</i>.</value>
+        </entry>
+        <entry>
+            <title>Library</title>
+            <value>You doze off and enter The Dreamlands. Have an encounter there, then immediately return here.</value>
+        </entry>
+        <entry>
+            <title>Science Building</title>
+            <value>You find a muscular, bored-looking man who challenges you to an arm wrestling match. Lose 2 Stamina if you accept. If this does not knock you unconscious, <b>Sir William Brinton</b> laughs and slaps your shoulder, offering to join your investigation. Take his Ally card. If it is not available, gain $5 instead.</value>
+        </entry>
+    </miskatonic_university>
+    <!-- Miskatonic University 5 -->
+    <miskatonic_university expansionSet="arkham">
+        <entry>
+            <title>Administration Building</title>
+            <value>Your discussions on the Mythos lead campus security to conclude that you are off your rocker, and they escort you off campus. Move to Arkham Asylum and immediately have an encounter there.</value>
+        </entry>
+        <entry>
+            <title>Library</title>
+            <value>A book in a shadowy corner of the library begins to whisper terrible things to you. Lose 1 Sanity.</value>
+        </entry>
+        <entry>
+            <title>Science Building</title>
+            <value>A chemical brew bubbles on a nearby Bunsen burder. It smells delicious. If you drink it, make a <b>Luck (+0) check</b>. If you pass, the strange liquid fortifies you. Roll a die and gain that many points, split between your Stamina and Sanity however you like. If you fail, the liquid turns out to be coffee. Gain 1 Stamina.</value>
+        </entry>
+    </miskatonic_university>
+    <!-- Miskatonic University 6 -->
+    <miskatonic_university expansionSet="arkham">
+        <entry>
+            <title>Administration Building</title>
+            <value>Discuss the opportunity to sell a monograph with the President of the University. Pass a <b>Lore (-1) check</b> to make the sale and gain $5.</value>
+        </entry>
+        <entry>
+            <title>Library</title>
+            <value>Overdue book fines of $4. Pay up, or move the the street!</value>
+        </entry>
+        <entry>
+            <title>Science Building</title>
+            <value>A professor of the occult asks you to hold a hideous statue that he believes to have strange powers while he reads a scroll. Energy shoots through your body. Make a <b>Luck (-1) check</b>. If you pass, your spirit rises from your body and you feel that you have the power to switch bodies with another investigator. You may choose another investigator from the pile of unused investigators and bring it into your play as a new character, discarding your current investigator (along with all of his items, skills, trophies, etc.). If you fail, nothing happens.</value>
+        </entry>
+    </miskatonic_university>
+    <!-- Miskatonic University 7 -->
+    <miskatonic_university expansionSet="arkham">
+        <entry>
+            <title>Administration Building</title>
+            <value>A student mistakes you for the bursar. If you want to carry on the deception, make a <b>Will (-2) check</b>. If you pass, gain $8 in ill-gotten tuition money. If you fail, you&apos;re arrested and taken to the Police Station.</value>
+        </entry>
+        <entry>
+            <title>Library</title>
+            <value>Pass a <b>Luck (-2) check</b> to find $5 someone was using as a bookmark.</value>
+        </entry>
+        <entry>
+            <title>Science Building</title>
+            <value>You find a student pounding on a strange device that he has hooked up to massive machinery. He states that it is a dimensional beam machine. If you offer to help him, make a <b>Lore (-2) check</b>. If you pass, beams shoot out in all directions, disrupting the gates open throughout the board. Roll a die for each open gate one at a time. On a success the gate is closed. However you may not take it as a trophy, but instead return it to the pile of gate markers. If you fail, the machinery overheats and explodes. Roll a die and lose that much Stamina, then move to St. Mary&apos;s Hospital.</value>
+        </entry>
+    </miskatonic_university>
+    <!-- Sample format
+    <miskatonic_university expansionSet="arkham">
+        <entry>
+            <title>Administration Building</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>Library</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>Science Building</title>
+            <value></value>
+        </entry>
+    </miskatonic_university>
+    -->
+</miskatonic_university-cards>

@@ -1,0 +1,123 @@
+<rivertown-cards expansionSet="arkham horror"
+    <!-- Rivertown 1 -->
+    <rivertown expansionSet="arkham">
+        <entry>
+            <title>Black Cave</title>
+            <value>In the darkness you happen upon the remains of a previous spelunker. Make a <b>Luck (+0) check</b> and consult the chart below:<p>Successes:</p><p>0) The body begins to bloat and splits open, releasing the horrir within. Lose 1 Sanity and a monster appears!</p><p>1) The body has been ripped apart as if shredded by a powerful monster. Lose 1 Sanity.</p><p>2+) Searching the body you find something interesting. Draw 1 Common Item.</p></value>
+        </entry>
+        <entry>
+            <title>General Store</title>
+            <value>Noticing a glint on the floor, you discover a silver dollar someone must have droppped. Gain $1.</value>
+        </entry>
+        <entry>
+            <title>Graveyard</title>
+            <value>A monster appears!</value>
+        </entry>
+    </rivertown>
+    <!-- Rivertown 2 -->
+    <rivertown expansionSet="arkham">
+        <entry>
+            <title>Black Cave</title>
+            <value>The moaning winds in the cave whisper your name. Lose 1 Sanity.</value>
+        </entry>
+        <entry>
+            <title>General Store</title>
+            <value>You try talking to the elderly locals gathered around the potbellied stove plaing checkers, but you gain nothing but stares and a few befuddled grunts for your trouble. Apparently they don&apos;t like outsiders. No encounter.</value>
+        </entry>
+        <entry>
+            <title>Graveyard</title>
+            <value>&quot;Testifying&quot; Cooter Falwell latches onto you and rambles on about his spiritual beliefs. Make a <b>Lore (-1) check</b>. If you pass, then somewhere Cooter&apos;s words you find a clue to the Mythos threat. Gain 1 Clue token, but lose 1 Sanity. If you fail, move to the street while you listen to Cooter ramble on about pure nonsense.</value>
+        </entry>
+    </rivertown>
+    <!-- Rivertown 3 -->
+    <rivertown expansionSet="arkham">
+        <entry>
+            <title>Black Cave</title>
+            <value>Bats! Hundreds of them! Pass a <b>Speed (-1) check</b> to get out of the cave safely. If you fail, lose 1 Stamina.</value>
+        </entry>
+        <entry>
+            <title>General Store</title>
+            <value>The shopkeeper notices one of the items you&apos;re carrying and his face lights up. &quot;Say I&apos;ve been looking for one of those. You wouldn&apos;t mind parting with it, would ya? I can pay well.&quot; You may sell any one of your Common Items for twice its listed price.</value>
+        </entry>
+        <entry>
+            <title>Graveyard</title>
+            <value>Descending into a dark mausoleum, you discover a vampire rising to feed. You quickly find yourself fighting for your life. Make a <b>Combat (-2) check</b>. If you pass, you defeat the vampire, gaining 1 Clue token and drawing 1 Unique Item. If you fail, roll a die and lose that much Stamina.</value>
+        </entry>
+    </rivertown>
+    <!-- Rivertown 4 -->
+    <rivertown expansionSet="arkham">
+        <entry>
+            <title>Black Cave</title>
+            <value>A monster appears!</value>
+        </entry>
+        <entry>
+            <title>General Store</title>
+            <value>You notice that some of the locals have an odd, fish-like quality to them that sets your teeth on edge. The shopkeeper notices your gaze and nods, &quot;Marsh stock, from over in Innsmouth. Watch yourself around them.&quot; Shivering, you lose 1 Sanity.</value>
+        </entry>
+        <entry>
+            <title>Graveyard</title>
+            <value>You find a man painting a picture of one of the horrible gargoyles lining the walls of the graveyard. Seeing you, he introduces himself as <b>Richard Upton Pickman</b>, a painter visiting from Boston. If you spend monster trophies that have a total of 5 toughness, Pickman takes a liking to you. Take his Ally card. If it is not available, he teaches you an incantation instead. Draw 1 Spell.</value>
+        </entry>
+    </rivertown>
+    <!-- Rivertown 5 -->
+    <rivertown expansionSet="arkham">
+        <entry>
+            <title>Black Cave</title>
+            <value>You are in a maze of twisty passages, all alike. Pass a <b>Lore (-2) check</b> or become lost. If you fail, lose 1 Stamina and stay here next turn.</value>
+        </entry>
+        <entry>
+            <title>General Store</title>
+            <value>Make a <b>Will (-2) check</b>. If you pass, you gain the ear of the shopkeeper. Seeing your valiant cause, he takes you into the back room and offers you some special equipment. Draw 3 Common Items. You may take 1 of them for free as a gift to help thwart the evil in Arkham! Discard the other 2. If you fail, nothing happens.</value>
+        </entry>
+        <entry>
+            <title>Graveyard</title>
+            <value>Pass a <b>Luck (-2) check</b> to find a valuable clue within your tombstone rubbings. Gain 2 Clue tokens and you may move to any location or street area in Arkham. If you move to a location, immediately have an encounter there.</value>
+        </entry>
+    </rivertown>
+    <!-- Rivertown 6 -->
+    <rivertown expansionSet="arkham">
+        <entry>
+            <title>Black Cave</title>
+            <value>You are attacked by a shadowy being, but a large man leaps out of the darkness and drives it off. He introduces himself as <b>Tom &quot;Mountain&quot; Murphy</b>. Make a <b>Luck (-2) check</b>, or discard a Whiskey card to pass it automatically. If you pass, he joins your investigation. Take his Ally card if it&apos;s available, otherwise he gives you something to protect yourself with. Search the Common Item deck and take the first <b><i>Weapon</i></b> you find. If you fail, nothing happens.</value>
+        </entry>
+        <entry>
+            <title>General Store</title>
+            <value>A jar on the counter bears a sign proclaiming, &quot;Guess how many marbles are in the jar and win a prize! $1 entry fee.&quot; If you want you may pay $1 to make a <b>Lore (-2) check</b>. If you pass, you gain $5. If you fail, nothing happens.</value>
+        </entry>
+        <entry>
+            <title>Graveyard</title>
+            <value>Entering a stone crypt, you are surprised to find a beautiful fresco and some inspirational words upon the wall. There is an almost magical peace within the chamber. Gain 2 Sanity.</value>
+        </entry>
+    </rivertown>
+    <!-- Rivertown 7 -->
+    <rivertown expansionSet="arkham">
+        <entry>
+            <title>Black Cave</title>
+            <value>You find an old book. If you read it, make a <b>Luck (+0) check</b> and consult the chart below.<p>Successes:</p><p>0) Evil forces assault you. Lose 1 Sanity and 1 Stamina.</p><p>1) You find the diary of a lost soul who died in the caves long ago. Lose 1 Sanity and gain 1 Clue token as you read his horrible tale.</p><p>2+) The book is a spellbook. Take the first <b><i>Tome</i></b> from the Unique Item deck.</value>
+        </entry>
+        <entry>
+            <title>General Store</title>
+            <value>&quot;Hey, you dropped this!&quot; A young street urchin hands you an item and then scampers off. You don&apos;t recognize the item, but the boy is already gone. Draw 1 Common Item.</value>
+        </entry>
+        <entry>
+            <title>Graveyard</title>
+            <value>You find the half-buried corpse of a strange being. Draw a monster from the cup and take it as a monster trophy, even if it has the <b>Endless</b> ability.</value>
+        </entry>
+    </rivertown>
+    <!-- Sample format
+    <rivertown expansionSet="arkham">
+        <entry>
+            <title>Black Cave</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>General Store</title>
+            <value></value>
+        </entry>
+        <entry>
+            <title>Graveyard</title>
+            <value></value>
+        </entry>
+    </rivertown>
+    -->
+</rivertown-cards>

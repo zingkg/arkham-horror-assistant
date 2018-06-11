@@ -11,11 +11,11 @@ DRAWABLE_XHDPI='drawable-xhdpi'
 DRAWABLE_XXHDPI='drawable-xxhdpi'
 DRAWABLE_XXXHDPI='drawable-xxxhdpi'
 mkdir $DRAWABLE_MDPI/ $DRAWABLE_HDPI/ $DRAWABLE_XHDPI/ $DRAWABLE_XXHDPI/ $DRAWABLE_XXXHDPI/
-convert $PARAMS -resize 24x24 svg-images/$DONE_SVG $DRAWABLE_MDPI/$DONE_ICON
-convert $PARAMS -resize 36x36 svg-images/$DONE_SVG $DRAWABLE_HDPI/$DONE_ICON
-convert $PARAMS -resize 48x48 svg-images/$DONE_SVG $DRAWABLE_XHDPI/$DONE_ICON
-convert $PARAMS -resize 72x72 svg-images/$DONE_SVG $DRAWABLE_XXHDPI/$DONE_ICON
-convert $PARAMS -resize 96x96 svg-images/$DONE_SVG $DRAWABLE_XXXHDPI/$DONE_ICON
+magick convert $PARAMS -resize 24x24 svg-images/$DONE_SVG $DRAWABLE_MDPI/$DONE_ICON
+magick convert $PARAMS -resize 36x36 svg-images/$DONE_SVG $DRAWABLE_HDPI/$DONE_ICON
+magick convert $PARAMS -resize 48x48 svg-images/$DONE_SVG $DRAWABLE_XHDPI/$DONE_ICON
+magick convert $PARAMS -resize 72x72 svg-images/$DONE_SVG $DRAWABLE_XXHDPI/$DONE_ICON
+magick convert $PARAMS -resize 96x96 svg-images/$DONE_SVG $DRAWABLE_XXXHDPI/$DONE_ICON
 
 ELDER_SIGN=elder_sign.svg
 LAUNCHER_ICON=ic_launcher.png
@@ -24,7 +24,7 @@ MIPMAP_HDPI='mipmap-hdpi'
 MIPMAP_XHDPI='mipmap-xhdpi'
 MIPMAP_XXHDPI='mipmap-xxhdpi'
 mkdir $MIPMAP_MDPI/ $MIPMAP_HDPI/ $MIPMAP_XHDPI/ $MIPMAP_XXHDPI/
-convert $PARAMS -resize 48x48 svg-images/$ELDER_SIGN $MIPMAP_MDPI/$LAUNCHER_ICON
-convert $PARAMS -resize 72x72 svg-images/$ELDER_SIGN $MIPMAP_HDPI/$LAUNCHER_ICON
-convert $PARAMS -resize 96x96 svg-images/$ELDER_SIGN $MIPMAP_XHDPI/$LAUNCHER_ICON
-convert $PARAMS -resize 144x144 svg-images/$ELDER_SIGN $MIPMAP_XXHDPI/$LAUNCHER_ICON
+magick convert $PARAMS -resize 48x48 svg-images/$ELDER_SIGN $MIPMAP_MDPI/$LAUNCHER_ICON
+magick convert $PARAMS -resize 72x72 svg-images/$ELDER_SIGN $MIPMAP_HDPI/$LAUNCHER_ICON
+magick convert $PARAMS -resize 96x96 svg-images/$ELDER_SIGN $MIPMAP_XHDPI/$LAUNCHER_ICON
+magick convert $PARAMS -resize 144x144 svg-images/$ELDER_SIGN $MIPMAP_XXHDPI/$LAUNCHER_ICON

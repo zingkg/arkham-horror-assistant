@@ -1,0 +1,72 @@
+<reckoning-cards expansionSet="miskatonic horror">
+    <!-- Reckoning 1 -->
+    <reckoning>
+        <title>An Unsettling Trend</title>
+        <entry>For each investigator with a Bound Ally, raise the terror level by 1.</entry>
+    </reckoning>
+    <!-- Reckoning 2 -->
+    <reckoning>
+        <title>Beyond Control</title>
+        <entry>Each investigator with a Soul Pact gains 1 Power for each point of Sanity he currently has. He then reduces his maximum Sanity by 2.</entry>
+    </reckoning>
+    <!-- Reckoning 3 -->
+    <reckoning>
+        <title>Blood Boils</title>
+        <entry>Each investigator with a Blood Pact gains 1 Power for each point of Stamina he currently has. He then reduces his maximum Stamina by 2.</entry>
+    </reckoning>
+    <!-- Reckoning 4 -->
+    <reckoning>
+        <title>Devotion Beyond Reason</title>
+        <entry>Each investigator with a Bound Ally must discard all of his money and items.</entry>
+    </reckoning>
+    <!-- Reckoning 5 -->
+    <reckoning>
+        <title>His Undivided Attention</title>
+        <entry>Draw the next 2 Reckoning cards from the deck and resolve them both, one at a time in the order drawn.</entry>
+    </reckoning>
+    <!-- Reckoning 6 -->
+    <reckoning>
+        <title>Lest You Wither Away</title>
+        <entry>Each investigator may choose to immediately gain 1 or more Dark Pacts. Then, if there is at least 1 investigator who does not have a Dark Pact, each investigator who does have a Dark Pact reduces his maximum Stamina by 1.</entry>
+    </reckoning>
+    <!-- Reckoning 7 -->
+    <reckoning>
+        <title>Merely a Vessel</title>
+        <entry>Each investigator with 1 or more Power tokens in Arkham is delayed. Each investigator with 1 or more Power tokens in an Other World is lost in time and space.</entry>
+    </reckoning>
+    <!-- Reckoning 8 -->
+    <reckoning>
+        <title>So Easy to Break</title>
+        <entry>Each investigator that has a Dark Pact but does not currently have a Blood Pact loses 2 Stamina.</entry>
+    </reckoning>
+    <!-- Reckoning 9 -->
+    <reckoning>
+        <title>Surrender Your Soul</title>
+        <entry>Each investigator that has a Dark Pact but does not currently have a Soul Pact loses 2 Sanity.</entry>
+    </reckoning>
+    <!-- Reckoning 10 -->
+    <reckoning>
+        <title>The Barriers Crumble</title>
+        <entry>A gate opens and a monster appears in each unstable location containing an investigator with 1 or more Dark Pacts (if there is not already a gate in that location).</entry>
+    </reckoning>
+    <!-- Reckoning 11 -->
+    <reckoning>
+        <title>The Legacy of Blood</title>
+        <entry>Each investigator with a Blood Pact is devoured. The new investigator chosen to replace him starts with a Blood Pact and 3 Power tokens in addition to his other fixed possessions.</entry>
+    </reckoning>
+    <!-- Reckoning 12 -->
+    <reckoning>
+        <title>The Legacy of Madness</title>
+        <entry>Each investigator with a Soul Pact is devoured. The new investigator chosen to replace him starts with a Soul Pact and 3 Power tokens in addition to his other fixed possessions.</entry>
+    </reckoning>
+    <!-- Reckoning 13 -->
+    <reckoning>
+        <title>The Voices Beckon</title>
+        <entry>Each investigator may choose to immediately gain 1 or more Dark Pacts. Then, if there is at least 1 investigator who does not have a Dark Pact, each investigator who does have a Dark Pact reduces his maximum Sanity by 1.</entry>
+    </reckoning>
+    <!-- Reckoning 14 -->
+    <reckoning>
+        <title>Traveler of the Paths</title>
+        <entry>Each investigator with 2 or more Dark Pacts must immediately return all of his gate trophies face down to the bottom of the pile of gate markers.</entry>
+    </reckoning>
+</reckoning-cards>
