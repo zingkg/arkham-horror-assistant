@@ -1,0 +1,1 @@
+This app collects no user data or device data.
