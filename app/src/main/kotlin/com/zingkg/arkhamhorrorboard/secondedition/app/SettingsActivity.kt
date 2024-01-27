@@ -1,4 +1,4 @@
-package com.zingkg.arkhamhorrorassistant.app
+package com.zingkg.arkhamhorrorboard.secondedition.app
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.preference.PreferenceFragmentCompat
 import android.support.v7.preference.PreferenceScreen
 import android.support.v7.widget.Toolbar
+import com.zingkg.arkhamhorrorboard.secondedition.app.R
 
 class SettingsActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceStartScreenCallback {
     private var mToolbar: Toolbar? = null
@@ -20,16 +21,16 @@ class SettingsActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPrefere
             setSupportActionBar(mToolbar)
             supportActionBar?.setDisplayShowTitleEnabled(true)
             var fragment: Fragment? = supportFragmentManager.findFragmentByTag(
-                    SettingsFragment.FragmentTag
+                SettingsFragment.FragmentTag
             )
             if (fragment == null) {
                 fragment = SettingsFragment()
             }
 
             supportFragmentManager.beginTransaction().replace(
-                    R.id.frame_settings,
+                R.id.frame_settings,
                 fragment,
-                    SettingsFragment.FragmentTag
+                SettingsFragment.FragmentTag
             ).commit()
         }
     }

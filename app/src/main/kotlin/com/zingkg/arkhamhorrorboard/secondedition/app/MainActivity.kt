@@ -1,4 +1,4 @@
-package com.zingkg.arkhamhorrorassistant.app
+package com.zingkg.arkhamhorrorboard.secondedition.app
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -19,22 +19,23 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import com.zingkg.arkhamhorrorboard.secondedition.app.R
 
 import java.io.InputStreamReader
 import java.io.Reader
 import java.util.Arrays
 import java.util.Collections
 
-import com.zingkg.arkhamhorrorassistant.app.fragments.CardFragment
-import com.zingkg.arkhamhorrorassistant.app.fragments.CultEncounterFragment
-import com.zingkg.arkhamhorrorassistant.app.fragments.ExhibitEncounterFragment
-import com.zingkg.arkhamhorrorassistant.app.fragments.InnsmouthLookFragment
-import com.zingkg.arkhamhorrorassistant.app.fragments.ReckoningFragment
-import com.zingkg.arkhamhorrorassistant.xml.CardXML
-import com.zingkg.arkhamhorrorassistant.xml.CultEncounter
-import com.zingkg.arkhamhorrorassistant.xml.ExhibitEncounter
-import com.zingkg.arkhamhorrorassistant.xml.InnsmouthLook
-import com.zingkg.arkhamhorrorassistant.xml.Reckoning
+import com.zingkg.arkhamhorrorboard.secondedition.app.fragments.CardFragment
+import com.zingkg.arkhamhorrorboard.secondedition.app.fragments.CultEncounterFragment
+import com.zingkg.arkhamhorrorboard.secondedition.app.fragments.ExhibitEncounterFragment
+import com.zingkg.arkhamhorrorboard.secondedition.app.fragments.InnsmouthLookFragment
+import com.zingkg.arkhamhorrorboard.secondedition.app.fragments.ReckoningFragment
+import com.zingkg.arkhamhorrorboard.secondedition.xml.CardXML
+import com.zingkg.arkhamhorrorboard.secondedition.xml.CultEncounter
+import com.zingkg.arkhamhorrorboard.secondedition.xml.ExhibitEncounter
+import com.zingkg.arkhamhorrorboard.secondedition.xml.InnsmouthLook
+import com.zingkg.arkhamhorrorboard.secondedition.xml.Reckoning
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardFragment.CardCallbacks {
     private var drawerLayout: DrawerLayout? = null

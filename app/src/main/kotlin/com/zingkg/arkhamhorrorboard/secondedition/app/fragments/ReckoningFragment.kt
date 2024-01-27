@@ -1,4 +1,4 @@
-package com.zingkg.arkhamhorrorassistant.app.fragments
+package com.zingkg.arkhamhorrorboard.secondedition.app.fragments
 
 import android.os.Bundle
 import android.text.Html
@@ -11,8 +11,8 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 
-import com.zingkg.arkhamhorrorassistant.app.R
-import com.zingkg.arkhamhorrorassistant.xml.Reckoning
+import com.zingkg.arkhamhorrorboard.secondedition.app.R
+import com.zingkg.arkhamhorrorboard.secondedition.xml.Reckoning
 
 class ReckoningFragment : CardFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {

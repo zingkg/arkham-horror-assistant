@@ -1,5 +1,6 @@
 package com.zingkg.arkhamhorrorassistant.xml
 
+import com.zingkg.secondedition.xml.ExhibitEncounter
 import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
 

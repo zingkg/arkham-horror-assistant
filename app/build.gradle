@@ -18,11 +18,11 @@ android {
     }
 
     defaultConfig {
-        applicationId 'com.zingkg.arkhamhorrorassistant'
+        applicationId 'com.zingkg.arkhamhorrorboard.secondedition'
         minSdkVersion 20
         targetSdkVersion 34
-        versionCode 23
-        versionName '0.23'
+        versionCode 1
+        versionName '0.1'
     }
     buildTypes {
         release {
@@ -44,7 +44,7 @@ android {
             includeAndroidResources = true
         }
     }
-    namespace 'com.zingkg.arkhamhorrorassistant.app'
+    namespace 'com.zingkg.arkhamhorrorboard.secondedition.app'
 }
 
 dependencies {

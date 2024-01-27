@@ -6,7 +6,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity android:name="com.zingkg.arkhamhorrorboard.secondedition.app.MainActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name"
             android:exported="false">
@@ -15,11 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity"
+        <activity android:name="com.zingkg.arkhamhorrorboard.secondedition.app.SettingsActivity"
             android:label="@string/settings_title"
             android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.zingkg.arkhamhorrorboard.secondedition.app.MainActivity" />
         </activity>
     </application>
 </manifest>

@@ -1,11 +1,11 @@
-package com.zingkg.arkhamhorrorassistant.app.fragments
+package com.zingkg.arkhamhorrorboard.secondedition.app.fragments
 
 import android.app.Activity
 import android.content.Context
 import android.support.v4.app.Fragment
 import android.view.MenuItem
 
-import com.zingkg.arkhamhorrorassistant.app.R
+import com.zingkg.arkhamhorrorboard.secondedition.app.R
 
 abstract class CardFragment : Fragment() {
     private var callbacks: CardCallbacks? = null

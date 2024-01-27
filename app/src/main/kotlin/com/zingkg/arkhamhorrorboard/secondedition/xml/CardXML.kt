@@ -1,4 +1,4 @@
-package com.zingkg.arkhamhorrorassistant.xml
+package com.zingkg.arkhamhorrorboard.secondedition.xml
 
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
