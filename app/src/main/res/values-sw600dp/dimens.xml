@@ -4,4 +4,5 @@
     <dimen name="navigation_item_text_size">24sp</dimen>
     <dimen name="title">48sp</dimen>
     <dimen name="card">32sp</dimen>
+    <dimen name="expansion_set">16sp</dimen>
 </resources>

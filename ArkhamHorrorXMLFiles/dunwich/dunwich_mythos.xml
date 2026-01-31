@@ -64,7 +64,7 @@
     <mythos expansionSet="dunwich">
         <title>Balmy</title>
         <expansionSet>Environment (Weather)</expansionSet>
-        <detail><p>Sneak checks in Arkham are made at a -1 penalty.</p><p>Fight checks in Arkham are made at a +1 bonux.</p><p>When moving, stalkers move to investigators in street areas or unstable locations up to spaces away.</p></detail>
+        <detail><p>Sneak checks in Arkham are made at a -1 penalty.</p><p>Fight checks in Arkham are made at a +1 bonus.</p><p>When moving, stalkers move to investigators in street areas or unstable locations up to spaces away.</p></detail>
         <clues>
             <location>Gardnders&apos; Place</location>
         </clues>

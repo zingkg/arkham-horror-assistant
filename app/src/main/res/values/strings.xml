@@ -1,13 +1,20 @@
 <resources>
-    <string name="app_name">Arkham Assistant</string>
+  <string name="app_name">Arkham Assistant</string>
 
-    <string name="drawer_open">Open drawer</string>
-    <string name="drawer_close">Closed drawer</string>
-    <string name="action_settings">Settings</string>
-    <string name="action_done">Done</string>
-    <string name="settings_title">Settings</string>
-    <string name="expansion_preferences">Expansions</string>
-    <string name="other_preferences">Other</string>
-    <string name="license_title">License</string>
-    <string name="miskatonic_horror_expansion_title">Miskatonic Horror</string>
+  <string name="drawer_open">Open drawer</string>
+  <string name="drawer_close">Closed drawer</string>
+  <string name="action_settings">Settings</string>
+  <string name="action_done">Done</string>
+  <string name="settings_title">Settings</string>
+  <string name="expansion_preferences">Expansions</string>
+  <string name="other_preferences">Other</string>
+  <string name="license_title">License</string>
+  <string name="dunwich_horror_expansion_title">Dunwich Horror</string>
+  <string name="the_king_in_yellow_expansion_title">The King in Yellow</string>
+  <string name="kingsport_horror_expansion_title">Kingsport Horror</string>
+  <string name="the_black_goat_of_the_woods_expansion_title">The Black Goat of the Woods</string>
+  <string name="innsmouth_horror_expansion_title">Innsmouth Horror</string>
+  <string name="the_lurker_at_the_threshold_expansion_title">The Lurker at the Threshold</string>
+  <string name="the_curse_of_the_dark_pharaoh_expansion_title">The Curse of the Dark Pharaoh</string>
+  <string name="miskatonic_horror_expansion_title">Miskatonic Horror</string>
 </resources>

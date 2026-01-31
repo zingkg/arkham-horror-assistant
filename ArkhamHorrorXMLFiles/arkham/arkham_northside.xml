@@ -1,4 +1,4 @@
-<northside-cards expansionSet="arkham horror"
+<northside-cards expansionSet="arkham horror">
     <!-- Northside 1 -->
     <northside expansionSet="arkham">
         <entry>
@@ -93,7 +93,7 @@
     <northside expansionSet="arkham">
         <entry>
             <title>Curiositie Shoppe</title>
-            <value>As you wanter into the back of the shop, you hear a noise. Pass a <b>Speed (-1) check</b> or you look up just in time to see a descending club. Everything goes black. When you awaken, you are somewhere else. Draw a mythos and move to the gate location shown on it, then immediately have an encounter there.</value>
+            <value>As you wander into the back of the shop, you hear a noise. Pass a <b>Speed (-1) check</b> or you look up just in time to see a descending club. Everything goes black. When you awaken, you are somewhere else. Draw a mythos and move to the gate location shown on it, then immediately have an encounter there.</value>
         </entry>
         <entry>
             <title>Newspaper</title>

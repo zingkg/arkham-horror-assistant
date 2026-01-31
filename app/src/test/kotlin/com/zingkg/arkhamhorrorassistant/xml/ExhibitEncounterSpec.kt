@@ -1,8 +1,9 @@
 package com.zingkg.arkhamhorrorassistant.xml
 
-import com.zingkg.secondedition.xml.ExhibitEncounter
+import com.zingkg.arkhamhorrorboard.secondedition.xml.ExhibitEncounter
 import io.kotlintest.matchers.shouldBe
 import io.kotlintest.specs.WordSpec
+import org.json.JSONObject
 
 import java.io.StringReader
 

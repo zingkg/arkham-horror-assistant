@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="@string/expansion_preferences">
-        <CheckBoxPreference android:key="@string/miskatonic_horror_expansion_title"
-            android:title="@string/miskatonic_horror_expansion_title"
-            android:persistent="true" />
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/other_preferences">
-        <Preference android:key="@string/license_title"
-            android:title="@string/license_title"
-            android:persistent="false">
-            <intent android:action="android.intent.action.VIEW"
-                android:data="https://raw.githubusercontent.com/zingkg/arkham-horror-assistant/master/LICENSE" />
-        </Preference>
-    </PreferenceCategory>
+  <PreferenceCategory android:title="@string/expansion_preferences">
+    <CheckBoxPreference android:key="@string/dunwich_horror_expansion_title"
+      android:title="@string/dunwich_horror_expansion_title"
+      android:persistent="true" />
+    <CheckBoxPreference android:key="@string/the_king_in_yellow_expansion_title"
+      android:title="@string/the_king_in_yellow_expansion_title"
+      android:persistent="true" />
+    <CheckBoxPreference android:key="@string/kingsport_horror_expansion_title"
+      android:title="@string/kingsport_horror_expansion_title"
+      android:persistent="true" />
+    <CheckBoxPreference android:key="@string/the_black_goat_of_the_woods_expansion_title"
+      android:title="@string/the_black_goat_of_the_woods_expansion_title"
+      android:persistent="true" />
+    <CheckBoxPreference android:key="@string/innsmouth_horror_expansion_title"
+      android:title="@string/innsmouth_horror_expansion_title"
+      android:persistent="true" />
+    <CheckBoxPreference android:key="@string/the_lurker_at_the_threshold_expansion_title"
+      android:title="@string/the_lurker_at_the_threshold_expansion_title"
+      android:persistent="true" />
+    <CheckBoxPreference android:key="@string/the_curse_of_the_dark_pharaoh_expansion_title"
+      android:title="@string/the_curse_of_the_dark_pharaoh_expansion_title"
+      android:persistent="true" />
+    <CheckBoxPreference android:key="@string/miskatonic_horror_expansion_title"
+      android:title="@string/miskatonic_horror_expansion_title"
+      android:persistent="true" />
+  </PreferenceCategory>
+  <PreferenceCategory android:title="@string/other_preferences">
+    <Preference android:key="@string/license_title"
+      android:title="@string/license_title"
+      android:persistent="false">
+      <intent android:action="android.intent.action.VIEW"
+        android:data="https://raw.githubusercontent.com/zingkg/arkham-horror-assistant/master/LICENSE" />
+    </Preference>
+  </PreferenceCategory>
 </PreferenceScreen>

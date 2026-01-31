@@ -1,6 +1,6 @@
 <gate-cards expansionSet="arkham horror">
     <!-- Gate 1 -->
-    <gate expansionSet="arkham" expansionSet="arkham" color="blue">
+    <gate expansionSet="arkham" color="blue">
         <entry>
             <title>Abyss</title>
             <value>A glowing light ahead draws you towards it. <b>Make a Luck (-1) check.</b> If you pass, the glow is a way home. Return to Arkham. If you fail, the light is a trap set by one of the monsters that lives here. A monster appears!</value>
