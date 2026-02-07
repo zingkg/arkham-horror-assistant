@@ -266,12 +266,29 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
       arkhamSouthsideDeck = emptyList()
     }
 
-    if (previousDunwichHorrorExpSetting != dunwichHorrorExpSetting ||
+    if ((dunwichHorrorExpSetting && !previousDunwichHorrorExpSetting) ||
       (dunwichHorrorExpSetting && previousMiskatonicHorrorExpSetting != miskatonicHorrorExpSetting) ||
       force) {
-      dunwichBackwoodsCountryDeck = emptyList()
-      dunwichBlastedHeathDeck = emptyList()
-      dunwichVillageCommonsDeck = emptyList()
+      dunwichBackwoodsCountryDeck = readDunwichBackwoodsCountryDeck()
+      dunwichBlastedHeathDeck = readDunwichBlastedHeathDeck()
+      dunwichVillageCommonsDeck = readDunwichVillageCommonsDeck()
+    }
+
+    if ((kingsportHorrorExpSetting && !previousKingsportHorrorExpSetting) ||
+      (kingsportHorrorExpSetting && previousMiskatonicHorrorExpSetting != miskatonicHorrorExpSetting) ||
+      force) {
+      kingsportCentralHillDeck = emptyList()
+      kingsportHarborsideDeck = emptyList()
+      kingsportSouthshoreDeck = emptyList()
+      kingsportKingsportHeadDeck = emptyList()
+    }
+
+    if ((innsmouthHorrorExpSetting && !previousInnsmouthHorrorExpSetting) ||
+      (innsmouthHorrorExpSetting && previousMiskatonicHorrorExpSetting != miskatonicHorrorExpSetting) ||
+      force) {
+      innsmouthFactoryDistrictDeck = readInnsmouthFactoryDistrictDeck()
+      innsmouthChurchGreenDeck = readInnsmouthChurchGreenDeck()
+      innsmouthInnsmouthShoreDeck = readInnsmouthInnsmouthShoreDeck()
     }
 
     if (previousMiskatonicHorrorExpSetting != miskatonicHorrorExpSetting || force) {
@@ -314,61 +331,55 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
   }
 
   private fun readArkhamDowntownDeck(): List<Card> {
-    val base = parseArkhamDowntownResource(
+    val base = parseNeighborhoodResource(
         R.raw.neighborhood_arkham_downtown__base,
         Cards.ExpansionSet.BASE)
     val dunwich = if (dunwichHorrorExpSetting) {
-      parseArkhamDowntownResource(
+      parseNeighborhoodResource(
           R.raw.neighborhood_arkham_downtown__dunwich_horror_exp,
           Cards.ExpansionSet.DUNWICH_HORROR)
     } else {
       emptyList()
     }
     val theKingInYellow = if (theKingInYellowExpSetting) {
-      parseArkhamDowntownResource(
+      parseNeighborhoodResource(
           R.raw.neighborhood_arkham_downtown__the_king_in_yellow_exp,
           Cards.ExpansionSet.THE_KING_IN_YELLOW)
     } else {
       emptyList()
     }
     val kingsport = if (kingsportHorrorExpSetting) {
-      parseArkhamDowntownResource(
+      parseNeighborhoodResource(
           R.raw.neighborhood_arkham_downtown__the_king_in_yellow_exp,
           Cards.ExpansionSet.KINGSPORT_HORROR)
     } else {
       emptyList()
     }
     val theBlackGoatOfTheWoods = if (theBlackGoatOfTheWoodsExpSetting) {
-      parseArkhamDowntownResource(
+      parseNeighborhoodResource(
           R.raw.neighborhood_arkham_downtown__the_black_goat_of_the_woods_exp,
           Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
     } else {
       emptyList()
     }
     val innsmouth = if (innsmouthHorrorExpSetting) {
-      parseArkhamDowntownResource(
+      parseNeighborhoodResource(
           R.raw.neighborhood_arkham_downtown__innsmouth_horror_exp,
           Cards.ExpansionSet.INNSMOUTH_HORROR)
     } else {
       emptyList()
     }
     val theLurkerAtTheThreshold = if (theLurkerAtTheThresholdExpSetting) {
-      parseArkhamDowntownResource(
+      parseNeighborhoodResource(
           R.raw.neighborhood_arkham_downtown__the_lurker_at_the_threshold_exp,
           Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
     } else {
       emptyList()
     }
     val theCurseOfTheDarkPharaoh: List<NeighborhoodThreeLocations> = if (theCurseOfTheDarkPharaohExpSetting) {
-      parseArkhamDowntownResource(
+      parseNeighborhoodResource(
           R.raw.neighborhood_arkham_downtown__the_curse_of_the_dark_pharaoh_exp,
           Cards.ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
-    } else {
-      emptyList()
-    }
-    val miskatonic: List<NeighborhoodThreeLocations> = if (miskatonicHorrorExpSetting) {
-      // TODO add the miskatonic cards once ready and determine from the above expansions as well
-      emptyList()
     } else {
       emptyList()
     }
@@ -380,15 +391,494 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
         theBlackGoatOfTheWoods +
         innsmouth +
         theLurkerAtTheThreshold +
-        theCurseOfTheDarkPharaoh +
-        miskatonic
+        theCurseOfTheDarkPharaoh
   }
 
-  private fun parseArkhamDowntownResource(resource: Int, expansionSet: Cards.ExpansionSet): List<NeighborhoodThreeLocations> {
+  private fun parseNeighborhoodResource(resource: Int, expansionSet: Cards.ExpansionSet): List<NeighborhoodThreeLocations> {
     val reader = readResource(resource)
     val lines = reader.readLines()
     reader.close()
     return lines.map { NeighborhoodThreeLocations.parseJson(JSONObject(it), expansionSet) }
+  }
+
+  private fun readDunwichBackwoodsCountryDeck(): List<Card> {
+    val base = if (dunwichHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_backwoods_country__dunwich_horror_exp,
+        Cards.ExpansionSet.DUNWICH_HORROR)
+    } else {
+      emptyList()
+    }
+
+    val miskatonicBase = if (dunwichHorrorExpSetting && miskatonicHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTkiy = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theKingInYellowExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_tkiy,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TKIY)
+    } else {
+      emptyList()
+    }
+    val miskatonicKh = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      kingsportHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_kh,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTbgotw = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theBlackGoatOfTheWoodsExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_tbgotw,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TBGOTW)
+    } else {
+      emptyList()
+    }
+    val miskatonicIh = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      innsmouthHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_ih,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_IH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTlatt = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theLurkerAtTheThresholdExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_tlatt,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TLATT)
+    } else {
+      emptyList()
+    }
+    val miskatonicTcotdp = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theCurseOfTheDarkPharaohExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_tcotdp,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TCOTDP)
+    } else {
+      emptyList()
+    }
+    return base +
+      miskatonicBase +
+      miskatonicTkiy +
+      miskatonicKh +
+      miskatonicTbgotw +
+      miskatonicIh +
+      miskatonicTlatt +
+      miskatonicTcotdp
+  }
+
+  private fun readDunwichBlastedHeathDeck(): List<Card> {
+    val base = if (dunwichHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_blasted_heath__dunwich_horror_exp,
+        Cards.ExpansionSet.DUNWICH_HORROR)
+    } else {
+      emptyList()
+    }
+
+    val miskatonicBase = if (dunwichHorrorExpSetting && miskatonicHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTkiy = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theKingInYellowExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_tkiy,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TKIY)
+    } else {
+      emptyList()
+    }
+    val miskatonicKh = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      kingsportHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_kh,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTbgotw = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theBlackGoatOfTheWoodsExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_tbgotw,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TBGOTW)
+    } else {
+      emptyList()
+    }
+    val miskatonicIh = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      innsmouthHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_ih,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_IH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTlatt = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theLurkerAtTheThresholdExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_tlatt,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TLATT)
+    } else {
+      emptyList()
+    }
+    val miskatonicTcotdp = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theCurseOfTheDarkPharaohExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_tcotdp,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TCOTDP)
+    } else {
+      emptyList()
+    }
+    return base +
+      miskatonicBase +
+      miskatonicTkiy +
+      miskatonicKh +
+      miskatonicTbgotw +
+      miskatonicIh +
+      miskatonicTlatt +
+      miskatonicTcotdp
+  }
+
+  private fun readDunwichVillageCommonsDeck(): List<Card> {
+    val base = if (dunwichHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_village_commons__dunwich_horror_exp,
+        Cards.ExpansionSet.DUNWICH_HORROR)
+    } else {
+      emptyList()
+    }
+
+    val miskatonicBase = if (dunwichHorrorExpSetting && miskatonicHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTkiy = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theKingInYellowExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_tkiy,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TKIY)
+    } else {
+      emptyList()
+    }
+    val miskatonicKh = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      kingsportHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_kh,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTbgotw = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theBlackGoatOfTheWoodsExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_tbgotw,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TBGOTW)
+    } else {
+      emptyList()
+    }
+    val miskatonicIh = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      innsmouthHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_ih,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_IH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTlatt = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theLurkerAtTheThresholdExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_tlatt,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TLATT)
+    } else {
+      emptyList()
+    }
+    val miskatonicTcotdp = if (dunwichHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theCurseOfTheDarkPharaohExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_tcotdp,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TCOTDP)
+    } else {
+      emptyList()
+    }
+    return base +
+      miskatonicBase +
+      miskatonicTkiy +
+      miskatonicKh +
+      miskatonicTbgotw +
+      miskatonicIh +
+      miskatonicTlatt +
+      miskatonicTcotdp
+  }
+
+  private fun readInnsmouthChurchGreenDeck(): List<Card> {
+    val base = if (innsmouthHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_church_green__innsmouth_horror_exp,
+        Cards.ExpansionSet.INNSMOUTH_HORROR)
+    } else {
+      emptyList()
+    }
+
+    val miskatonicBase = if (innsmouthHorrorExpSetting && miskatonicHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH)
+    } else {
+      emptyList()
+    }
+    val miskatonicDh = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      dunwichHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_dh,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_DH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTkiy = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theKingInYellowExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_tkiy,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TKIY)
+    } else {
+      emptyList()
+    }
+    val miskatonicKh = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      kingsportHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_kh,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTbgotw = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theBlackGoatOfTheWoodsExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_tbgotw,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TBGOTW)
+    } else {
+      emptyList()
+    }
+    val miskatonicTlatt = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theLurkerAtTheThresholdExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_tlatt,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TLATT)
+    } else {
+      emptyList()
+    }
+    val miskatonicTcotdp = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theCurseOfTheDarkPharaohExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_tcotdp,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TCOTDP)
+    } else {
+      emptyList()
+    }
+    return base +
+      miskatonicBase +
+      miskatonicDh +
+      miskatonicTkiy +
+      miskatonicKh +
+      miskatonicTbgotw +
+      miskatonicTlatt +
+      miskatonicTcotdp
+  }
+
+  private fun readInnsmouthFactoryDistrictDeck(): List<Card> {
+    val base = if (innsmouthHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_factory_district__innsmouth_horror_exp,
+        Cards.ExpansionSet.INNSMOUTH_HORROR)
+    } else {
+      emptyList()
+    }
+
+    val miskatonicBase = if (innsmouthHorrorExpSetting && miskatonicHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH)
+    } else {
+      emptyList()
+    }
+    val miskatonicDh = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      dunwichHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_dh,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_DH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTkiy = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theKingInYellowExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_tkiy,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TKIY)
+    } else {
+      emptyList()
+    }
+    val miskatonicKh = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      kingsportHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_kh,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTbgotw = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theBlackGoatOfTheWoodsExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_tbgotw,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TBGOTW)
+    } else {
+      emptyList()
+    }
+    val miskatonicTlatt = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theLurkerAtTheThresholdExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_tlatt,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TLATT)
+    } else {
+      emptyList()
+    }
+    val miskatonicTcotdp = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theCurseOfTheDarkPharaohExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_tcotdp,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TCOTDP)
+    } else {
+      emptyList()
+    }
+    return base +
+      miskatonicBase +
+      miskatonicDh +
+      miskatonicTkiy +
+      miskatonicKh +
+      miskatonicTbgotw +
+      miskatonicTlatt +
+      miskatonicTcotdp
+  }
+
+  private fun readInnsmouthInnsmouthShoreDeck(): List<Card> {
+    val base = if (innsmouthHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_innsmouth_shore__innsmouth_horror_exp,
+        Cards.ExpansionSet.INNSMOUTH_HORROR)
+    } else {
+      emptyList()
+    }
+
+    val miskatonicBase = if (innsmouthHorrorExpSetting && miskatonicHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH)
+    } else {
+      emptyList()
+    }
+    val miskatonicDh = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      dunwichHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_dh,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_DH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTkiy = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theKingInYellowExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_tkiy,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TKIY)
+    } else {
+      emptyList()
+    }
+    val miskatonicKh = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      kingsportHorrorExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_kh,
+        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+    } else {
+      emptyList()
+    }
+    val miskatonicTbgotw = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theBlackGoatOfTheWoodsExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_tbgotw,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TBGOTW)
+    } else {
+      emptyList()
+    }
+    val miskatonicTlatt = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theLurkerAtTheThresholdExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_tlatt,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TLATT)
+    } else {
+      emptyList()
+    }
+    val miskatonicTcotdp = if (innsmouthHorrorExpSetting &&
+      miskatonicHorrorExpSetting &&
+      theCurseOfTheDarkPharaohExpSetting) {
+      parseNeighborhoodResource(
+        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_tcotdp,
+        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TCOTDP)
+    } else {
+      emptyList()
+    }
+    return base +
+      miskatonicBase +
+      miskatonicDh +
+      miskatonicTkiy +
+      miskatonicKh +
+      miskatonicTbgotw +
+      miskatonicTlatt +
+      miskatonicTcotdp
   }
 
   private fun readCultEncounterDeck(): List<Card> {
