@@ -35,6 +35,180 @@ class Cards {
     MISKATONIC_HORROR_INNSMOUTH_TLATT("Miskatonic Horror - Innsmouth (TLATT)", "mh-ih,tlatt"),
     MISKATONIC_HORROR_INNSMOUTH_TCOTDP("Miskatonic Horror - Innsmouth (TCOTDP)", "mh-ih,tcotdp"),
   }
+
+  companion object {
+    fun <T : Card> filterDeck(
+    deck: List<T>,
+    expansionsEnabled: Set<ExpansionSet>): List<T> =
+    deck.filter { expansionsEnabled.contains(it.expansionSet()) }
+
+    fun settingsToExpansionSets(
+      dunwichHorrorExpSetting: Boolean,
+      theKingInYellowExpSetting: Boolean,
+      kingsportHorrorExpSetting: Boolean,
+      theBlackGoatOfTheWoodsExpSetting: Boolean,
+      innsmouthHorrorExpSetting: Boolean,
+      theLurkerAtTheThresholdExpSetting: Boolean,
+      theCurseOfTheDarkPharaohExpSetting: Boolean,
+      miskatonicHorrorExpSetting: Boolean,): Set<ExpansionSet> {
+      val dunwich = if (dunwichHorrorExpSetting && miskatonicHorrorExpSetting) {
+        val base = setOf(ExpansionSet.DUNWICH_HORROR, ExpansionSet.MISKATONIC_HORROR_DUNWICH)
+        val tkiy = if (theKingInYellowExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_DUNWICH_TKIY)
+        } else {
+          emptySet()
+        }
+        val kh = if (kingsportHorrorExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+        } else {
+          emptySet()
+        }
+        val tbgotw = if (theBlackGoatOfTheWoodsExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_DUNWICH_TBGOTW)
+        } else {
+          emptySet()
+        }
+        val ih = if (innsmouthHorrorExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_DUNWICH_IH)
+        } else {
+          emptySet()
+        }
+        val tlatt = if (theLurkerAtTheThresholdExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_DUNWICH_TLATT)
+        } else {
+          emptySet()
+        }
+        val tcotdp = if (theCurseOfTheDarkPharaohExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_DUNWICH_TCOTDP)
+        } else {
+          emptySet()
+        }
+        base + tkiy + kh + tbgotw + ih + tlatt + tcotdp
+      } else if (dunwichHorrorExpSetting) {
+        setOf(ExpansionSet.DUNWICH_HORROR)
+      } else {
+        emptySet()
+      }
+
+      val theKingInYellow = if (theKingInYellowExpSetting) {
+        setOf(ExpansionSet.THE_KING_IN_YELLOW)
+      } else {
+        emptySet()
+      }
+
+      val kingsport = if (kingsportHorrorExpSetting && miskatonicHorrorExpSetting) {
+        val base = setOf(ExpansionSet.KINGSPORT_HORROR, ExpansionSet.MISKATONIC_HORROR_KINGSPORT)
+        val dh = if (dunwichHorrorExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_KINGSPORT_DH)
+        } else {
+          emptySet()
+        }
+        val tkiy = if (theKingInYellowExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TKIY)
+        } else {
+          emptySet()
+        }
+        val tbgotw = if (theBlackGoatOfTheWoodsExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TBGOTW)
+        } else {
+          emptySet()
+        }
+        val ih = if (innsmouthHorrorExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_KINGSPORT_IH)
+        } else {
+          emptySet()
+        }
+        val tlatt = if (theLurkerAtTheThresholdExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TLATT)
+        } else {
+          emptySet()
+        }
+        val tcotdp = if (theCurseOfTheDarkPharaohExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TCOTDP)
+        } else {
+          emptySet()
+        }
+        base + dh + tkiy + tbgotw + ih + tlatt + tcotdp
+      } else if (kingsportHorrorExpSetting) {
+        setOf(ExpansionSet.KINGSPORT_HORROR)
+      } else {
+        emptySet()
+      }
+
+      val theBlackGoatOfTheWoods = if (theBlackGoatOfTheWoodsExpSetting) {
+        setOf(ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
+      } else {
+        emptySet()
+      }
+
+      val innsmouth = if (innsmouthHorrorExpSetting && miskatonicHorrorExpSetting) {
+        val base = setOf(ExpansionSet.INNSMOUTH_HORROR, ExpansionSet.MISKATONIC_HORROR_INNSMOUTH)
+        val dh = if (dunwichHorrorExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_DH)
+        } else {
+          emptySet()
+        }
+        val tkiy = if (theKingInYellowExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TKIY)
+        } else {
+          emptySet()
+        }
+        val kh = if (kingsportHorrorExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_KH)
+        } else {
+          emptySet()
+        }
+        val tbgotw = if (theBlackGoatOfTheWoodsExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TBGOTW)
+        } else {
+          emptySet()
+        }
+        val tlatt = if (theLurkerAtTheThresholdExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TLATT)
+        } else {
+          emptySet()
+        }
+        val tcotdp = if (theCurseOfTheDarkPharaohExpSetting) {
+          setOf(ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TCOTDP)
+        } else {
+          emptySet()
+        }
+        base + dh + tkiy + kh + tbgotw + tlatt + tcotdp
+      } else if (innsmouthHorrorExpSetting) {
+        setOf(ExpansionSet.INNSMOUTH_HORROR)
+      } else {
+        emptySet()
+      }
+
+      val theLurkerAtTheThreshold = if (theLurkerAtTheThresholdExpSetting) {
+        setOf(ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
+      } else {
+        emptySet()
+      }
+
+      val theCurseOfTheDarkPharaoh = if (theCurseOfTheDarkPharaohExpSetting) {
+        setOf(ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
+      } else {
+        emptySet()
+      }
+
+      val miskatonic = if (miskatonicHorrorExpSetting) {
+        setOf(ExpansionSet.MISKATONIC_HORROR)
+      } else {
+        emptySet()
+      }
+
+      return setOf(ExpansionSet.BASE) +
+        dunwich +
+        theKingInYellow +
+        kingsport +
+        theBlackGoatOfTheWoods +
+        innsmouth +
+        theLurkerAtTheThreshold +
+        theCurseOfTheDarkPharaoh +
+        miskatonic
+    }
+  }
 }
 
 sealed interface Card {

@@ -29,11 +29,15 @@ import com.zingkg.arkhamhorrorboard.secondedition.app.fragments.ExhibitEncounter
 import com.zingkg.arkhamhorrorboard.secondedition.app.fragments.InnsmouthLookFragment
 import com.zingkg.arkhamhorrorboard.secondedition.app.fragments.NeighborhoodThreeLocationsFragment
 import com.zingkg.arkhamhorrorboard.secondedition.app.fragments.ReckoningFragment
+import com.zingkg.arkhamhorrorboard.secondedition.card.ArkhamLocationsBundle
 import com.zingkg.arkhamhorrorboard.secondedition.card.Card
 import com.zingkg.arkhamhorrorboard.secondedition.card.Cards
 import com.zingkg.arkhamhorrorboard.secondedition.card.CultEncounter
+import com.zingkg.arkhamhorrorboard.secondedition.card.DunwichLocationsBundle
 import com.zingkg.arkhamhorrorboard.secondedition.card.ExhibitEncounter
+import com.zingkg.arkhamhorrorboard.secondedition.card.InnsmouthLocationsBundle
 import com.zingkg.arkhamhorrorboard.secondedition.card.InnsmouthLook
+import com.zingkg.arkhamhorrorboard.secondedition.card.KingsportLocationsBundle
 import com.zingkg.arkhamhorrorboard.secondedition.card.NeighborhoodThreeLocations
 import com.zingkg.arkhamhorrorboard.secondedition.card.Reckoning
 import org.json.JSONObject
@@ -47,50 +51,43 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
   private var pagerAdapter: DeckPagerAdapter? = null
   private var lastDrawerPosition: Int = 0
 
-  private var arkhamNorthsideDeck: List<Card> = emptyList()
-  private var arkhamDowntownDeck: List<Card> = emptyList()
-  private var arkhamEasttownDeck: List<Card> = emptyList()
-  private var arkhamMerchantDistrictDeck: List<Card> = emptyList()
-  private var arkhamRivertownDeck: List<Card> = emptyList()
-  private var arkhamMiskatonicUniversityDeck: List<Card> = emptyList()
-  private var arkhamFrenchHillDeck: List<Card> = emptyList()
-  private var arkhamUptownDeck: List<Card> = emptyList()
-  private var arkhamSouthsideDeck: List<Card> = emptyList()
+  private var allArkhamLocationsBundle: ArkhamLocationsBundle = ArkhamLocationsBundle.empty()
+  private var arkhamLocationsBundle: ArkhamLocationsBundle = ArkhamLocationsBundle.empty()
 
   private var previousDunwichHorrorExpSetting: Boolean = false
   private var dunwichHorrorExpSetting: Boolean = false
-  private var dunwichBackwoodsCountryDeck: List<Card> = emptyList()
-  private var dunwichBlastedHeathDeck: List<Card> = emptyList()
-  private var dunwichVillageCommonsDeck: List<Card> = emptyList()
+  private var allDunwichLocationsBundle: DunwichLocationsBundle = DunwichLocationsBundle.empty()
+  private var dunwichLocationsBundle: DunwichLocationsBundle = DunwichLocationsBundle.empty()
 
   private var previousTheKingInYellowExpSetting: Boolean = false
   private var theKingInYellowExpSetting: Boolean = false
 
   private var previousKingsportHorrorExpSetting: Boolean = false
   private var kingsportHorrorExpSetting: Boolean = false
-  private var kingsportCentralHillDeck: List<Card> = emptyList()
-  private var kingsportHarborsideDeck: List<Card> = emptyList()
-  private var kingsportSouthshoreDeck: List<Card> = emptyList()
-  private var kingsportKingsportHeadDeck: List<Card> = emptyList()
+  private var allKingsportLocationsBundle: KingsportLocationsBundle = KingsportLocationsBundle.empty()
+  private var kingsportLocationsBundle: KingsportLocationsBundle = KingsportLocationsBundle.empty()
 
   private var previousTheBlackGoatOfTheWoodsExpSetting: Boolean = false
   private var theBlackGoatOfTheWoodsExpSetting: Boolean = false
+  private var allCultEncounterDeck: List<Card> = emptyList()
   private var cultEncounterDeck: List<Card> = emptyList()
 
   private var previousInnsmouthHorrorExpSetting: Boolean = false
   private var innsmouthHorrorExpSetting: Boolean = false
-  private var innsmouthFactoryDistrictDeck: List<Card> = emptyList()
-  private var innsmouthChurchGreenDeck: List<Card> = emptyList()
-  private var innsmouthInnsmouthShoreDeck: List<Card> = emptyList()
+  private var allInnsmouthLocationsBundle = InnsmouthLocationsBundle.empty()
+  private var innsmouthLocationsBundle = InnsmouthLocationsBundle.empty()
+  private var allInnsmouthLookDeck: List<Card> = emptyList()
   private var innsmouthLookDeck: List<Card> = emptyList()
 
   private var previousTheLurkerAtTheThresholdExpSetting: Boolean = false
   private var theLurkerAtTheThresholdExpSetting: Boolean = false
   private var reckoningSeenIndex: Int = 0
+  private var allReckoningDeck: List<Reckoning> = emptyList()
   private var reckoningDeck: List<Reckoning> = emptyList()
 
   private var previousTheCurseOfTheDarkPharaohExpSetting: Boolean = false
   private var theCurseOfTheDarkPharaohExpSetting: Boolean = false
+  private var allExhibitEncounterDeck: List<Card> = emptyList()
   private var exhibitEncounterDeck: List<Card> = emptyList()
 
   private var previousMiskatonicHorrorExpSetting: Boolean = false
@@ -111,7 +108,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
     supportActionBar?.setDisplayHomeAsUpEnabled(true)
     supportActionBar?.setHomeButtonEnabled(true)
 
-    // ActionBarDrawerToggle ties together the the proper interactions
+    // ActionBarDrawerToggle ties together the proper interactions
     // between the sliding drawer and the action bar app icon
     val currentDrawerToggle = object : ActionBarDrawerToggle(
       this, // host Activity
@@ -135,9 +132,12 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
 
     // Instantiate a view pager and a pager adapter.
     readAllSettings()
-    readAllCards(force = true)
+    readAllCards()
+    assembleAllCards(force = true)
     viewPager = findViewById(R.id.fragment_container)
-    setPagerAdapter(shuffleCards(arkhamNorthsideDeck), CardType.ArkhamNorthside)
+    setPagerAdapter(
+      shuffleCards(arkhamLocationsBundle.northsideDeck),
+      CardType.ArkhamNorthside)
   }
 
   private fun readAllSettings() {
@@ -169,67 +169,68 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
   override fun onResume() {
     super.onResume()
     readAllSettings()
-    // Settings likely changed. Read all files and regenerate all of the decks
-    readAllCards(force = false)
+    // Settings likely changed. Read all files and regenerate all the decks
+    readAllCards()
+    assembleAllCards(force = false)
     // Set the pagerAdapter to the assigned cards
     pagerAdapter?.let {
       when (it.cardType) {
         CardType.ArkhamNorthside -> setPagerAdapter(
-          shuffleCards(arkhamNorthsideDeck),
+          shuffleCards(arkhamLocationsBundle.northsideDeck),
           CardType.ArkhamNorthside)
         CardType.ArkhamDowntown -> setPagerAdapter(
-          shuffleCards(arkhamDowntownDeck),
+          shuffleCards(arkhamLocationsBundle.downtownDeck),
           CardType.ArkhamDowntown)
         CardType.ArkhamEasttown -> setPagerAdapter(
-          shuffleCards(arkhamEasttownDeck),
+          shuffleCards(arkhamLocationsBundle.easttownDeck),
           CardType.ArkhamEasttown)
         CardType.ArkhamMerchantDistrict -> setPagerAdapter(
-          shuffleCards(arkhamMerchantDistrictDeck),
+          shuffleCards(arkhamLocationsBundle.merchantDistrictDeck),
           CardType.ArkhamMerchantDistrict)
         CardType.ArkhamRivertown -> setPagerAdapter(
-          shuffleCards(arkhamRivertownDeck),
+          shuffleCards(arkhamLocationsBundle.rivertownDeck),
           CardType.ArkhamRivertown)
         CardType.ArkhamMiskatonicUniversity -> setPagerAdapter(
-          shuffleCards(arkhamMiskatonicUniversityDeck),
+          shuffleCards(arkhamLocationsBundle.miskatonicUniversityDeck),
           CardType.ArkhamMiskatonicUniversity)
         CardType.ArkhamFrenchHill -> setPagerAdapter(
-          shuffleCards(arkhamFrenchHillDeck),
+          shuffleCards(arkhamLocationsBundle.frenchHillDeck),
           CardType.ArkhamFrenchHill)
         CardType.ArkhamUptown -> setPagerAdapter(
-          shuffleCards(arkhamUptownDeck),
+          shuffleCards(arkhamLocationsBundle.uptownDeck),
           CardType.ArkhamUptown)
         CardType.ArkhamSouthside -> setPagerAdapter(
-          shuffleCards(arkhamSouthsideDeck),
+          shuffleCards(arkhamLocationsBundle.southsideDeck),
           CardType.ArkhamSouthside)
         CardType.DunwichBackwoodsCountry -> setPagerAdapter(
-          shuffleCards(dunwichBackwoodsCountryDeck),
+          shuffleCards(dunwichLocationsBundle.backwoodsCountryDeck),
           CardType.DunwichBackwoodsCountry)
         CardType.DunwichBlastedHeath -> setPagerAdapter(
-          shuffleCards(dunwichBlastedHeathDeck),
+          shuffleCards(dunwichLocationsBundle.blastedHeathDeck),
           CardType.DunwichBlastedHeath)
         CardType.DunwichVillageCommons -> setPagerAdapter(
-          shuffleCards(dunwichVillageCommonsDeck),
+          shuffleCards(dunwichLocationsBundle.villageCommonsDeck),
           CardType.DunwichVillageCommons)
         CardType.KingsportCentralHill -> setPagerAdapter(
-          shuffleCards(kingsportCentralHillDeck),
+          shuffleCards(kingsportLocationsBundle.centralHillDeck),
           CardType.KingsportCentralHill)
         CardType.KingsportHarborside -> setPagerAdapter(
-          shuffleCards(kingsportHarborsideDeck),
+          shuffleCards(kingsportLocationsBundle.harborsideDeck),
           CardType.KingsportHarborside)
         CardType.KingsportSouthshore -> setPagerAdapter(
-          shuffleCards(kingsportSouthshoreDeck),
+          shuffleCards(kingsportLocationsBundle.southshoreDeck),
           CardType.KingsportSouthshore)
         CardType.KingsportKingsportHead -> setPagerAdapter(
-          shuffleCards(kingsportKingsportHeadDeck),
+          shuffleCards(kingsportLocationsBundle.kingsportHeadDeck),
           CardType.KingsportKingsportHead)
         CardType.InnsmouthFactoryDistrict -> setPagerAdapter(
-          shuffleCards(innsmouthFactoryDistrictDeck),
+          shuffleCards(innsmouthLocationsBundle.factoryDistrictDeck),
           CardType.InnsmouthFactoryDistrict)
         CardType.InnsmouthChurchGreen -> setPagerAdapter(
-          shuffleCards(innsmouthChurchGreenDeck),
+          shuffleCards(innsmouthLocationsBundle.churchGreenDeck),
           CardType.InnsmouthChurchGreen)
         CardType.InnsmouthInnsmouthShore -> setPagerAdapter(
-          shuffleCards(innsmouthInnsmouthShoreDeck),
+          shuffleCards(innsmouthLocationsBundle.innsmouthShoreDeck),
           CardType.InnsmouthInnsmouthShore)
         CardType.InnsmouthInnsmouthLook -> setPagerAdapter(
           shuffleCards(innsmouthLookDeck),
@@ -247,7 +248,68 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
     }
   }
 
-  private fun readAllCards(force: Boolean) {
+  private fun readAllCards() {
+    // Check Arkham Neighborhoods
+    if (allArkhamLocationsBundle == ArkhamLocationsBundle.empty()) {
+      allArkhamLocationsBundle = ArkhamLocationsBundle(
+        northsideDeck = readArkhamNorthsideDeck(),
+        downtownDeck = readArkhamDowntownDeck(),
+        easttownDeck = readArkhamEasttownDeck(),
+        merchantDistrictDeck = readArkhamMerchantDistrictDeck(),
+        rivertownDeck = readArkhamRivertownDeck(),
+        miskatonicUniversityDeck = readArkhamMiskatonicUniversityDeck(),
+        frenchHillDeck = readArkhamFrenchHillDeck(),
+        uptownDeck = readArkhamUptownDeck(),
+        southsideDeck = readArkhamSouthsideDeck())
+    }
+
+    if (allDunwichLocationsBundle == DunwichLocationsBundle.empty()) {
+      allDunwichLocationsBundle = DunwichLocationsBundle(
+        backwoodsCountryDeck = readDunwichBackwoodsCountryDeck(),
+        blastedHeathDeck = readDunwichBlastedHeathDeck(),
+        villageCommonsDeck = readDunwichVillageCommonsDeck())
+    }
+
+    if (allKingsportLocationsBundle == KingsportLocationsBundle.empty()) {
+      allKingsportLocationsBundle = KingsportLocationsBundle(
+        centralHillDeck = readKingsportCentralHillDeck(),
+        harborsideDeck = readKingsportHarborsideDeck(),
+        southshoreDeck = readKingsportSouthShoreDeck(),
+        kingsportHeadDeck = readKingsportKingsportHeadDeck())
+    }
+
+    if (allInnsmouthLocationsBundle == InnsmouthLocationsBundle.empty()) {
+      allInnsmouthLocationsBundle = InnsmouthLocationsBundle(
+        factoryDistrictDeck = readInnsmouthFactoryDistrictDeck(),
+        churchGreenDeck = readInnsmouthChurchGreenDeck(),
+        innsmouthShoreDeck = readInnsmouthInnsmouthShoreDeck())
+    }
+
+    if (allCultEncounterDeck.isEmpty()) {
+      allCultEncounterDeck = readCultEncounterDeck()
+    }
+    if (allInnsmouthLookDeck.isEmpty()) {
+      allInnsmouthLookDeck = readInnsmouthLookDeck()
+    }
+    if (allExhibitEncounterDeck.isEmpty()) {
+      allExhibitEncounterDeck = readExhibitEncounterDeck()
+    }
+    if (allReckoningDeck.isEmpty()) {
+      reckoningSeenIndex = 0
+      allReckoningDeck = readReckoningDeck()
+    }
+  }
+
+  private fun assembleAllCards(force: Boolean) {
+    val enabledExpansionSets = Cards.settingsToExpansionSets(
+      dunwichHorrorExpSetting = dunwichHorrorExpSetting,
+      theKingInYellowExpSetting = theKingInYellowExpSetting,
+      kingsportHorrorExpSetting = kingsportHorrorExpSetting,
+      theBlackGoatOfTheWoodsExpSetting = theBlackGoatOfTheWoodsExpSetting,
+      innsmouthHorrorExpSetting = innsmouthHorrorExpSetting,
+      theLurkerAtTheThresholdExpSetting = theLurkerAtTheThresholdExpSetting,
+      theCurseOfTheDarkPharaohExpSetting = theCurseOfTheDarkPharaohExpSetting,
+      miskatonicHorrorExpSetting = miskatonicHorrorExpSetting)
     // Check Arkham Neighborhoods
     if (previousTheKingInYellowExpSetting != theKingInYellowExpSetting ||
       previousTheBlackGoatOfTheWoodsExpSetting != theBlackGoatOfTheWoodsExpSetting ||
@@ -255,48 +317,52 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
       previousTheCurseOfTheDarkPharaohExpSetting != theCurseOfTheDarkPharaohExpSetting ||
       previousMiskatonicHorrorExpSetting != miskatonicHorrorExpSetting ||
       force) {
-      arkhamNorthsideDeck = readArkhamNorthsideDeck()
-      arkhamDowntownDeck = readArkhamDowntownDeck()
-      arkhamEasttownDeck = emptyList()
-      arkhamMerchantDistrictDeck = emptyList()
-      arkhamRivertownDeck = emptyList()
-      arkhamMiskatonicUniversityDeck = emptyList()
-      arkhamFrenchHillDeck = emptyList()
-      arkhamUptownDeck = emptyList()
-      arkhamSouthsideDeck = emptyList()
+      arkhamLocationsBundle = ArkhamLocationsBundle(
+        northsideDeck = allArkhamLocationsBundle.filterNorthsideDeck(enabledExpansionSets),
+        downtownDeck = allArkhamLocationsBundle.filterDowntownDeck(enabledExpansionSets),
+        easttownDeck = allArkhamLocationsBundle.filterEasttownDeck(enabledExpansionSets),
+        merchantDistrictDeck = allArkhamLocationsBundle.filterMerchantDistrictDeck(enabledExpansionSets),
+        rivertownDeck = allArkhamLocationsBundle.filterRivertownDeck(enabledExpansionSets),
+        miskatonicUniversityDeck = allArkhamLocationsBundle.filterMiskatonicUniversityDeck(enabledExpansionSets),
+        frenchHillDeck = allArkhamLocationsBundle.filterFrenchHillDeck(enabledExpansionSets),
+        uptownDeck = allArkhamLocationsBundle.filterUptownDeck(enabledExpansionSets),
+        southsideDeck = allArkhamLocationsBundle.filterSouthsideDeck(enabledExpansionSets))
     }
 
     if ((dunwichHorrorExpSetting && !previousDunwichHorrorExpSetting) ||
       (dunwichHorrorExpSetting && previousMiskatonicHorrorExpSetting != miskatonicHorrorExpSetting) ||
       force) {
-      dunwichBackwoodsCountryDeck = readDunwichBackwoodsCountryDeck()
-      dunwichBlastedHeathDeck = readDunwichBlastedHeathDeck()
-      dunwichVillageCommonsDeck = readDunwichVillageCommonsDeck()
+      dunwichLocationsBundle = DunwichLocationsBundle(
+        backwoodsCountryDeck = allDunwichLocationsBundle.filterBackwoodsCountryDeck(enabledExpansionSets),
+        blastedHeathDeck = allDunwichLocationsBundle.filterBlastedHeathDeck(enabledExpansionSets),
+        villageCommonsDeck = allDunwichLocationsBundle.filterVillageCommonsDeck(enabledExpansionSets))
     }
 
     if ((kingsportHorrorExpSetting && !previousKingsportHorrorExpSetting) ||
       (kingsportHorrorExpSetting && previousMiskatonicHorrorExpSetting != miskatonicHorrorExpSetting) ||
       force) {
-      kingsportCentralHillDeck = emptyList()
-      kingsportHarborsideDeck = emptyList()
-      kingsportSouthshoreDeck = emptyList()
-      kingsportKingsportHeadDeck = emptyList()
+      kingsportLocationsBundle = KingsportLocationsBundle(
+        centralHillDeck = allKingsportLocationsBundle.filterCentralHillDeck(enabledExpansionSets),
+        harborsideDeck = allKingsportLocationsBundle.filterHarborsideDeck(enabledExpansionSets),
+        southshoreDeck = allKingsportLocationsBundle.filterSouthshoreDeck(enabledExpansionSets),
+        kingsportHeadDeck = allKingsportLocationsBundle.filterKingsportHeadDeck(enabledExpansionSets))
     }
 
     if ((innsmouthHorrorExpSetting && !previousInnsmouthHorrorExpSetting) ||
       (innsmouthHorrorExpSetting && previousMiskatonicHorrorExpSetting != miskatonicHorrorExpSetting) ||
       force) {
-      innsmouthFactoryDistrictDeck = readInnsmouthFactoryDistrictDeck()
-      innsmouthChurchGreenDeck = readInnsmouthChurchGreenDeck()
-      innsmouthInnsmouthShoreDeck = readInnsmouthInnsmouthShoreDeck()
+      innsmouthLocationsBundle = InnsmouthLocationsBundle(
+        factoryDistrictDeck = allInnsmouthLocationsBundle.filterFactoryDistrictDeck(enabledExpansionSets),
+        churchGreenDeck = allInnsmouthLocationsBundle.filterChurchGreenDeck(enabledExpansionSets),
+        innsmouthShoreDeck = allInnsmouthLocationsBundle.filterInnsmouthShoreDeck(enabledExpansionSets))
     }
 
     if (previousMiskatonicHorrorExpSetting != miskatonicHorrorExpSetting || force) {
-      cultEncounterDeck = readCultEncounterDeck()
-      innsmouthLookDeck = readInnsmouthLookDeck()
-      exhibitEncounterDeck = readExhibitEncounterDeck()
+      cultEncounterDeck = Cards.filterDeck(allCultEncounterDeck, enabledExpansionSets)
+      innsmouthLookDeck = Cards.filterDeck(allInnsmouthLookDeck, enabledExpansionSets)
+      exhibitEncounterDeck = Cards.filterDeck(allExhibitEncounterDeck, enabledExpansionSets)
       reckoningSeenIndex = 0
-      reckoningDeck = readReckoningDeck()
+      reckoningDeck = Cards.filterDeck(allReckoningDeck, enabledExpansionSets)
     }
   }
 
@@ -325,64 +391,42 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
     return InputStreamReader(resources.openRawResource(resource))
   }
 
-  private fun readArkhamNorthsideDeck(): List<Card> {
-    // TODO
-    return emptyList()
+  private fun parseNeighborhoodResource(resource: Int, expansionSet: Cards.ExpansionSet): List<NeighborhoodThreeLocations> {
+    val reader = readResource(resource)
+    val lines = reader.readLines()
+    reader.close()
+    return lines.map { NeighborhoodThreeLocations.parseJson(JSONObject(it), expansionSet) }
   }
 
-  private fun readArkhamDowntownDeck(): List<Card> {
+  /**
+  * BEGIN Arkham locations utility
+  */
+
+  private fun readArkhamNorthsideDeck(): List<Card> {
     val base = parseNeighborhoodResource(
-        R.raw.neighborhood_arkham_downtown__base,
+        R.raw.neighborhood_arkham_northside__base,
         Cards.ExpansionSet.BASE)
-    val dunwich = if (dunwichHorrorExpSetting) {
-      parseNeighborhoodResource(
-          R.raw.neighborhood_arkham_downtown__dunwich_horror_exp,
-          Cards.ExpansionSet.DUNWICH_HORROR)
-    } else {
-      emptyList()
-    }
-    val theKingInYellow = if (theKingInYellowExpSetting) {
-      parseNeighborhoodResource(
-          R.raw.neighborhood_arkham_downtown__the_king_in_yellow_exp,
-          Cards.ExpansionSet.THE_KING_IN_YELLOW)
-    } else {
-      emptyList()
-    }
-    val kingsport = if (kingsportHorrorExpSetting) {
-      parseNeighborhoodResource(
-          R.raw.neighborhood_arkham_downtown__the_king_in_yellow_exp,
-          Cards.ExpansionSet.KINGSPORT_HORROR)
-    } else {
-      emptyList()
-    }
-    val theBlackGoatOfTheWoods = if (theBlackGoatOfTheWoodsExpSetting) {
-      parseNeighborhoodResource(
-          R.raw.neighborhood_arkham_downtown__the_black_goat_of_the_woods_exp,
-          Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
-    } else {
-      emptyList()
-    }
-    val innsmouth = if (innsmouthHorrorExpSetting) {
-      parseNeighborhoodResource(
-          R.raw.neighborhood_arkham_downtown__innsmouth_horror_exp,
-          Cards.ExpansionSet.INNSMOUTH_HORROR)
-    } else {
-      emptyList()
-    }
-    val theLurkerAtTheThreshold = if (theLurkerAtTheThresholdExpSetting) {
-      parseNeighborhoodResource(
-          R.raw.neighborhood_arkham_downtown__the_lurker_at_the_threshold_exp,
-          Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
-    } else {
-      emptyList()
-    }
-    val theCurseOfTheDarkPharaoh: List<NeighborhoodThreeLocations> = if (theCurseOfTheDarkPharaohExpSetting) {
-      parseNeighborhoodResource(
-          R.raw.neighborhood_arkham_downtown__the_curse_of_the_dark_pharaoh_exp,
-          Cards.ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
-    } else {
-      emptyList()
-    }
+    val dunwich = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_northside__dunwich_horror_exp,
+        Cards.ExpansionSet.DUNWICH_HORROR)
+    val theKingInYellow = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_northside__the_king_in_yellow_exp,
+        Cards.ExpansionSet.THE_KING_IN_YELLOW)
+    val kingsport = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_northside__the_king_in_yellow_exp,
+        Cards.ExpansionSet.KINGSPORT_HORROR)
+    val theBlackGoatOfTheWoods = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_northside__the_black_goat_of_the_woods_exp,
+        Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
+    val innsmouth = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_northside__innsmouth_horror_exp,
+        Cards.ExpansionSet.INNSMOUTH_HORROR)
+    val theLurkerAtTheThreshold = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_northside__the_lurker_at_the_threshold_exp,
+        Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
+    val theCurseOfTheDarkPharaoh = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_northside__the_curse_of_the_dark_pharaoh_exp,
+        Cards.ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
 
     return base +
         dunwich +
@@ -394,83 +438,328 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
         theCurseOfTheDarkPharaoh
   }
 
-  private fun parseNeighborhoodResource(resource: Int, expansionSet: Cards.ExpansionSet): List<NeighborhoodThreeLocations> {
-    val reader = readResource(resource)
-    val lines = reader.readLines()
-    reader.close()
-    return lines.map { NeighborhoodThreeLocations.parseJson(JSONObject(it), expansionSet) }
+  private fun readArkhamDowntownDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_downtown__base,
+        Cards.ExpansionSet.BASE)
+    val dunwich = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_downtown__dunwich_horror_exp,
+        Cards.ExpansionSet.DUNWICH_HORROR)
+    val theKingInYellow = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_downtown__the_king_in_yellow_exp,
+        Cards.ExpansionSet.THE_KING_IN_YELLOW)
+    val kingsport = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_downtown__the_king_in_yellow_exp,
+        Cards.ExpansionSet.KINGSPORT_HORROR)
+    val theBlackGoatOfTheWoods = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_downtown__the_black_goat_of_the_woods_exp,
+        Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
+    val innsmouth = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_downtown__innsmouth_horror_exp,
+        Cards.ExpansionSet.INNSMOUTH_HORROR)
+    val theLurkerAtTheThreshold = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_downtown__the_lurker_at_the_threshold_exp,
+        Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
+    val theCurseOfTheDarkPharaoh = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_downtown__the_curse_of_the_dark_pharaoh_exp,
+        Cards.ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
+
+    return base +
+        dunwich +
+        theKingInYellow +
+        kingsport +
+        theBlackGoatOfTheWoods +
+        innsmouth +
+        theLurkerAtTheThreshold +
+        theCurseOfTheDarkPharaoh
   }
 
-  private fun readDunwichBackwoodsCountryDeck(): List<Card> {
-    val base = if (dunwichHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_backwoods_country__dunwich_horror_exp,
+  private fun readArkhamEasttownDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_easttown__base,
+        Cards.ExpansionSet.BASE)
+    val dunwich = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_easttown__dunwich_horror_exp,
         Cards.ExpansionSet.DUNWICH_HORROR)
-    } else {
-      emptyList()
-    }
+    val theKingInYellow = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_easttown__the_king_in_yellow_exp,
+        Cards.ExpansionSet.THE_KING_IN_YELLOW)
+    val kingsport = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_easttown__the_king_in_yellow_exp,
+        Cards.ExpansionSet.KINGSPORT_HORROR)
+    val theBlackGoatOfTheWoods = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_easttown__the_black_goat_of_the_woods_exp,
+        Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
+    val innsmouth = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_easttown__innsmouth_horror_exp,
+        Cards.ExpansionSet.INNSMOUTH_HORROR)
+    val theLurkerAtTheThreshold = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_easttown__the_lurker_at_the_threshold_exp,
+        Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
+    val theCurseOfTheDarkPharaoh = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_easttown__the_curse_of_the_dark_pharaoh_exp,
+        Cards.ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
 
-    val miskatonicBase = if (dunwichHorrorExpSetting && miskatonicHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTkiy = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theKingInYellowExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_tkiy,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TKIY)
-    } else {
-      emptyList()
-    }
-    val miskatonicKh = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      kingsportHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_kh,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTbgotw = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theBlackGoatOfTheWoodsExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_tbgotw,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TBGOTW)
-    } else {
-      emptyList()
-    }
-    val miskatonicIh = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      innsmouthHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_ih,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_IH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTlatt = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theLurkerAtTheThresholdExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_tlatt,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TLATT)
-    } else {
-      emptyList()
-    }
-    val miskatonicTcotdp = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theCurseOfTheDarkPharaohExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_tcotdp,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TCOTDP)
-    } else {
-      emptyList()
-    }
+    return base +
+        dunwich +
+        theKingInYellow +
+        kingsport +
+        theBlackGoatOfTheWoods +
+        innsmouth +
+        theLurkerAtTheThreshold +
+        theCurseOfTheDarkPharaoh
+  }
+
+  private fun readArkhamMerchantDistrictDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_merchant_district__base,
+        Cards.ExpansionSet.BASE)
+    val dunwich = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_merchant_district__dunwich_horror_exp,
+        Cards.ExpansionSet.DUNWICH_HORROR)
+    val theKingInYellow = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_merchant_district__the_king_in_yellow_exp,
+        Cards.ExpansionSet.THE_KING_IN_YELLOW)
+    val kingsport = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_merchant_district__the_king_in_yellow_exp,
+        Cards.ExpansionSet.KINGSPORT_HORROR)
+    val theBlackGoatOfTheWoods = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_merchant_district__the_black_goat_of_the_woods_exp,
+        Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
+    val innsmouth = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_merchant_district__innsmouth_horror_exp,
+        Cards.ExpansionSet.INNSMOUTH_HORROR)
+    val theLurkerAtTheThreshold = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_merchant_district__the_lurker_at_the_threshold_exp,
+        Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
+    val theCurseOfTheDarkPharaoh = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_merchant_district__the_curse_of_the_dark_pharaoh_exp,
+        Cards.ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
+
+    return base +
+        dunwich +
+        theKingInYellow +
+        kingsport +
+        theBlackGoatOfTheWoods +
+        innsmouth +
+        theLurkerAtTheThreshold +
+        theCurseOfTheDarkPharaoh
+  }
+
+  private fun readArkhamRivertownDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_rivertown__base,
+        Cards.ExpansionSet.BASE)
+    val dunwich = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_rivertown__dunwich_horror_exp,
+        Cards.ExpansionSet.DUNWICH_HORROR)
+    val theKingInYellow = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_rivertown__the_king_in_yellow_exp,
+        Cards.ExpansionSet.THE_KING_IN_YELLOW)
+    val kingsport = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_rivertown__the_king_in_yellow_exp,
+        Cards.ExpansionSet.KINGSPORT_HORROR)
+    val theBlackGoatOfTheWoods = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_rivertown__the_black_goat_of_the_woods_exp,
+        Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
+    val innsmouth = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_rivertown__innsmouth_horror_exp,
+        Cards.ExpansionSet.INNSMOUTH_HORROR)
+    val theLurkerAtTheThreshold = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_rivertown__the_lurker_at_the_threshold_exp,
+        Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
+    val theCurseOfTheDarkPharaoh = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_rivertown__the_curse_of_the_dark_pharaoh_exp,
+        Cards.ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
+
+    return base +
+        dunwich +
+        theKingInYellow +
+        kingsport +
+        theBlackGoatOfTheWoods +
+        innsmouth +
+        theLurkerAtTheThreshold +
+        theCurseOfTheDarkPharaoh
+  }
+
+  private fun readArkhamMiskatonicUniversityDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_miskatonic_university__base,
+        Cards.ExpansionSet.BASE)
+    val dunwich = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_miskatonic_university__dunwich_horror_exp,
+        Cards.ExpansionSet.DUNWICH_HORROR)
+    val theKingInYellow = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_miskatonic_university__the_king_in_yellow_exp,
+        Cards.ExpansionSet.THE_KING_IN_YELLOW)
+    val kingsport = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_miskatonic_university__the_king_in_yellow_exp,
+        Cards.ExpansionSet.KINGSPORT_HORROR)
+    val theBlackGoatOfTheWoods = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_miskatonic_university__the_black_goat_of_the_woods_exp,
+        Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
+    val innsmouth = parseNeighborhoodResource(
+          R.raw.neighborhood_arkham_miskatonic_university__innsmouth_horror_exp,
+          Cards.ExpansionSet.INNSMOUTH_HORROR)
+    val theLurkerAtTheThreshold = parseNeighborhoodResource(
+          R.raw.neighborhood_arkham_miskatonic_university__the_lurker_at_the_threshold_exp,
+          Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
+    val theCurseOfTheDarkPharaoh = parseNeighborhoodResource(
+          R.raw.neighborhood_arkham_miskatonic_university__the_curse_of_the_dark_pharaoh_exp,
+          Cards.ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
+
+    return base +
+        dunwich +
+        theKingInYellow +
+        kingsport +
+        theBlackGoatOfTheWoods +
+        innsmouth +
+        theLurkerAtTheThreshold +
+        theCurseOfTheDarkPharaoh
+  }
+
+  private fun readArkhamFrenchHillDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_french_hill__base,
+        Cards.ExpansionSet.BASE)
+    val dunwich = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_french_hill__dunwich_horror_exp,
+        Cards.ExpansionSet.DUNWICH_HORROR)
+    val theKingInYellow = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_french_hill__the_king_in_yellow_exp,
+        Cards.ExpansionSet.THE_KING_IN_YELLOW)
+    val kingsport = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_french_hill__the_king_in_yellow_exp,
+        Cards.ExpansionSet.KINGSPORT_HORROR)
+    val theBlackGoatOfTheWoods = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_french_hill__the_black_goat_of_the_woods_exp,
+        Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
+    val innsmouth = parseNeighborhoodResource(
+          R.raw.neighborhood_arkham_french_hill__innsmouth_horror_exp,
+          Cards.ExpansionSet.INNSMOUTH_HORROR)
+    val theLurkerAtTheThreshold = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_french_hill__the_lurker_at_the_threshold_exp,
+        Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
+    val theCurseOfTheDarkPharaoh = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_french_hill__the_curse_of_the_dark_pharaoh_exp,
+        Cards.ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
+
+    return base +
+        dunwich +
+        theKingInYellow +
+        kingsport +
+        theBlackGoatOfTheWoods +
+        innsmouth +
+        theLurkerAtTheThreshold +
+        theCurseOfTheDarkPharaoh
+  }
+
+  private fun readArkhamUptownDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_uptown__base,
+        Cards.ExpansionSet.BASE)
+    val dunwich = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_uptown__dunwich_horror_exp,
+        Cards.ExpansionSet.DUNWICH_HORROR)
+    val theKingInYellow = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_uptown__the_king_in_yellow_exp,
+        Cards.ExpansionSet.THE_KING_IN_YELLOW)
+    val kingsport = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_uptown__the_king_in_yellow_exp,
+        Cards.ExpansionSet.KINGSPORT_HORROR)
+    val theBlackGoatOfTheWoods = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_uptown__the_black_goat_of_the_woods_exp,
+        Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
+    val innsmouth = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_uptown__innsmouth_horror_exp,
+        Cards.ExpansionSet.INNSMOUTH_HORROR)
+    val theLurkerAtTheThreshold = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_uptown__the_lurker_at_the_threshold_exp,
+        Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
+    val theCurseOfTheDarkPharaoh = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_uptown__the_curse_of_the_dark_pharaoh_exp,
+        Cards.ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
+
+    return base +
+        dunwich +
+        theKingInYellow +
+        kingsport +
+        theBlackGoatOfTheWoods +
+        innsmouth +
+        theLurkerAtTheThreshold +
+        theCurseOfTheDarkPharaoh
+  }
+
+  private fun readArkhamSouthsideDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_southside__base,
+        Cards.ExpansionSet.BASE)
+    val dunwich = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_southside__dunwich_horror_exp,
+        Cards.ExpansionSet.DUNWICH_HORROR)
+    val theKingInYellow = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_southside__the_king_in_yellow_exp,
+        Cards.ExpansionSet.THE_KING_IN_YELLOW)
+    val kingsport = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_southside__the_king_in_yellow_exp,
+        Cards.ExpansionSet.KINGSPORT_HORROR)
+    val theBlackGoatOfTheWoods = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_southside__the_black_goat_of_the_woods_exp,
+        Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
+    val innsmouth = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_southside__innsmouth_horror_exp,
+        Cards.ExpansionSet.INNSMOUTH_HORROR)
+    val theLurkerAtTheThreshold = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_southside__the_lurker_at_the_threshold_exp,
+        Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
+    val theCurseOfTheDarkPharaoh = parseNeighborhoodResource(
+        R.raw.neighborhood_arkham_southside__the_curse_of_the_dark_pharaoh_exp,
+        Cards.ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
+
+    return base +
+        dunwich +
+        theKingInYellow +
+        kingsport +
+        theBlackGoatOfTheWoods +
+        innsmouth +
+        theLurkerAtTheThreshold +
+        theCurseOfTheDarkPharaoh
+  }
+  /**
+  * END Arkham locations utility
+  */
+
+  /**
+  * BEGIN Dunwich location utility
+  */
+
+  private fun readDunwichBackwoodsCountryDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_backwoods_country__dunwich_horror_exp,
+      Cards.ExpansionSet.DUNWICH_HORROR)
+
+    val miskatonicBase = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH)
+    val miskatonicTkiy = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_tkiy,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TKIY)
+    val miskatonicKh = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_kh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+    val miskatonicTbgotw = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_tbgotw,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TBGOTW)
+    val miskatonicIh = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_ih,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_IH)
+    val miskatonicTlatt = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_tlatt,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TLATT)
+    val miskatonicTcotdp = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_backwoods_country__miskatonic_horror_exp_tcotdp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TCOTDP)
+
     return base +
       miskatonicBase +
       miskatonicTkiy +
@@ -482,75 +771,32 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
   }
 
   private fun readDunwichBlastedHeathDeck(): List<Card> {
-    val base = if (dunwichHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_blasted_heath__dunwich_horror_exp,
-        Cards.ExpansionSet.DUNWICH_HORROR)
-    } else {
-      emptyList()
-    }
+    val base = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_blasted_heath__dunwich_horror_exp,
+      Cards.ExpansionSet.DUNWICH_HORROR)
 
-    val miskatonicBase = if (dunwichHorrorExpSetting && miskatonicHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTkiy = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theKingInYellowExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_tkiy,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TKIY)
-    } else {
-      emptyList()
-    }
-    val miskatonicKh = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      kingsportHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_kh,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTbgotw = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theBlackGoatOfTheWoodsExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_tbgotw,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TBGOTW)
-    } else {
-      emptyList()
-    }
-    val miskatonicIh = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      innsmouthHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_ih,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_IH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTlatt = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theLurkerAtTheThresholdExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_tlatt,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TLATT)
-    } else {
-      emptyList()
-    }
-    val miskatonicTcotdp = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theCurseOfTheDarkPharaohExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_tcotdp,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TCOTDP)
-    } else {
-      emptyList()
-    }
+    val miskatonicBase = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH)
+    val miskatonicTkiy = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_tkiy,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TKIY)
+    val miskatonicKh = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_kh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+    val miskatonicTbgotw = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_tbgotw,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TBGOTW)
+    val miskatonicIh = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_ih,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_IH)
+    val miskatonicTlatt = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_tlatt,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TLATT)
+    val miskatonicTcotdp = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_blasted_heath__miskatonic_horror_exp_tcotdp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TCOTDP)
+
     return base +
       miskatonicBase +
       miskatonicTkiy +
@@ -562,75 +808,32 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
   }
 
   private fun readDunwichVillageCommonsDeck(): List<Card> {
-    val base = if (dunwichHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_village_commons__dunwich_horror_exp,
-        Cards.ExpansionSet.DUNWICH_HORROR)
-    } else {
-      emptyList()
-    }
+    val base = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_village_commons__dunwich_horror_exp,
+      Cards.ExpansionSet.DUNWICH_HORROR)
 
-    val miskatonicBase = if (dunwichHorrorExpSetting && miskatonicHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTkiy = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theKingInYellowExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_tkiy,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TKIY)
-    } else {
-      emptyList()
-    }
-    val miskatonicKh = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      kingsportHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_kh,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTbgotw = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theBlackGoatOfTheWoodsExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_tbgotw,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TBGOTW)
-    } else {
-      emptyList()
-    }
-    val miskatonicIh = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      innsmouthHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_ih,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_IH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTlatt = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theLurkerAtTheThresholdExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_tlatt,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TLATT)
-    } else {
-      emptyList()
-    }
-    val miskatonicTcotdp = if (dunwichHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theCurseOfTheDarkPharaohExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_tcotdp,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TCOTDP)
-    } else {
-      emptyList()
-    }
+    val miskatonicBase = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH)
+    val miskatonicTkiy = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_tkiy,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TKIY)
+    val miskatonicKh = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_kh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+    val miskatonicTbgotw = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_tbgotw,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TBGOTW)
+    val miskatonicIh = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_ih,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_IH)
+    val miskatonicTlatt = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_tlatt,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TLATT)
+    val miskatonicTcotdp = parseNeighborhoodResource(
+      R.raw.neighborhood_dunwich_village_commons__miskatonic_horror_exp_tcotdp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_TCOTDP)
+
     return base +
       miskatonicBase +
       miskatonicTkiy +
@@ -640,77 +843,196 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
       miskatonicTlatt +
       miskatonicTcotdp
   }
+  /**
+  * END Dunwich location utility
+  */
+
+  /**
+  * BEGIN Kingsport location utility
+  */
+
+  private fun readKingsportCentralHillDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_central_hill__kingsport_horror_exp,
+      Cards.ExpansionSet.KINGSPORT_HORROR)
+
+    val miskatonicBase = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_central_hill__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT)
+    val miskatonicDh = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_central_hill__miskatonic_horror_exp_dh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_DH)
+    val miskatonicTkiy = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_central_hill__miskatonic_horror_exp_tkiy,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TKIY)
+    val miskatonicTbgotw = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_central_hill__miskatonic_horror_exp_tbgotw,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TBGOTW)
+    val miskatonicIh = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_central_hill__miskatonic_horror_exp_ih,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_IH)
+    val miskatonicTlatt = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_central_hill__miskatonic_horror_exp_tlatt,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TLATT)
+    val miskatonicTcotdp = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_central_hill__miskatonic_horror_exp_tcotdp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TCOTDP)
+
+    return base +
+      miskatonicBase +
+      miskatonicDh +
+      miskatonicTkiy +
+      miskatonicTbgotw +
+      miskatonicIh +
+      miskatonicTlatt +
+      miskatonicTcotdp
+  }
+
+  private fun readKingsportHarborsideDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_harborside__kingsport_horror_exp,
+      Cards.ExpansionSet.KINGSPORT_HORROR)
+
+    val miskatonicBase = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_harborside__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT)
+    val miskatonicDh = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_harborside__miskatonic_horror_exp_dh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_DH)
+    val miskatonicTkiy = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_harborside__miskatonic_horror_exp_tkiy,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TKIY)
+    val miskatonicTbgotw = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_harborside__miskatonic_horror_exp_tbgotw,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TBGOTW)
+    val miskatonicIh = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_harborside__miskatonic_horror_exp_ih,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_IH)
+    val miskatonicTlatt = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_harborside__miskatonic_horror_exp_tlatt,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TLATT)
+    val miskatonicTcotdp = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_harborside__miskatonic_horror_exp_tcotdp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TCOTDP)
+
+    return base +
+      miskatonicBase +
+      miskatonicDh +
+      miskatonicTkiy +
+      miskatonicTbgotw +
+      miskatonicIh +
+      miskatonicTlatt +
+      miskatonicTcotdp
+  }
+
+  private fun readKingsportSouthShoreDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_south_shore__kingsport_horror_exp,
+      Cards.ExpansionSet.KINGSPORT_HORROR)
+
+    val miskatonicBase = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_south_shore__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT)
+    val miskatonicDh = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_south_shore__miskatonic_horror_exp_dh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_DH)
+    val miskatonicTkiy = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_south_shore__miskatonic_horror_exp_tkiy,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TKIY)
+    val miskatonicTbgotw = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_south_shore__miskatonic_horror_exp_tbgotw,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TBGOTW)
+    val miskatonicIh = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_south_shore__miskatonic_horror_exp_ih,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_IH)
+    val miskatonicTlatt = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_south_shore__miskatonic_horror_exp_tlatt,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TLATT)
+    val miskatonicTcotdp = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_south_shore__miskatonic_horror_exp_tcotdp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TCOTDP)
+
+    return base +
+      miskatonicBase +
+      miskatonicDh +
+      miskatonicTkiy +
+      miskatonicTbgotw +
+      miskatonicIh +
+      miskatonicTlatt +
+      miskatonicTcotdp
+  }
+
+  private fun readKingsportKingsportHeadDeck(): List<Card> {
+    val base = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_kingsport_head__kingsport_horror_exp,
+      Cards.ExpansionSet.KINGSPORT_HORROR)
+
+    val miskatonicBase = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_kingsport_head__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT)
+    val miskatonicDh = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_kingsport_head__miskatonic_horror_exp_dh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_DH)
+    val miskatonicTkiy = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_kingsport_head__miskatonic_horror_exp_tkiy,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TKIY)
+    val miskatonicTbgotw = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_kingsport_head__miskatonic_horror_exp_tbgotw,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TBGOTW)
+    val miskatonicIh = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_kingsport_head__miskatonic_horror_exp_ih,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_IH)
+    val miskatonicTlatt = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_kingsport_head__miskatonic_horror_exp_tlatt,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TLATT)
+    val miskatonicTcotdp = parseNeighborhoodResource(
+      R.raw.neighborhood_kingsport_kingsport_head__miskatonic_horror_exp_tcotdp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_KINGSPORT_TCOTDP)
+
+    return base +
+      miskatonicBase +
+      miskatonicDh +
+      miskatonicTkiy +
+      miskatonicTbgotw +
+      miskatonicIh +
+      miskatonicTlatt +
+      miskatonicTcotdp
+  }
+  /**
+  * END Kingsport location utility
+  */
+
+  /**
+  * BEGIN Innsmouth location utility
+  */
 
   private fun readInnsmouthChurchGreenDeck(): List<Card> {
-    val base = if (innsmouthHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_church_green__innsmouth_horror_exp,
-        Cards.ExpansionSet.INNSMOUTH_HORROR)
-    } else {
-      emptyList()
-    }
+    val base = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_church_green__innsmouth_horror_exp,
+      Cards.ExpansionSet.INNSMOUTH_HORROR)
 
-    val miskatonicBase = if (innsmouthHorrorExpSetting && miskatonicHorrorExpSetting) {
-      parseNeighborhoodResource(
+    val miskatonicBase = parseNeighborhoodResource(
         R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp,
         Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH)
-    } else {
-      emptyList()
-    }
-    val miskatonicDh = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      dunwichHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_dh,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_DH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTkiy = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theKingInYellowExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_tkiy,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TKIY)
-    } else {
-      emptyList()
-    }
-    val miskatonicKh = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      kingsportHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_kh,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTbgotw = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theBlackGoatOfTheWoodsExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_tbgotw,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TBGOTW)
-    } else {
-      emptyList()
-    }
-    val miskatonicTlatt = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theLurkerAtTheThresholdExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_tlatt,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TLATT)
-    } else {
-      emptyList()
-    }
-    val miskatonicTcotdp = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theCurseOfTheDarkPharaohExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_tcotdp,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TCOTDP)
-    } else {
-      emptyList()
-    }
+    val miskatonicDh = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_dh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_DH)
+    val miskatonicTkiy = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_tkiy,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TKIY)
+    val miskatonicKh = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_kh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+    val miskatonicTbgotw = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_tbgotw,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TBGOTW)
+    val miskatonicTlatt = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_tlatt,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TLATT)
+    val miskatonicTcotdp = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_church_green__miskatonic_horror_exp_tcotdp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TCOTDP)
+
     return base +
       miskatonicBase +
       miskatonicDh +
@@ -722,75 +1044,32 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
   }
 
   private fun readInnsmouthFactoryDistrictDeck(): List<Card> {
-    val base = if (innsmouthHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_factory_district__innsmouth_horror_exp,
-        Cards.ExpansionSet.INNSMOUTH_HORROR)
-    } else {
-      emptyList()
-    }
+    val base = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_factory_district__innsmouth_horror_exp,
+      Cards.ExpansionSet.INNSMOUTH_HORROR)
 
-    val miskatonicBase = if (innsmouthHorrorExpSetting && miskatonicHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH)
-    } else {
-      emptyList()
-    }
-    val miskatonicDh = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      dunwichHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_dh,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_DH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTkiy = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theKingInYellowExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_tkiy,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TKIY)
-    } else {
-      emptyList()
-    }
-    val miskatonicKh = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      kingsportHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_kh,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTbgotw = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theBlackGoatOfTheWoodsExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_tbgotw,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TBGOTW)
-    } else {
-      emptyList()
-    }
-    val miskatonicTlatt = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theLurkerAtTheThresholdExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_tlatt,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TLATT)
-    } else {
-      emptyList()
-    }
-    val miskatonicTcotdp = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theCurseOfTheDarkPharaohExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_tcotdp,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TCOTDP)
-    } else {
-      emptyList()
-    }
+    val miskatonicBase = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH)
+    val miskatonicDh = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_dh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_DH)
+    val miskatonicTkiy = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_tkiy,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TKIY)
+    val miskatonicKh = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_kh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+    val miskatonicTbgotw = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_tbgotw,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TBGOTW)
+    val miskatonicTlatt = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_tlatt,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TLATT)
+    val miskatonicTcotdp = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_factory_district__miskatonic_horror_exp_tcotdp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TCOTDP)
+
     return base +
       miskatonicBase +
       miskatonicDh +
@@ -802,75 +1081,32 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
   }
 
   private fun readInnsmouthInnsmouthShoreDeck(): List<Card> {
-    val base = if (innsmouthHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_innsmouth_shore__innsmouth_horror_exp,
-        Cards.ExpansionSet.INNSMOUTH_HORROR)
-    } else {
-      emptyList()
-    }
+    val base = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_innsmouth_shore__innsmouth_horror_exp,
+      Cards.ExpansionSet.INNSMOUTH_HORROR)
 
-    val miskatonicBase = if (innsmouthHorrorExpSetting && miskatonicHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH)
-    } else {
-      emptyList()
-    }
-    val miskatonicDh = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      dunwichHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_dh,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_DH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTkiy = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theKingInYellowExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_tkiy,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TKIY)
-    } else {
-      emptyList()
-    }
-    val miskatonicKh = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      kingsportHorrorExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_kh,
-        Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
-    } else {
-      emptyList()
-    }
-    val miskatonicTbgotw = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theBlackGoatOfTheWoodsExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_tbgotw,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TBGOTW)
-    } else {
-      emptyList()
-    }
-    val miskatonicTlatt = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theLurkerAtTheThresholdExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_tlatt,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TLATT)
-    } else {
-      emptyList()
-    }
-    val miskatonicTcotdp = if (innsmouthHorrorExpSetting &&
-      miskatonicHorrorExpSetting &&
-      theCurseOfTheDarkPharaohExpSetting) {
-      parseNeighborhoodResource(
-        R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_tcotdp,
-        Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TCOTDP)
-    } else {
-      emptyList()
-    }
+    val miskatonicBase = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH)
+    val miskatonicDh = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_dh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_DH)
+    val miskatonicTkiy = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_tkiy,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TKIY)
+    val miskatonicKh = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_kh,
+      Cards.ExpansionSet.MISKATONIC_HORROR_DUNWICH_KH)
+    val miskatonicTbgotw = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_tbgotw,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TBGOTW)
+    val miskatonicTlatt = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_tlatt,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TLATT)
+    val miskatonicTcotdp = parseNeighborhoodResource(
+      R.raw.neighborhood_innsmouth_innsmouth_shore__miskatonic_horror_exp_tcotdp,
+      Cards.ExpansionSet.MISKATONIC_HORROR_INNSMOUTH_TCOTDP)
+
     return base +
       miskatonicBase +
       miskatonicDh +
@@ -881,17 +1117,34 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
       miskatonicTcotdp
   }
 
+  private fun readInnsmouthLookDeck(): List<Card> {
+    val base = parseInnsmouthLookResource(
+      R.raw.innsmouth_look__innsmouth_horror_exp,
+      Cards.ExpansionSet.INNSMOUTH_HORROR)
+    val miskatonic = parseInnsmouthLookResource(
+      R.raw.innsmouth_look__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR)
+
+    return base + miskatonic
+  }
+
+  private fun parseInnsmouthLookResource(resource: Int, expansionSet: Cards.ExpansionSet): List<InnsmouthLook> {
+    val reader = readResource(resource)
+    val lines = reader.readLines()
+    reader.close()
+    return lines.map { InnsmouthLook.parseJson(JSONObject(it), expansionSet) }
+  }
+  /**
+  * END Innsmouth parsing utility
+  */
+
   private fun readCultEncounterDeck(): List<Card> {
     val base = parseCultEncounterResource(
-        R.raw.cult_encounter__the_black_goat_of_the_woods_exp,
-        Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
-    val miskatonic = if (miskatonicHorrorExpSetting) {
-      parseCultEncounterResource(
-          R.raw.cult_encounter__miskatonic_horror_exp,
-          Cards.ExpansionSet.MISKATONIC_HORROR)
-    } else {
-      emptyList()
-    }
+      R.raw.cult_encounter__the_black_goat_of_the_woods_exp,
+      Cards.ExpansionSet.THE_BLACK_GOAT_OF_THE_WOODS)
+    val miskatonic = parseCultEncounterResource(
+      R.raw.cult_encounter__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR)
 
     return base + miskatonic
   }
@@ -907,13 +1160,9 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
     val base = parseExhibitEncounterResource(
       R.raw.exhibit_encounter__the_curse_of_the_dark_pharaoh_exp,
       Cards.ExpansionSet.THE_CURSE_OF_THE_DARK_PHARAOH)
-    val miskatonic = if (miskatonicHorrorExpSetting) {
-      parseExhibitEncounterResource(
-          R.raw.exhibit_encounter__miskatonic_horror_exp,
-          Cards.ExpansionSet.MISKATONIC_HORROR)
-    } else {
-      emptyList()
-    }
+    val miskatonic = parseExhibitEncounterResource(
+      R.raw.exhibit_encounter__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR)
 
     return base + miskatonic
   }
@@ -925,38 +1174,13 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
     return lines.map { ExhibitEncounter.parseJson(JSONObject(it), expansionSet) }
   }
 
-  private fun readInnsmouthLookDeck(): List<Card> {
-    val base = parseInnsmouthLookResource(
-        R.raw.innsmouth_look__innsmouth_horror_exp,
-        Cards.ExpansionSet.INNSMOUTH_HORROR)
-    val miskatonic = if (miskatonicHorrorExpSetting)
-      parseInnsmouthLookResource(
-          R.raw.innsmouth_look__miskatonic_horror_exp,
-          Cards.ExpansionSet.MISKATONIC_HORROR)
-    else
-      emptyList()
-
-    return base + miskatonic
-  }
-
-  private fun parseInnsmouthLookResource(resource: Int, expansionSet: Cards.ExpansionSet): List<InnsmouthLook> {
-    val reader = readResource(resource)
-    val lines = reader.readLines()
-    reader.close()
-    return lines.map { InnsmouthLook.parseJson(JSONObject(it), expansionSet) }
-  }
-
   private fun readReckoningDeck(): List<Reckoning> {
     val base = parseReckoningResource(
-        R.raw.reckoning__the_lurker_at_the_threshold_exp,
-        Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
-    val miskatonic = if (miskatonicHorrorExpSetting) {
-      parseReckoningResource(
-          R.raw.reckoning__miskatonic_horror_exp,
-          Cards.ExpansionSet.MISKATONIC_HORROR)
-    } else {
-      emptyList()
-    }
+      R.raw.reckoning__the_lurker_at_the_threshold_exp,
+      Cards.ExpansionSet.THE_LURKER_AT_THE_THRESHOLD)
+    val miskatonic = parseReckoningResource(
+      R.raw.reckoning__miskatonic_horror_exp,
+      Cards.ExpansionSet.MISKATONIC_HORROR)
 
     return base + miskatonic
   }
@@ -990,122 +1214,122 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
 
   override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
     if (lastDrawerPosition == position) {
-      pagerAdapter?.let { setPagerAdapter(shuffleCards(it.cards), it.cardType) }
+      pagerAdapter?.let { setPagerAdapter(cards = shuffleCards(it.cards), it.cardType) }
     } else {
       when (position) {
         CardType.ArkhamNorthside.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(arkhamNorthsideDeck), CardType.ArkhamNorthside)
+          setPagerAdapter(cards = shuffleCards(arkhamLocationsBundle.northsideDeck), CardType.ArkhamNorthside)
         }
         CardType.ArkhamDowntown.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(arkhamDowntownDeck), CardType.ArkhamDowntown)
+          setPagerAdapter(cards = shuffleCards(arkhamLocationsBundle.downtownDeck), CardType.ArkhamDowntown)
         }
         CardType.ArkhamEasttown.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(arkhamEasttownDeck), CardType.ArkhamEasttown)
+          setPagerAdapter(cards = shuffleCards(arkhamLocationsBundle.easttownDeck), CardType.ArkhamEasttown)
         }
         CardType.ArkhamMerchantDistrict.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(arkhamMerchantDistrictDeck), CardType.ArkhamMerchantDistrict)
+          setPagerAdapter(cards = shuffleCards(arkhamLocationsBundle.merchantDistrictDeck), CardType.ArkhamMerchantDistrict)
         }
         CardType.ArkhamRivertown.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(arkhamRivertownDeck), CardType.ArkhamRivertown)
+          setPagerAdapter(cards = shuffleCards(arkhamLocationsBundle.rivertownDeck), CardType.ArkhamRivertown)
         }
         CardType.ArkhamMiskatonicUniversity.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(arkhamMiskatonicUniversityDeck), CardType.ArkhamMiskatonicUniversity)
+          setPagerAdapter(cards = shuffleCards(arkhamLocationsBundle.miskatonicUniversityDeck), CardType.ArkhamMiskatonicUniversity)
         }
         CardType.ArkhamFrenchHill.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(arkhamFrenchHillDeck), CardType.ArkhamFrenchHill)
+          setPagerAdapter(cards = shuffleCards(arkhamLocationsBundle.frenchHillDeck), CardType.ArkhamFrenchHill)
         }
         CardType.ArkhamUptown.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(arkhamUptownDeck), CardType.ArkhamUptown)
+          setPagerAdapter(cards = shuffleCards(arkhamLocationsBundle.uptownDeck), CardType.ArkhamUptown)
         }
         CardType.ArkhamSouthside.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(arkhamSouthsideDeck), CardType.ArkhamSouthside)
+          setPagerAdapter(cards = shuffleCards(arkhamLocationsBundle.southsideDeck), CardType.ArkhamSouthside)
         }
         CardType.DunwichBackwoodsCountry.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(dunwichBackwoodsCountryDeck), CardType.DunwichBackwoodsCountry)
+          setPagerAdapter(cards = shuffleCards(dunwichLocationsBundle.backwoodsCountryDeck), CardType.DunwichBackwoodsCountry)
         }
         CardType.DunwichBlastedHeath.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(dunwichBlastedHeathDeck), CardType.DunwichBlastedHeath)
+          setPagerAdapter(cards = shuffleCards(dunwichLocationsBundle.blastedHeathDeck), CardType.DunwichBlastedHeath)
         }
         CardType.DunwichVillageCommons.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(dunwichVillageCommonsDeck), CardType.DunwichVillageCommons)
+          setPagerAdapter(cards = shuffleCards(dunwichLocationsBundle.villageCommonsDeck), CardType.DunwichVillageCommons)
         }
         CardType.KingsportCentralHill.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(kingsportCentralHillDeck), CardType.KingsportCentralHill)
+          setPagerAdapter(cards = shuffleCards(kingsportLocationsBundle.centralHillDeck), CardType.KingsportCentralHill)
         }
         CardType.KingsportHarborside.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(kingsportHarborsideDeck), CardType.KingsportHarborside)
+          setPagerAdapter(cards = shuffleCards(kingsportLocationsBundle.harborsideDeck), CardType.KingsportHarborside)
         }
         CardType.KingsportSouthshore.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(kingsportSouthshoreDeck), CardType.KingsportSouthshore)
+          setPagerAdapter(cards = shuffleCards(kingsportLocationsBundle.southshoreDeck), CardType.KingsportSouthshore)
         }
         CardType.KingsportKingsportHead.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(kingsportKingsportHeadDeck), CardType.KingsportKingsportHead)
+          setPagerAdapter(cards = shuffleCards(kingsportLocationsBundle.kingsportHeadDeck), CardType.KingsportKingsportHead)
         }
         CardType.InnsmouthFactoryDistrict.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(innsmouthFactoryDistrictDeck), CardType.InnsmouthFactoryDistrict)
+          setPagerAdapter(cards = shuffleCards(innsmouthLocationsBundle.factoryDistrictDeck), CardType.InnsmouthFactoryDistrict)
         }
         CardType.InnsmouthChurchGreen.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(innsmouthChurchGreenDeck), CardType.InnsmouthChurchGreen)
+          setPagerAdapter(cards = shuffleCards(innsmouthLocationsBundle.churchGreenDeck), CardType.InnsmouthChurchGreen)
         }
         CardType.InnsmouthInnsmouthShore.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(innsmouthInnsmouthShoreDeck), CardType.InnsmouthInnsmouthShore)
+          setPagerAdapter(cards = shuffleCards(innsmouthLocationsBundle.innsmouthShoreDeck), CardType.InnsmouthInnsmouthShore)
         }
         CardType.InnsmouthInnsmouthLook.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(innsmouthLookDeck), CardType.InnsmouthInnsmouthLook)
+          setPagerAdapter(cards = shuffleCards(innsmouthLookDeck), CardType.InnsmouthInnsmouthLook)
         }
         CardType.CultEncounter.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(cultEncounterDeck), CardType.CultEncounter)
+          setPagerAdapter(cards = shuffleCards(cultEncounterDeck), CardType.CultEncounter)
         }
         CardType.ExhibitEncounter.position -> {
           setReckoningSeenIndex()
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(exhibitEncounterDeck), CardType.ExhibitEncounter)
+          setPagerAdapter(cards = shuffleCards(exhibitEncounterDeck), CardType.ExhibitEncounter)
         }
         CardType.Reckoning.position -> {
           supportActionBar?.title = titleStrings[position]
-          setPagerAdapter(shuffleCards(reckoningDeck), CardType.Reckoning)
+          setPagerAdapter(cards = shuffleCards(reckoningDeck), CardType.Reckoning)
         }
       }
       lastDrawerPosition = position
@@ -1368,28 +1592,28 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, CardF
   }
 
   enum class CardType(val title: String, val position: Int) {
-    ArkhamNorthside("Arkham - Northside", 0),
-    ArkhamDowntown("Arkham - Downtown", 1),
-    ArkhamEasttown("Arkham - Easttown", 2),
-    ArkhamMerchantDistrict("Arkham - Merchant District", 3),
-    ArkhamRivertown("Arkham - Rivertown", 4),
-    ArkhamMiskatonicUniversity("Arkham - Miskatonic University", 5),
-    ArkhamFrenchHill("Arkham - French Hill", 6),
-    ArkhamUptown("Arkham - Uptown", 7),
-    ArkhamSouthside("Arkham - Southside", 8),
-    DunwichBackwoodsCountry("Dunwich - Backwoods Country", 9),
-    DunwichBlastedHeath("Dunwich - Blasted Heath", 10),
-    DunwichVillageCommons("Dunwich - Village Commons", 11),
-    KingsportCentralHill("Kingsport - Central Hill", 12),
-    KingsportHarborside("Kingsport - Harborside", 13),
-    KingsportSouthshore("Kingsport - Southshore", 14),
-    KingsportKingsportHead("Kingsport - Kingsport Head", 15),
-    InnsmouthFactoryDistrict("Innsmouth - Factory District", 16),
-    InnsmouthChurchGreen("Innsmouth - Church Green", 17),
-    InnsmouthInnsmouthShore("Innsmouth - Innsmouth Shore", 18),
-    InnsmouthInnsmouthLook("Innsmouth - Innsmouth Look", 19),
-    CultEncounter("Cult Encounter", 20),
-    ExhibitEncounter("Exhibit Encounter", 21),
-    Reckoning("Reckoning", 22),
+    ArkhamNorthside(title = "Arkham - Northside", position = 0),
+    ArkhamDowntown(title = "Arkham - Downtown", position = 1),
+    ArkhamEasttown(title = "Arkham - Easttown", position = 2),
+    ArkhamMerchantDistrict(title = "Arkham - Merchant District", position = 3),
+    ArkhamRivertown(title = "Arkham - Rivertown", position = 4),
+    ArkhamMiskatonicUniversity(title = "Arkham - Miskatonic University", position = 5),
+    ArkhamFrenchHill(title = "Arkham - French Hill", position = 6),
+    ArkhamUptown(title = "Arkham - Uptown", position = 7),
+    ArkhamSouthside(title = "Arkham - Southside", position = 8),
+    DunwichBackwoodsCountry(title = "Dunwich - Backwoods Country", position = 9),
+    DunwichBlastedHeath(title = "Dunwich - Blasted Heath", position = 10),
+    DunwichVillageCommons(title = "Dunwich - Village Commons", position = 11),
+    KingsportCentralHill(title = "Kingsport - Central Hill", position = 12),
+    KingsportHarborside(title = "Kingsport - Harborside", position = 13),
+    KingsportSouthshore(title = "Kingsport - Southshore", position = 14),
+    KingsportKingsportHead(title = "Kingsport - Kingsport Head", position = 15),
+    InnsmouthFactoryDistrict(title = "Innsmouth - Factory District", position = 16),
+    InnsmouthChurchGreen(title = "Innsmouth - Church Green", position = 17),
+    InnsmouthInnsmouthShore(title = "Innsmouth - Innsmouth Shore", position = 18),
+    InnsmouthInnsmouthLook(title = "Innsmouth - Innsmouth Look", position = 19),
+    CultEncounter(title = "Cult Encounter", position = 20),
+    ExhibitEncounter(title = "Exhibit Encounter", position = 21),
+    Reckoning(title = "Reckoning", position = 22),
   }
 }
